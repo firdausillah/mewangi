@@ -52,6 +52,7 @@ class Login extends CI_Controller
 			$data = $this->AuthModel->cekLogin('users', $where)->row();
 			$test = $this->AuthModel->cekLogin('users', $where)->num_rows();
 			$data_session_add = [];
+			// print_r($data); exit();
 
 			//https://youtu.be/ubLmRj8eojA jika flashdata tidak hilang otomatis
 			$redirect = 'admin/dashboard';

@@ -82,6 +82,7 @@
               
               <form id="formAuthentication" class="mb-3" action="<?= base_url('login/auth') ?>" method="POST">
                 <div class="mb-3">
+                  <input type="hidden" name="role" value="superadmin">
                   <label for="username" class="form-label">Username/Email</label>
                   <input
                     type="text"

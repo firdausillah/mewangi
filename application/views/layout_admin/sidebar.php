@@ -2,9 +2,10 @@
             <div class="app-brand demo">
                 <a href="index.html" class="app-brand-link">
                     <span class="app-brand-logo demo">
-                        <img src="<?= base_url() ?>/assets/img/aruna-logo-gram.png" width="25" alt="">
+                        <!-- <img src="<?= base_url() ?>/assets/img/aruna-logo-gram.png" width="25" alt=""> -->
+                        <img src="<?= base_url('uploads/img/profile/' . $profile->foto); ?>" alt="Logo" height="35px">
                     </span>
-                    <span class="app-brand-text demo menu-text fw-bolder ms-2">Aruna Vote</span>
+                    <span class="app-brand-text demo menu-text fw-bolder ms-2"><?= $this->session->userdata('role')?></span>
                 </a>
 
                 <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

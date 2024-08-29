@@ -42,6 +42,13 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Post_category -->
+                <li class="menu-item">
+                    <a href="<?= base_url() ?>admin/post_category" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-category-alt"></i>
+                        <div data-i18n="Analytics">Post Category</div>
+                    </a>
+                </li>
                 <!-- Profile -->
                 <li class="menu-item">
                     <a href="<?= base_url() ?>admin/profile" class="menu-link">

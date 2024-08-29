@@ -3,32 +3,42 @@
         <h5 class="mb-0"><?= $title ? $title : '' ?></h5>
     </div>
     <div class="card-body">
-        <?= form_open_multipart(base_url('admin/trainer/save')) ?>
-        <input type="hidden" name="id" value="<?= @$trainer->id ?>">
+        <?= form_open_multipart(base_url('admin/post/save')) ?>
+        <input type="hidden" name="id" value="<?= @$post->id ?>">
         <div class="mb-3">
-            <label class="form-label" for="nama">nama <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$trainer->nama ?>" required>
+            <label class="form-label" for="nama">judul <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$post->nama ?>" required>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="username">username <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="username" id="username" value="<?= @$trainer->username ?>">
+            <label class="form-label" for="content">content <span class="text-danger">*</span></label>
+            <textarea class="form-control" name="content" id="content" cols="30" rows="10"><?= @$post->content ?></textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="password">password <span class="text-danger">*</span></label>
-            <input type="password" class="form-control" name="password" id="password" value="<?= @$trainer->password ?>">
+            <label class="form-label" for="id_post_category">Post Category</label>
+            <select class="form-control" name="id_post_category" id="id_post_category">
+                <option value="">--Pilih--</option>
+                <?php foreach ($post_category as $key => $value) : ?>
+                    <option value="<?= $value->id ?>" <?= @$post->id_post_category == $value->id ? 'selected' : '' ?>><?= $value->nama ?></option>
+                <?php endforeach; ?>
+
+            </select>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" value="<?= @$trainer->email ?>">
+            <label class="form-label" for="tags">tags</label>
+            <input type="text" class="form-control" name="tags" id="tags" value="<?= @$post->tags ?>">
+            <small>masukan tags dipisahkan dengan koma. contoh: lingkungan, pendidikan, kesehatan</small>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="nomor_telepon">Nomor Whatsapp</label>
-            <input type="text" class="form-control" name="nomor_telepon" id="nomor_telepon" value="<?= @$trainer->nomor_telepon ?>">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="specialization">Spesifikasi</label>
-            <!-- <input type="text" class="form-control" name="specialization" id="specialization" value="<?= @$trainer->specialization ?>"> -->
-            <textarea class="form-control" name="specialization" id="specialization" cols="10" rows="5"><?= @$trainer->specialization ?></textarea>
+            <label class="form-label" for="post_type">post type <span class="text-danger">*</span></label>
+            <?php if ($post_type == 'opinion') : ?>
+                <input type="text" class="form-control" name="post_type" id="post_type" value="opinion" readonly>
+            <?php else : ?>
+                <select class="form-control" name="post_type" id="post_type">
+                    <option value="">--Pilih--</option>
+                    <option value="berita" <?= @$post->post_type == 'berita' ? 'selected' : '' ?>>Berita</option>
+                    <option value="artikel" <?= @$post->post_type == 'artikel' ? 'selected' : '' ?>>Artikel</option>
+                </select>
+            <?php endif ?>
         </div>
         <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
@@ -38,14 +48,14 @@
                         <input class="form-control foto" type="file" name="foto">
                     </div>
                     <input type="hidden" class="form-control foto" type="input" name="file_foto" id="file_foto">
-                    <input type="hidden" class="form-control" value="<?= @$trainer->foto ?>" name="gambar">
+                    <input type="hidden" class="form-control" value="<?= @$post->foto ?>" name="gambar">
                 </div>
                 <div class="col-md-6">
-                    <img src="<?= base_url('uploads/img/trainer/' . @$trainer->foto) ?>" height="200px" alt="">
+                    <img src="<?= base_url('uploads/img/post/' . @$post->foto) ?>" height="200px" alt="">
                 </div>
             </div>
         </div>
-        <a href="<?= base_url('admin/post/'.$post_type) ?>" class="btn btn-secondary">Batal</a>
+        <a href="<?= base_url('admin/post/' . $post_type) ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

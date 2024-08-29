@@ -28,7 +28,7 @@ class Post extends MY_Controller
 
         if ($page == 'index') {
             $data = [
-                'title' => 'Posts',
+                'title' => 'Post Opini',
                 'post_type' => $post_type,
                 $this->defaultVariable => $this->defaultModel->findBy(['post_type' => $post_type])->result(),
                 'content' => $this->url_index . '/table'
@@ -38,8 +38,11 @@ class Post extends MY_Controller
         } else if ($page == 'add') {
             $data = [
                 'title' => 'Tambah Data',
+                'post_category' => $this->Post_categoryModel->get()->result(),
                 'post_type' => $post_type,
-                'content' => $this->url_index . '/form'
+                'content' => $this->url_index . '/form',
+                'cropper' => 'components/hd_cropper',
+                'aspect' => '4/3'
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -47,9 +50,63 @@ class Post extends MY_Controller
             $id = (isset($_GET['id']) ? $_GET['id'] : '');
             $data = [
                 'title' => 'Edit Data',
+                'post_category' => $this->Post_categoryModel->get()->result(),
                 'post_type' => $post_type,
                 $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
-                'content' => $this->url_index . '/form'
+                'content' => $this->url_index . '/form',
+                'cropper' => 'components/hd_cropper',
+                'aspect' => '4/3'
+            ];
+
+            $this->load->view('layout_admin/base', $data);
+        } else if ($page == 'detail') {
+            $id = (isset($_GET['id']) ? $_GET['id'] : '');
+            $data = [
+                'title' => 'Detail Data',
+                'post_type' => $post_type,
+                $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
+                'content' => $this->url_index . '/detail'
+            ];
+
+            $this->load->view('layout_admin/base', $data);
+        }
+    }
+
+    public function news_article()
+    {
+        $page = (isset($_GET['page']) ? $_GET['page'] : 'index');
+        $post_type = 'news_article';
+
+        if ($page == 'index') {
+            $data = [
+                'title' => 'Post Berita & Artikel',
+                'post_type' => $post_type,
+                $this->defaultVariable => $this->defaultModel->findBy(['post_type !=' => 'opinion'])->result(),
+                'content' => $this->url_index . '/table'
+            ];
+
+            $this->load->view('layout_admin/base', $data);
+        } else if ($page == 'add') {
+            $data = [
+                'title' => 'Tambah Data',
+                'post_category' => $this->Post_categoryModel->get()->result(),
+                'post_type' => $post_type,
+                'content' => $this->url_index . '/form',
+                'cropper' => 'components/hd_cropper',
+                'aspect' => '4/3'
+            ];
+
+            $this->load->view('layout_admin/base', $data);
+        } else if ($page == 'edit') {
+            $id = (isset($_GET['id']) ? $_GET['id'] : '');
+            $data = [
+                'title' => 'Edit Data',
+                'post_category' => $this->Post_categoryModel->get()->result(),
+                'post_type' => $post_type,
+                $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
+                'content' => $this->url_index . '/form',
+                'cropper' => 'components/hd_cropper',
+                'aspect' => '4/3'
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -68,8 +125,19 @@ class Post extends MY_Controller
 
     public function save()
     {
+        $post_type = $this->input->post('post_type');
+        if ($post_type == 'opinion') {
+            $redirect = base_url($this->url_index.'/opinion');
+        }else{
+            $redirect = base_url($this->url_index.'/news_article');
+        }
+
         $id_post_category = $this->input->post('id_post_category');
-        $category_nama = $this->Post_categoryModel->findBy(['id' => $id_post_category])->row()->nama;
+        if(isset($id_post_category)){
+            $category_nama = $this->Post_categoryModel->findBy(['id' => $id_post_category])->row()->nama;
+        }else{
+            $category_nama = '';
+        }
 
         $id = $this->input->post('id');
         if (!$this->input->post('gambar')) {
@@ -109,13 +177,13 @@ class Post extends MY_Controller
             unset($id);
             if ($this->defaultModel->add($data)) {
                 $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dimasukan']);
-                redirect(base_url($this->url_index));
+                redirect($redirect);
             }
             exit($this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']));
         } else {
             if ($this->defaultModel->update(['id' => $id], $data)) {
                 $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil diupdate']);
-                redirect(base_url($this->url_index));
+                redirect($redirect);
             }
             exit($this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']));
         }

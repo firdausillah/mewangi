@@ -38,7 +38,7 @@ function slugify_simple($text){
   $text = preg_replace('~-+~', '-', $text);
  
   // lowercase
-  $text = strtolower($text).'-'.randomString();
+  $text = strtolower($text);
    
   return $text;
 }

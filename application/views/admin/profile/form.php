@@ -9,8 +9,12 @@
             <input type="text" class="form-control" name="nama_sekolah" id="nama_sekolah" value="<?= @$profile->nama_sekolah ?>" required>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="nama_kepalasekolah">nama kepalasekolah <span class="text-danger">*</span></label>
+            <label class="form-label" for="nama_kepalasekolah">nama kepala sekolah <span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="nama_kepalasekolah" id="nama_kepalasekolah" value="<?= @$profile->nama_kepalasekolah ?>" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="sambutan_kepala_sekolah">sambutan kepala sekolah <span class="text-danger">*</span></label>
+            <textarea name="sambutan_kepala_sekolah" id="sambutan_kepala_sekolah" class="form-control" cols="30" rows="10"><?= @$profile->sambutan_kepala_sekolah ?></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label" for="foto">Logo</label>

@@ -88,7 +88,8 @@ class Profile extends MY_Controller
             'youtube' => $this->input->post('youtube'),
             'twitter' => $this->input->post('twitter'),
             'instagram' => $this->input->post('instagram'),
-            'tiktok' => $this->input->post('tiktok')
+            'tiktok' => $this->input->post('tiktok'),
+            'sambutan_kepala_sekolah' => $this->input->post('sambutan_kepala_sekolah')
 
         ];
 

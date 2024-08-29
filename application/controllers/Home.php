@@ -16,7 +16,7 @@ class Home extends CI_Controller {
 			'profile' => $this->mProfile->findBy(['id' => 1])->row()
 		];
 		// $this->session->set_flashdata('success', $data);
-		$this->load->view('welcome_message', $data);
+		$this->load->view('landing_page', $data);
 	}
 
 	public function save(){

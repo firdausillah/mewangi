@@ -14,7 +14,7 @@
             </div>
 
             <div class="menu-inner-shadow"></div>
-
+            <?php if($this->session->userdata('role') == 'superadmin'): ?>
             <ul class="menu-inner py-1">
                 <!-- Dashboard -->
                 <li class="menu-item">
@@ -64,4 +64,34 @@
                     </a>
                 </li>
             </ul>
+            <?php else: ?>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/dashboard" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+                    <!-- Posts -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-news"></i>
+                            <div data-i18n="Posts">Posts</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/post/news_article" class="menu-link">
+                                    <div data-i18n="news_article">Berita & Artikel</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/post/opinion" class="menu-link">
+                                    <div data-i18n="opinion">Opini</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </aside>

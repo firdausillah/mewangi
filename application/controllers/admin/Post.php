@@ -15,7 +15,7 @@ class Post extends MY_Controller
         $this->load->helper('slug');
         $this->load->helper('upload_file');
 
-        if ($this->session->userdata('role') != 'superadmin') {
+        if ($this->session->userdata('role') != 'superadmin' && $this->session->userdata('role') != 'contributor') {
             $this->session->set_flashdata(['status' => 'error', 'message' => 'Anda tidak memiliki izin untuk mengakses halaman ini.']);
             redirect(base_url("login"));
         }
@@ -27,10 +27,21 @@ class Post extends MY_Controller
         $post_type = 'opinion';
 
         if ($page == 'index') {
+            if($this->session->userdata('role') != 'superadmin'){
+                $where = [
+                    'id_user' => $this->session->userdata('id'),
+                    'post_type' => $post_type
+                ];
+            }else{
+                $where = [
+                    'post_type' => $post_type
+                ];
+            }
+
             $data = [
                 'title' => 'Post Opini',
                 'post_type' => $post_type,
-                $this->defaultVariable => $this->defaultModel->findBy(['post_type' => $post_type])->result(),
+                $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
                 'content' => $this->url_index . '/table'
             ];
 
@@ -76,12 +87,25 @@ class Post extends MY_Controller
     {
         $page = (isset($_GET['page']) ? $_GET['page'] : 'index');
         $post_type = 'news_article';
+        // print_r($this->session->userdata('id'));
+        // exit(); 
 
         if ($page == 'index') {
+            if ($this->session->userdata('role') != 'superadmin') {
+                $where = [
+                    'id_user' => $this->session->userdata('id'),
+                    'post_type !=' => 'opinion'
+                ];
+            } else {
+                $where = [
+                    'post_type !=' => 'opinion'
+                ];
+            }
+
             $data = [
                 'title' => 'Post Berita & Artikel',
                 'post_type' => $post_type,
-                $this->defaultVariable => $this->defaultModel->findBy(['post_type !=' => 'opinion'])->result(),
+                $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
                 'content' => $this->url_index . '/table'
             ];
 

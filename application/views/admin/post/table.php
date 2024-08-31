@@ -10,9 +10,9 @@
                 <tr>
                     <th>No.</th>
                     <th>Judul</th>
-                    <th>Tags</th>
-                    <?php if ($post_type != 'opinion') :?>
-                    <th>Type</th>
+                    <th width='10px'>Tags</th>
+                    <?php if ($post_type != 'opinion') : ?>
+                        <th>Type</th>
                     <?php endif; ?>
                     <th>Category</th>
                     <th>Image</th>
@@ -23,8 +23,8 @@
                 <?php foreach ($post as $index => $item) : ?>
                     <tr>
                         <td><?= $index + 1 ?></td>
-                        <td><?= $item->nama ?></td>
-                        <td>
+                        <td><?= substr($item->nama, 0, 30) . '...' ?></td>
+                        <td class="overflow-auto">
                             <?php
                             $tags = explode(',', $item->tags);
                             foreach ($tags as $key => $value) {
@@ -32,13 +32,13 @@
                             }
                             ?>
                         </td>
-                        <?php if ($post_type != 'opinion') :?>
+                        <?php if ($post_type != 'opinion') : ?>
                             <td>
                                 <?php
-                                if($item->post_type == 'berita'){
-                                    echo '<small class="badge bg-label-info">'.$item->post_type.'</small>';
-                                }else{
-                                    echo '<small class="badge bg-label-warning">'.$item->post_type.'</small>';
+                                if ($item->post_type == 'berita') {
+                                    echo '<small class="badge bg-label-info">' . $item->post_type . '</small>';
+                                } else {
+                                    echo '<small class="badge bg-label-warning">' . $item->post_type . '</small>';
                                 }
                                 ?>
                             </td>

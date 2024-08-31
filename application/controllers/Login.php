@@ -39,16 +39,16 @@ class Login extends MY_Controller
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		$role = $this->input->post('role');
+		// $role = $this->input->post('role');
 
 		$where = [
 			'username' => $username,
 			'password' => $password,
-			'role' => $role,
+			// 'role' => $role,
 			'users.is_active' => 1
 		];
 
-		if ($role == 'superadmin') {
+		// if ($role == 'superadmin' OR $role == 'contributor') {
 			$data = $this->AuthModel->cekLogin('users', $where)->row();
 			$test = $this->AuthModel->cekLogin('users', $where)->num_rows();
 			$data_session_add = [];
@@ -56,30 +56,30 @@ class Login extends MY_Controller
 
 			//https://youtu.be/ubLmRj8eojA jika flashdata tidak hilang otomatis
 			$redirect = 'admin/dashboard';
-		} else {
-			if ($role == 'member') {
-				$data = $this->AuthModel->cekLoginMember($where)->row();
-				$test = $this->AuthModel->cekLoginMember($where)->num_rows();
-				// print_r($test); exit();
-				if ($test > 0) {
-					$data_session_add = [
-						'foto'	=> $data->foto,
-						'instansi'	=> $data->instansi,
-						'id_event'	=> $data->id_event,
-						'event_nama' => $data->event_nama
-					];
-					$redirect = 'member/dashboard';
-				}
-			} elseif ($role == 'trainer') {
-				$data = $this->AuthModel->cekLoginTrainer($where)->row();
-				$test = $this->AuthModel->cekLoginTrainer($where)->num_rows();
-				if ($test > 0) {
-					# code...
-					$data_session_add = [];
-					$redirect = 'trainer/dashboard';
-				}
-			}
-		}
+		// } else {
+		// 	if ($role == 'member') {
+		// 		$data = $this->AuthModel->cekLoginMember($where)->row();
+		// 		$test = $this->AuthModel->cekLoginMember($where)->num_rows();
+		// 		// print_r($test); exit();
+		// 		if ($test > 0) {
+		// 			$data_session_add = [
+		// 				'foto'	=> $data->foto,
+		// 				'instansi'	=> $data->instansi,
+		// 				'id_event'	=> $data->id_event,
+		// 				'event_nama' => $data->event_nama
+		// 			];
+		// 			$redirect = 'member/dashboard';
+		// 		}
+		// 	} elseif ($role == 'trainer') {
+		// 		$data = $this->AuthModel->cekLoginTrainer($where)->row();
+		// 		$test = $this->AuthModel->cekLoginTrainer($where)->num_rows();
+		// 		if ($test > 0) {
+		// 			# code...
+		// 			$data_session_add = [];
+		// 			$redirect = 'trainer/dashboard';
+		// 		}
+		// 	}
+		// }
 
 		if ($test > 0) {
 			$data_session_def = [

@@ -28,6 +28,16 @@ class PostModel extends CI_Model
 		return $this->db->get('posts');
 	}
 
+	function get_for_global()
+	{
+		$this->db->select('users.nama as author, post_category.nama as post_category_nama, posts.nama, posts.created_on, posts.content, posts.slug, posts.foto, posts.tags, posts.post_type');
+		$this->db->from('posts');
+		$this->db->join('users', 'users.id = posts.id_user');
+		$this->db->join('post_category', 'post_category.id = posts.id_post_category');
+		$this->db->limit(5);
+		return $this->db->get();
+	}
+
 	function add($data)
 	{
 		$additional_data = $this->add_additional();

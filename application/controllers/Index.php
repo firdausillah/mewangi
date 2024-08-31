@@ -13,8 +13,8 @@ class Index extends MY_Controller
     public function index()
     {
         $data = [
-            'title' => 'Wellcome Page',
-            'content' => 'index'
+            'title' => 'Homepage',
+            'content' => 'front/home'
         ];
 
         $this->load->view('layout_front/base', $data);

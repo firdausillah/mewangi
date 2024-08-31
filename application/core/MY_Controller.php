@@ -7,13 +7,13 @@ class MY_Controller extends CI_Controller
     {
         parent::__construct();
 
-        // Load model untuk mengambil data profile
         $this->load->model('ProfileModel');
+        $this->load->model('PostModel');
 
-        // Ambil data logo dari database
         $this->logo = $this->ProfileModel->findBy(['id' => 1])->row();
+        $this->post = $this->PostModel->get_for_global()->result();
 
-        // Membuat data logo tersedia di semua view
         $this->load->vars('profile', $this->logo);
+        $this->load->vars('global_post', $this->post);
     }
 }

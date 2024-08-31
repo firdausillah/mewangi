@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Login | Aruna Vote</title>
+  <title>Login | <?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?></title>
 
   <meta name="description" content="" />
 
@@ -60,11 +60,11 @@
                     <img src="<?= base_url('uploads/img/profile/' . $profile->foto); ?>" width="60">
                   </span>
                   <span class="app-brand-text fs-4 text-body fw-bolder">LOGIN</span>
-                <?php else: ?>
-                <span class=" d-flex justify-content-center">
-                  <img src="<?= base_url('assets/img/aruna-logo-gram.png') ?>" width="50">
-                </span>
-                <span class="app-brand-text fs-4 text-body fw-bolder">ARUNA VOTE</span>
+                <?php else : ?>
+                  <span class=" d-flex justify-content-center">
+                    <img src="<?= base_url('assets/img/aruna-logo-gram.png') ?>" width="50">
+                  </span>
+                  <span class="app-brand-text fs-4 text-body fw-bolder">ARUNA VOTE</span>
                 <?php endif ?>
               </a>
             </div>

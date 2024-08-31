@@ -33,21 +33,21 @@
 
             <div class="row gy-5 d-flex justify-content-center">
 
-                <?php foreach ($global_post as $key => $value) : ?>
+                <?php for ($i=0; $i < 4; $i++) : ?>
                     <div class="col-xl-3 col-md-6" data-aos="fade-up">
                         <div class="post-box">
-                            <div class="post-img"><img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" class="img-fluid" alt=""></div>
+                            <div class="post-img"><img src="<?= base_url('uploads/img/post/' . $global_post[$i]->foto) ?>" class="img-fluid" alt=""></div>
                             <div class="meta">
-                                <span class="post-date"><?= date_format(date_create($value->created_on), 'd M Y'); ?></span>
-                                <span class="post-author"> / <?= $value->author ?></span>
+                                <span class="post-date"><?= date_format(date_create($global_post[$i]->created_on), 'd M Y'); ?></span>
+                                <span class="post-author"> / <?= $global_post[$i]->author ?></span>
                             </div>
-                            <h3 class="post-title"><?= $value->nama ?></h3>
-                            <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-warning' : ($value->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
-                            <p><?= substr($value->content, 0, 90) . '...' ?></p>
-                            <a href="<?= base_url('post/detail' . $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                            <h3 class="post-title"><?= $global_post[$i]->nama ?></h3>
+                            <small class="badge <?= $global_post[$i]->post_type == 'artikel' ? 'text-bg-warning' : ($global_post[$i]->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $global_post[$i]->post_type ?></small>
+                            <p><?= substr($global_post[$i]->content, 0, 90) . '...' ?></p>
+                            <a href="<?= base_url('read/' . date_format(date_create($global_post[$i]->created_on), 'Y/m/d').'/'. $global_post[$i]->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php endfor; ?>
 
             </div>
 

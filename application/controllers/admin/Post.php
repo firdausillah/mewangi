@@ -162,6 +162,7 @@ class Post extends MY_Controller
         }else{
             $category_nama = '';
         }
+        $author = $this->session->userdata('nama');
 
         $id = $this->input->post('id');
         if (!$this->input->post('gambar')) {
@@ -193,7 +194,8 @@ class Post extends MY_Controller
             'tags'              => $this->input->post('tags'),
             'foto'              => $foto,
             'post_type'         => $this->input->post('post_type'),
-            'category_nama'     => $category_nama
+            'category_nama'     => $category_nama,
+            'author'            => $author
         ];
 
 

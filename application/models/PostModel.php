@@ -30,11 +30,9 @@ class PostModel extends CI_Model
 
 	function get_for_global()
 	{
-		$this->db->select('users.nama as author, posts.category_nama, posts.nama, posts.created_on, posts.content, posts.slug, posts.foto, posts.tags, posts.post_type');
+		$this->db->select('posts.author, posts.category_nama, posts.nama, posts.created_on, posts.content, posts.slug, posts.foto, posts.tags, posts.post_type');
 		$this->db->from('posts');
-		$this->db->join('users', 'users.id = posts.id_user');
 		$this->db->order_by("posts.created_on", "desc");
-		$this->db->limit(5);
 		return $this->db->get();
 	}
 

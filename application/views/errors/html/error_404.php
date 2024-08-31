@@ -4,12 +4,12 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>Page Not Found | Aruna Vote</title>
+	<title><?= $title ? $title : '' ?> | <?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?>></title>
 
 	<meta name="description" content="" />
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/x-icon" href="<?= base_url() ?>assets/img/aruna-logo-gram.png" />
+	<link href="<?= base_url('uploads/img/profile/' . $profile->foto); ?>" rel="icon">
 
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@
 		<div class="misc-wrapper">
 			<h2 class="mb-2 mx-2">Page Not Found :(</h2>
 			<p class="mb-4 mx-2">Oops! 😖 Halaman yang anda cari tidak ada.</p>
-			<a href="<?= base_url('login') ?>" class="btn btn-primary">Kembali ke Home</a>
+			<a href="<?= base_url('') ?>" class="btn btn-primary">Kembali ke Home</a>
 			<div class="mt-3">
 				<img src="<?= base_url() ?>/assets/img/illustrations/page-misc-error-light.png" alt="page-misc-error-light" width="500" class="img-fluid" data-app-dark-img="illustrations/page-misc-error-dark.png" data-app-light-img="illustrations/page-misc-error-light.png" />
 			</div>

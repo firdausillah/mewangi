@@ -26,7 +26,7 @@
         <div class="mb-3">
             <label class="form-label" for="tags">tags</label>
             <input type="text" class="form-control" name="tags" id="tags" value="<?= @$post->tags ?>">
-            <small>masukan tags dipisahkan dengan koma. contoh: lingkungan, pendidikan, kesehatan</small>
+            <small>masukan tags dipisahkan dengan koma. contoh: teknologi,google,internet</small>
         </div>
         <div class="mb-3">
             <label class="form-label" for="post_type">post type <span class="text-danger">*</span></label>
@@ -60,3 +60,11 @@
         </form>
     </div>
 </div>
+
+<script>
+    $('.myTags').TagsInput({
+        tagInputPlaceholder: 'ex: google',
+        tagHiddenInput: $('.inputTags')
+
+    });
+</script>

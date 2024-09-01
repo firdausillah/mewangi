@@ -15,6 +15,7 @@
                         <th>Type</th>
                     <?php endif; ?>
                     <th>Category</th>
+                    <th>Author</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>
@@ -45,6 +46,7 @@
                         <?php endif; ?>
 
                         <td><?= $item->category_nama ?></td>
+                        <td><?= $item->author ?></td>
                         <td>
                             <img src="<?= base_url('uploads/img/post/' . @$item->foto) ?>" height="100px" alt=""><img src="<?= $item->foto ?>" alt="">
                         </td>

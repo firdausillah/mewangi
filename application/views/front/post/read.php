@@ -254,7 +254,9 @@
 
                         <?php for ($i = 0; $i < 5; $i++) : ?>
                             <div class="post-item">
-                                <img src="<?= base_url('uploads/img/post/' . $global_post[$i]->foto) ?>" alt="" class="flex-shrink-0">
+                                <div class="" style="width: 100px; height: 100%;">
+                                    <img src="<?= base_url('uploads/img/post/' . $global_post[$i]->foto) ?>" alt="" class="flex-shrink-0 .img-fluid">
+                                </div>
                                 <div>
                                     <h4><a href="<?= base_url('read/' . date_format(date_create($global_post[$i]->created_on), 'Y/m/d') . '/' . $global_post[$i]->slug) ?>"><?= $global_post[$i]->nama ?></a></h4>
                                     <time datetime="2020-01-01"><?= date_format(date_create($global_post[$i]->created_on), 'd M Y'); ?></time>

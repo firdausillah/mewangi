@@ -27,7 +27,7 @@
                         <td><?= substr($item->nama, 0, 30) . '...' ?></td>
                         <td class="overflow-auto">
                             <?php
-                            $tags = explode(',', $item->tags);
+                            $tags = explode(',', $item->tags_t_nama);
                             foreach ($tags as $key => $value) {
                                 echo '<small class="badge bg-label-secondary">' . $value . '</small> ';
                             }

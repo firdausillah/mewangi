@@ -19,27 +19,31 @@ class PostModel extends CI_Model
 
 	function get()
 	{
+		$this->db->select("posts.id, posts.id_user, posts.id_post_category, posts.nama, posts.kode, posts.keterangan, posts.is_active, posts.created_on, posts.created_by, posts.is_approve, posts.slug, posts.content, posts.foto, posts.views, posts.post_type, posts.category_nama, posts.author, ( SELECT GROUP_CONCAT(tags_t.nama SEPARATOR ',') FROM tags_t WHERE tags_t.id_post = posts.id ) AS tags_t_nama");
 		return $this->db->get('posts');
 	}
 
 	function findBy($id)
 	{
+		$this->db->select("posts.id, posts.id_user, posts.id_post_category, posts.nama, posts.kode, posts.keterangan, posts.is_active, posts.created_on, posts.created_by, posts.is_approve, posts.slug, posts.content, posts.foto, posts.views, posts.post_type, posts.category_nama, posts.author, ( SELECT GROUP_CONCAT(tags_t.nama SEPARATOR ',') FROM tags_t WHERE tags_t.id_post = posts.id ) AS tags_t_nama");
 		$this->db->where($id);
 		return $this->db->get('posts');
 	}
 
 	function get_for_global()
 	{
-		$this->db->select('posts.author, posts.category_nama, posts.nama, posts.created_on, posts.content, posts.slug, posts.foto, posts.tags, posts.post_type');
+		$this->db->select('posts.author, posts.category_nama, posts.nama, posts.created_on, posts.content, posts.slug, posts.foto, posts.post_type');
 		$this->db->from('posts');
 		$this->db->order_by("posts.created_on", "desc");
+		$this->db->where(["posts.is_active !=" => 0]);
 		return $this->db->get();
 	}
 
 	function add($data)
 	{
 		$additional_data = $this->add_additional();
-		return $this->db->insert('posts', $additional_data + $data);
+		$this->db->insert('posts', $additional_data + $data);
+		return $this->db->insert_id();
 	}
 
 	function update($id, $data)

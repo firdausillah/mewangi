@@ -26,7 +26,7 @@
         <div class="mb-3">
             <label class="form-label" for="tags">tags</label>
             <input type="text" class="form-control" name="tags" id="tags" value="<?= @$post->tags ?>">
-            <small>masukan tags dipisahkan dengan koma. contoh: teknologi,google,internet</small>
+            <small>masukan tags dipisahkan dengan koma tanpa spasi. contoh: teknologi,google,internet</small>
         </div>
         <div class="mb-3">
             <label class="form-label" for="post_type">post type <span class="text-danger">*</span></label>
@@ -61,10 +61,17 @@
     </div>
 </div>
 
-<script>
-    $('.myTags').TagsInput({
-        tagInputPlaceholder: 'ex: google',
-        tagHiddenInput: $('.inputTags')
+<script src="<?= base_url(); ?>assets/js/ckeditor.js"></script>
 
-    });
+<script>
+    ClassicEditor
+        .create(document.querySelector('#content'), {
+            // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(err => {
+            console.error(err.stack);
+        });
 </script>

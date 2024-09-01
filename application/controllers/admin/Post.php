@@ -10,6 +10,7 @@ class Post extends MY_Controller
     {
         parent::__construct();
         $this->load->model('PostModel', 'defaultModel');
+        $this->load->model('TagModel');
         $this->load->model('RawModel');
         $this->load->model('Post_categoryModel');
         $this->load->helper('slug');
@@ -191,23 +192,37 @@ class Post extends MY_Controller
             'nama'              => $this->input->post('nama'),
             'slug'              => $slug,
             'content'           => $this->input->post('content'),
-            'tags'              => $this->input->post('tags'),
+            // 'tags'              => $this->input->post('tags'),
             'foto'              => $foto,
             'post_type'         => $this->input->post('post_type'),
             'category_nama'     => $category_nama,
             'author'            => $author
         ];
 
+        if($this->input->post('tags')){
+            $tags = explode(',',$this->input->post('tags'));
+        }
+
+        // exit();
 
         if (empty($id)) {
             unset($id);
-            if ($this->defaultModel->add($data)) {
+            $id_post = $this->defaultModel->add($data);
+            if ($id_post) {
+                $this->TagModel->delete(['id_post' => $id_post]);
+                foreach ($tags AS $value) {
+                    $this->TagModel->add(['id_post' => $id_post, 'nama' => $value]);
+                }
                 $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dimasukan']);
                 redirect($redirect);
             }
             exit($this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']));
         } else {
             if ($this->defaultModel->update(['id' => $id], $data)) {
+                $this->TagModel->delete(['id_post' => $id]);
+                foreach ($tags AS $value) {
+                    $this->TagModel->add(['id_post' => $id, 'nama' => $value]);
+                }
                 $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil diupdate']);
                 redirect($redirect);
             }

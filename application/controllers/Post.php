@@ -5,18 +5,33 @@ class Post extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
+		$this->load->model('PostModel', 'defaultModel');
 	}
 
 	public function index(){
 		$data = [
-			'gelombangs' => $this->mGelombang->get()->result(),
-			'jurusans' => $this->mJurusan->get()->result(),
-			'persyaratans' => $this->mPersyaratan->get()->result(),
-			'asalsekolahs' => $this->mAsalSekolah->get()->result(),
-			'profile' => $this->mProfile->findBy(['id' => 1])->row()
+			'title' => 'Posts',
+			'content' => 'front/post/post'
 		];
-		// $this->session->set_flashdata('success', $data);
-		$this->load->view('landing_page', $data);
+
+		$this->load->view('layout_front/base', $data);
+
+	}
+
+	public function getPost($data)
+	{
+			$data = [
+				'is_active' => 1
+			];
+			echo json_encode(['data' => $this->defaultModel->findBy($data)->result_array()]);
+		// if ($_GET['id_event'] != null) {
+		// 	$data = [
+		// 		'is_active' => 1
+		// 	];
+		// 	echo json_encode(['data' => $this->defaultModel->findBy($data)->result_array()]);
+		// } else {
+		// 	echo json_encode([]);
+		// }
 	}
 
 }

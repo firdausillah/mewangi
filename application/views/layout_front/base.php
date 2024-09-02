@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title><?= $title ? $title : '' ?> | <?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?>></title>
+  <title><?= $title ? $title : '' ?> | <?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?></title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -23,6 +23,7 @@
   <link href="<?= base_url() ?>assets/front/vendor/aos/aos.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/front/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/front/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="<?= base_url() ?>assets/vendor/libs/jquery/jquery.js"></script>
 
   <!-- Main CSS File -->
   <link href="<?= base_url() ?>assets/front/css/main.css" rel="stylesheet">
@@ -57,6 +58,7 @@
 
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/front/js/main.js"></script>
+  <script src="<?= base_url() ?>assets/front/js/myScript.js"></script>
 
 </body>
 

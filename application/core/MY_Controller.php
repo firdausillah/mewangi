@@ -26,8 +26,19 @@ class MY_Controller extends CI_Controller
         ";
         $this->categories = $this->RawModel->sqlRaw($global_categories_sql)->result();
 
+        $global_tags_sql = "
+            SELECT
+                nama
+            FROM
+                tags_t
+            GROUP BY
+                nama
+        ";
+        $this->tags = $this->RawModel->sqlRaw($global_tags_sql)->result();
+
         $this->load->vars('profile', $this->logo);
         $this->load->vars('global_post', $this->post);
         $this->load->vars('global_categories', $this->categories);
+        $this->load->vars('global_tags', $this->tags);
     }
 }

@@ -9,163 +9,7 @@
             <section id="blog-posts" class="blog-posts section">
 
                 <div class="container">
-                    <div class="row gy-4">
-
-                        <div class="col-lg-6">
-                            <article>
-
-                                <div class="post-img">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <p class="post-category">Politics</p>
-
-                                <h2 class="title">
-                                    <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-                                </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                    <div class="post-meta">
-                                        <p class="post-author">Maria Doe</p>
-                                        <p class="post-date">
-                                            <time datetime="2022-01-01">Jan 1, 2022</time>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div><!-- End post list item -->
-
-                        <div class="col-lg-6">
-                            <article>
-
-                                <div class="post-img">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <p class="post-category">Sports</p>
-
-                                <h2 class="title">
-                                    <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                                </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                    <div class="post-meta">
-                                        <p class="post-author">Allisa Mayer</p>
-                                        <p class="post-date">
-                                            <time datetime="2022-01-01">Jun 5, 2022</time>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div><!-- End post list item -->
-
-                        <div class="col-lg-6">
-                            <article>
-
-                                <div class="post-img">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <p class="post-category">Entertainment</p>
-
-                                <h2 class="title">
-                                    <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                                </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                    <div class="post-meta">
-                                        <p class="post-author">Mark Dower</p>
-                                        <p class="post-date">
-                                            <time datetime="2022-01-01">Jun 22, 2022</time>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div><!-- End post list item -->
-
-                        <div class="col-lg-6">
-                            <article>
-
-                                <div class="post-img">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-4.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <p class="post-category">Sports</p>
-
-                                <h2 class="title">
-                                    <a href="blog-details.html">Non rem rerum nam cum quo minus olor distincti</a>
-                                </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-author-4.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                    <div class="post-meta">
-                                        <p class="post-author">Lisa Neymar</p>
-                                        <p class="post-date">
-                                            <time datetime="2022-01-01">Jun 30, 2022</time>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div><!-- End post list item -->
-
-                        <div class="col-lg-6">
-                            <article>
-
-                                <div class="post-img">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-5.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <p class="post-category">Politics</p>
-
-                                <h2 class="title">
-                                    <a href="blog-details.html">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
-                                </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-author-5.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                    <div class="post-meta">
-                                        <p class="post-author">Denis Peterson</p>
-                                        <p class="post-date">
-                                            <time datetime="2022-01-01">Jan 30, 2022</time>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div><!-- End post list item -->
-
-                        <div class="col-lg-6">
-                            <article>
-
-                                <div class="post-img">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-6.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <p class="post-category">Entertainment</p>
-
-                                <h2 class="title">
-                                    <a href="blog-details.html">Distinctio provident quibusdam numquam aperiam aut</a>
-                                </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <img src="<?= base_url() ?>assets/front/img/blog/blog-author-6.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                    <div class="post-meta">
-                                        <p class="post-author">Mika Lendon</p>
-                                        <p class="post-date">
-                                            <time datetime="2022-01-01">Feb 14, 2022</time>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div><!-- End post list item -->
+                    <div class="row gy-4" id="content">
 
                     </div>
                 </div>
@@ -177,15 +21,15 @@
 
                 <div class="container">
                     <div class="d-flex justify-content-center">
-                        <ul>
-                            <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
+                        <ul class="pagination" id="pagination">
+                            <!-- <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
                             <li><a href="#">1</a></li>
                             <li><a href="#" class="active">2</a></li>
                             <li><a href="#">3</a></li>
                             <li><a href="#">4</a></li>
                             <li>...</li>
                             <li><a href="#">10</a></li>
-                            <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
+                            <li><a href="#"><i class="bi bi-chevron-right"></i></a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -199,30 +43,84 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
 <script>
     $(document).ready(function() {
+        filter_url_based()
+    });
+
+
+    function filter_url_based() {
+        var url = '<?= base_url('post/getPost') ?>' + location.search;
+
         $.ajax({
-            url: '<?= base_url('post/getPost') ?>',
-            type: 'GET',
-            data: {
-            },
+            url: url,
             dataType: 'json',
             success: function(json) {
                 if (json.data.length != 0) {
-                    console.log(json);
+                    let htmlContent = ''; // Buat variabel untuk menyimpan HTML yang akan dibentuk
+
+                    for (let i = 0; i < json.data.length; i++) {
+                        const element = json.data[i]; // Ambil data dari JSON
+
+                        // Bangun HTML untuk setiap elemen
+                        htmlContent += `
+                            <div class="col-lg-6">
+                                <article class="d-flex align-items-start flex-column">
+                                    <div class="post-img">
+                                        <img src="<?= base_url('uploads/img/post/') ?>${element.foto}" alt="" class="img-fluid">
+                                    </div>
+
+                                    <p class="post-category">${element.category_nama}</p>
+
+                                    <h2 class="title">
+                                        <a href="<?= base_url('read/') ?>${element.created_on}/${element.slug}">${element.nama}</a>
+                                    </h2>
+
+                                    <div class="d-flex align-items-center mt-auto">
+                                        <img src="<?= base_url('assets/img/avatars/profile.png') ?>" alt="" class="img-fluid post-author-img flex-shrink-0">
+                                        <div class="post-meta">
+                                            <p class="post-author">${element.author}</p>
+                                            <p class="post-date">
+                                                <time datetime="${element.tanggal}">${element.tanggal}</time>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        `;
+                    }
+
+                    // Setelah loop selesai, masukkan HTML yang sudah dibentuk ke dalam elemen #content
+                    $('#content').html(htmlContent);
+
+                    let totalPages = Math.ceil(json.total_rows / json.rows_per_page);
+                    console.log(json.current_page);
+                    $('#pagination').html('');
+                    for (let i = 1; i <= totalPages; i++) {
+                        $('#pagination').append(`
+                            <li>
+                                <a href="#" onClick="page(${i})" class="${json.current_page == i ? 'active' : ''}">${i}</a>
+                            </li>
+                        `);
+                    }
 
                 }
             }
         });
-    });
 
-    // function filter_tanggal_harian() {
-    //     tanggal = $('#filter_evaluasi_harian').val();
+    }
 
-    //     get_evaluasi_harian(tanggal);
-    //     get_chart_keadaan(tanggal);
-    //     get_chart_pemahaman_materi(tanggal);
-    //     get_chart_performa_pemateri(tanggal);
-    //     get_chart_pelayanan_panitia(tanggal);
-    // }
+    function page(page) {
+        // Dapatkan URL saat ini
+        var currentUrl = new URL(window.location.href);
+
+        // Perbarui atau tambahkan parameter 'page'
+        currentUrl.searchParams.set('page', page);
+
+        // Menggunakan pushState untuk mengubah URL tanpa reload
+        history.pushState(null, '', currentUrl.toString());
+        filter_url_based();
+    }
 </script>

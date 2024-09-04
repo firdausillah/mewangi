@@ -6,8 +6,8 @@
                     <div class="search-widget widget-item">
 
                         <h3 class="widget-title">Search</h3>
-                        <form action="">
-                            <input type="text">
+                        <form onsubmit="button_search(); return false;">
+                            <input type="text" id="q_search">
                             <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                         </form>
 
@@ -19,7 +19,7 @@
                         <h3 class="widget-title">Categories</h3>
                         <ul class="mt-3">
                             <?php foreach ($global_categories as $value) : ?>
-                                <li><a href="#"><?= $value->nama ?> <span>(<?= $value->jumlah ?>)</span></a></li>
+                                <li><a href="<?= base_url('post?category=' . $value->nama) ?>"><?= $value->nama ?> <span>(<?= $value->jumlah ?>)</span></a></li>
                             <?php endforeach; ?>
                         </ul>
 
@@ -48,17 +48,9 @@
 
                         <h3 class="widget-title">Tags</h3>
                         <ul>
-                            <li><a href="#">App</a></li>
-                            <li><a href="#">IT</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Mac</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Office</a></li>
-                            <li><a href="#">Creative</a></li>
-                            <li><a href="#">Studio</a></li>
-                            <li><a href="#">Smart</a></li>
-                            <li><a href="#">Tips</a></li>
-                            <li><a href="#">Marketing</a></li>
+                            <?php foreach ($global_tags as $value) : ?>
+                                <li><a href="<?= base_url('post?tag=' . $value->nama) ?>"><?= $value->nama ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
 
                     </div><!--/Tags Widget -->
@@ -66,3 +58,45 @@
                 </div>
 
             </div>
+
+            <script>
+
+                // function button_page() {
+                //     var q_search = $('#q_search').val();
+                //     var newUrl = location.origin + location.pathname + '?q=' + q_search
+
+                //     history.pushState(null, '', newUrl);
+
+                //     filter_url_based()
+                // }
+
+                function button_search() {
+                    var q_search = $('#q_search').val();
+                    console.log('post?q=' + q_search);
+                    window.location.replace('<?=base_url()?>post?q=' + q_search)
+                    return false;
+                }
+
+                // function button_search() {
+                //     var q_search = $('#q_search').val();
+                //     console.log('<?= base_url('post') ?>' + '?q=' + q_search);
+                //     window.location.href = "<?= base_url('post') ?>" + '?q=' + q_search; // Menggunakan base_url yang benar
+                // }
+
+                // function button_filter_url_based() {
+                //     var q_search = $('#q_search').val();
+                //     filter_url_based()
+
+                //     var path = location.pathname.split('/');
+                //     if (path[2] == 'post') {
+                //         var newUrl = location.origin + location.pathname + '?q=' + q_search
+
+                //         // Menggunakan pushState untuk mengubah URL tanpa reload
+                //         history.pushState(null, '', newUrl);
+
+                //         filter_url_based()
+                //         return false;
+                //     }
+                // }
+
+            </script>

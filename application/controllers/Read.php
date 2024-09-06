@@ -16,6 +16,7 @@ class Read extends MY_Controller
 		
 		$data = [
 			'title' => $post->nama,
+			'title2' => "Detail Post",
 			'post' => $post,
 			'content' => 'front/post/read'
 		];

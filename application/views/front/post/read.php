@@ -33,14 +33,14 @@
                         <div class="meta-bottom">
                             <i class="bi bi-folder"></i>
                             <ul class="cats">
-                                <li><a href="#"><?= $post->category_nama ?></a></li>
+                                <li><a href="<?= base_url('post?category=' . $post->category_nama) ?>"><?= $post->category_nama ?></a></li>
                             </ul>
 
                             <i class="bi bi-tags"></i>
                             <ul class="tags">
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
+                                <?php foreach(explode(', ', $post->tags_t_nama) as $value): ?>
+                                <li><a href="<?= base_url('post?tag=' . $value) ?>"><?= $value ?></a></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div><!-- End meta bottom -->
 

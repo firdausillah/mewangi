@@ -1,7 +1,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-        <img src="<?= base_url() ?>assets/front/img/hero-bg.jpg" alt="" data-aos="fade-in">
+        <img id="displayed-image" src="<?= base_url() ?>assets/front/img/blog/blog-1.jpg" alt="" data-aos="fade-in">
 
         <div class="container">
             <div class="row">
@@ -12,6 +12,10 @@
                     </blockquote>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                         <a href="#about" class="btn-get-started">Get Started</a>
+                    </div>
+                    <div class="d-flex mt-4 justify-content-between m-auto" style="width: 100px;" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#" class="" id="prev-btn"><i class="fa fa-chevron-left"></i></a>
+                        <a href="#" class="" id="next-btn"><i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -45,7 +49,7 @@
                             <h3 class="post-title"><?= $value->nama ?></h3>
                             <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-warning' : ($value->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
                             <p><?= substr($value->content, 0, 90) . '...' ?></p>
-                            <a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d').'/'. $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                            <a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -55,3 +59,37 @@
         </div>
 
     </section><!-- /Recent Posts Section -->
+
+    <script>
+        $(document).ready(function() {
+            // Array berisi sumber gambar yang akan ditampilkan
+            var images = ['blog-1.jpg', 'blog-2.jpg', 'blog-3.jpg'];
+            var currentIndex = 0;
+            var intervalTime = 5000;
+
+            // Fungsi untuk mengganti gambar dengan animasi fade
+            function changeImage(index) {
+                $('#displayed-image').addClass('flipped').fadeOut(300, function() {
+                    $(this).attr('src', '<?= base_url() ?>assets/front/img/blog/' + images[index]).removeClass('flipped').fadeIn(300);
+                });
+            }
+
+
+            // Event klik untuk tombol "Previous"
+            $('#prev-btn').click(function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                changeImage(currentIndex);
+            });
+
+            // Event klik untuk tombol "Next"
+            $('#next-btn').click(function() {
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                changeImage(currentIndex);
+            });
+
+            setInterval(function() {
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                changeImage(currentIndex);
+            }, intervalTime);
+        });
+    </script>

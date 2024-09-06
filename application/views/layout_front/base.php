@@ -27,6 +27,7 @@
 
   <!-- Main CSS File -->
   <link href="<?= base_url() ?>assets/front/css/main.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/front/css/myStyle.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -59,6 +60,8 @@
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/front/js/main.js"></script>
   <script src="<?= base_url() ?>assets/front/js/myScript.js"></script>
+
+  <script src="https://use.fontawesome.com/9e08c92931.js"></script>
 
 </body>
 

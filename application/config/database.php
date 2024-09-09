@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'mewangi',
+	'hostname' => 'man4banyuwangi.sch.id',
+	'username' => 'lkdwocvh_mewangi_web',
+	'password' => 'man4banyuwangi',
+	'database' => 'lkdwocvh_mewangi_web',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

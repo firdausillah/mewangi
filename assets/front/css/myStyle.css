@@ -7,6 +7,12 @@
     transition: transform 0.6s;
 }
 
+.overflow-hidden {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 
 /* .hero2:before {

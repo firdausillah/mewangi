@@ -42,7 +42,7 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up">
                         <div class="post-box">
                             <div class="post-img"><img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" class="img-fluid" alt=""></div>
-                            <div class="meta">
+                            <div class="meta overflow-hidden">
                                 <span class="post-date"><?= date_format(date_create($value->created_on), 'd M Y'); ?></span>
                                 <span class="post-author"> / <?= $value->author ?></span>
                             </div>

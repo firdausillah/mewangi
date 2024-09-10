@@ -83,6 +83,7 @@ class Post extends MY_Controller {
 			LEFT JOIN post_category ON post_category.id = posts.id_post_category
 			$where
 			GROUP BY posts.id
+			ORDER BY posts.created_on DESC
 			LIMIT $rows_per_page
 			OFFSET $offset
 			"

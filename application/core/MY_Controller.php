@@ -23,6 +23,7 @@ class MY_Controller extends CI_Controller
             LEFT JOIN posts ON post_category.id = posts.id_post_category
             GROUP BY
                 post_category.id
+            ORDER BY jumlah DESC
         ";
         $this->categories = $this->RawModel->sqlRaw($global_categories_sql)->result();
 

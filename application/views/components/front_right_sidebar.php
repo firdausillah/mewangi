@@ -17,11 +17,12 @@
                     <div class="categories-widget widget-item">
 
                         <h3 class="widget-title">Categories</h3>
-                        <ul class="mt-3">
+                        <ul class="mt-3" id="category_list">
                             <?php foreach ($global_categories as $value) : ?>
                                 <li><a href="<?= base_url('post?category=' . $value->nama) ?>"><?= $value->nama ?> <span>(<?= $value->jumlah ?>)</span></a></li>
                             <?php endforeach; ?>
                         </ul>
+                        <a href="#" id="show_more_category">Show More</a>
 
                     </div><!--/Categories Widget -->
 
@@ -60,43 +61,18 @@
             </div>
 
             <script>
+                $('#category_list li').slice(5).hide();
 
-                // function button_page() {
-                //     var q_search = $('#q_search').val();
-                //     var newUrl = location.origin + location.pathname + '?q=' + q_search
-
-                //     history.pushState(null, '', newUrl);
-
-                //     filter_url_based()
-                // }
+                $('#show_more_category').on('click', function() {
+                    $('#category_list li:hidden').slideDown();
+                    $(this).hide();
+                });
 
                 function button_search() {
                     var q_search = $('#q_search').val();
                     console.log('post?q=' + q_search);
-                    window.location.replace('<?=base_url()?>post?q=' + q_search)
+                    window.location.replace('<?= base_url() ?>post?q=' + q_search)
                     return false;
                 }
-
-                // function button_search() {
-                //     var q_search = $('#q_search').val();
-                //     console.log('<?= base_url('post') ?>' + '?q=' + q_search);
-                //     window.location.href = "<?= base_url('post') ?>" + '?q=' + q_search; // Menggunakan base_url yang benar
-                // }
-
-                // function button_filter_url_based() {
-                //     var q_search = $('#q_search').val();
-                //     filter_url_based()
-
-                //     var path = location.pathname.split('/');
-                //     if (path[2] == 'post') {
-                //         var newUrl = location.origin + location.pathname + '?q=' + q_search
-
-                //         // Menggunakan pushState untuk mengubah URL tanpa reload
-                //         history.pushState(null, '', newUrl);
-
-                //         filter_url_based()
-                //         return false;
-                //     }
-                // }
 
             </script>

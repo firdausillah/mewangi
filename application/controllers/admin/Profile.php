@@ -83,7 +83,6 @@ class Profile extends MY_Controller
             'tahun_ajaran' => $this->input->post('tahun_ajaran'),
             'cp_1' => $this->input->post('cp_1'),
             'cp_2' => $this->input->post('cp_2'),
-            'website' => $this->input->post('website'),
             'facebook' => $this->input->post('facebook'),
             'youtube' => $this->input->post('youtube'),
             'twitter' => $this->input->post('twitter'),

@@ -47,10 +47,6 @@
             <input type="text" class="form-control" name="cp_2" id="cp_2" value="<?= @$profile->cp_2 ?>">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="website">website</label>
-            <input type="text" class="form-control" name="website" id="website" value="<?= @$profile->website ?>">
-        </div>
-        <div class="mb-3">
             <label class="form-label" for="facebook">facebook</label>
             <input type="text" class="form-control" name="facebook" id="facebook" value="<?= @$profile->facebook ?>">
         </div>

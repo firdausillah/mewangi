@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'pmibanyuwangi.or.id',
-	'username' => 'u767547842_mewangi',
-	'password' => 'MAN4banyuwangi',
-	'database' => 'u767547842_mewangi',
+	'hostname' => '103.16.198.154',
+	'username' => 'lkdwocvh_mewangi_web',
+	'password' => 'man4banyuwangi',
+	'database' => 'lkdwocvh_mewangi_web',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

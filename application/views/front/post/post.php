@@ -21,16 +21,10 @@
 
                 <div class="container">
                     <div class="d-flex justify-content-center">
-                        <ul class="pagination" id="pagination">
-                            <!-- <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#" class="active">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li>...</li>
-                            <li><a href="#">10</a></li>
-                            <li><a href="#"><i class="bi bi-chevron-right"></i></a></li> -->
+                        <a href="#" id="scrollLeft" class="d-flex align-items-center"><i class="bi bi-chevron-left"></i></a>
+                        <ul class="pagination overflow-x-hidden mx-2" id="pagination" style="max-width:400px;">
                         </ul>
+                        <a href="#" id="scrollRight" class="d-flex align-items-center"><i class="bi bi-chevron-right"></i></a>
                     </div>
                 </div>
 
@@ -96,7 +90,7 @@
                     $('#content').html(htmlContent);
 
                     let totalPages = Math.ceil(json.total_rows / json.rows_per_page);
-                    console.log(json.current_page);
+                    // console.log(json.current_page);
                     $('#pagination').html('');
                     for (let i = 1; i <= totalPages; i++) {
                         $('#pagination').append(`
@@ -105,6 +99,20 @@
                             </li>
                         `);
                     }
+
+                    $('#scrollLeft').on('click', function() {
+                        // Scroll div to the right
+                        $('#pagination').animate({
+                            scrollLeft: '-=200' // Adjust the value to control the scroll amount
+                        }, 400); // Duration of the scroll animation
+                    });
+
+                    $('#scrollRight').on('click', function() {
+                        // Scroll div to the right
+                        $('#pagination').animate({
+                            scrollLeft: '+=200' // Adjust the value to control the scroll amount
+                        }, 400); // Duration of the scroll animation
+                    });
 
                 }
             }

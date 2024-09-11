@@ -1,17 +1,17 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-        <img id="displayed-image" src="<?= base_url('uploads/img/banner/'. $banner->foto) ?>" alt="" data-aos="fade-in">
+        <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" alt="" data-aos="fade-in">
 
         <div class="container">
             <div class="row">
                 <div class="col-xl-4">
-                    <h1 data-aos="fade-up">Focus On What Matters</h1>
-                    <blockquote data-aos="fade-up" data-aos-delay="100">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cum recusandae eum laboriosam voluptatem repudiandae odio, vel exercitationem officiis provident minima. </p>
+                    <h1 data-aos="fade-up" id="title"><?= $banner->nama ?></h1>
+                    <blockquote data-aos="fade-up" data-aos-delay="100" id="keterangan">
+                        <?= $banner->keterangan ?>
                     </blockquote>
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <a href="#about" class="btn-get-started">Get Started</a>
+                        <a href="http://<?= $banner->link ?>" class="btn-get-started" id="link">Selengkapnya</a>
                     </div>
                     <div class="d-flex mt-4 justify-content-between m-auto" style="width: 100px;" data-aos="fade-up" data-aos-delay="300">
                         <a href="#" class="" id="prev-btn"><i class="fa fa-chevron-left"></i></a>
@@ -64,6 +64,9 @@
         $(document).ready(function() {
             // var images;
             var images = []
+            var title = []
+            var keterangan = []
+            var link = []
             $.ajax({
                 url: '<?= base_url('index/getBanner') ?>',
                 type: 'POST',
@@ -75,9 +78,10 @@
 
                         for (let i = 0; i < banner_data.length; i++) {
                             images.push(banner_data[i].foto);
+                            title.push(banner_data[i].nama);
+                            keterangan.push(banner_data[i].keterangan);
+                            link.push(banner_data[i].link);
                         }
-                        console.log(images);
-                        // images = ['blog-1.jpg', 'blog-2.jpg', 'blog-3.jpg'];
                     }
                 }
             });
@@ -90,6 +94,11 @@
                 $('#displayed-image').addClass('flipped').fadeOut(300, function() {
                     $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).removeClass('flipped').fadeIn(300);
                 });
+
+                $('#title').html(images[index]);
+                $('#title').html(title[index]);
+                $('#keterangan').html(keterangan[index]);
+                $('#link').attr('href', link[index]);
             }
 
 

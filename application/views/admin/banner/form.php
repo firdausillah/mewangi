@@ -21,6 +21,7 @@
         <div class="mb-3">
             <label class="form-label" for="link">link</label>
             <input type="text" class="form-control" name="link" id="link" value="<?= @$banner->link ?>">
+            <small>lengkap dengan http://. contoh. https://www.google.com/</small>
         </div>
         <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>

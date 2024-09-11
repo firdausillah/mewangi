@@ -1,7 +1,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-        <img id="displayed-image" src="<?= base_url() ?>assets/front/img/blog/blog-1.jpg" alt="" data-aos="fade-in">
+        <img id="displayed-image" src="<?= base_url('uploads/img/banner/'. $banner->foto) ?>" alt="" data-aos="fade-in">
 
         <div class="container">
             <div class="row">
@@ -62,15 +62,33 @@
 
     <script>
         $(document).ready(function() {
-            // Array berisi sumber gambar yang akan ditampilkan
-            var images = ['blog-1.jpg', 'blog-2.jpg', 'blog-3.jpg'];
+            // var images;
+            var images = []
+            $.ajax({
+                url: '<?= base_url('index/getBanner') ?>',
+                type: 'POST',
+                dataType: 'json',
+                data: {},
+                success: function(json) {
+                    if (json != undefined) {
+                        banner_data = json.data;
+
+                        for (let i = 0; i < banner_data.length; i++) {
+                            images.push(banner_data[i].foto);
+                        }
+                        console.log(images);
+                        // images = ['blog-1.jpg', 'blog-2.jpg', 'blog-3.jpg'];
+                    }
+                }
+            });
+
             var currentIndex = 0;
             var intervalTime = 5000;
 
             // Fungsi untuk mengganti gambar dengan animasi fade
             function changeImage(index) {
                 $('#displayed-image').addClass('flipped').fadeOut(300, function() {
-                    $(this).attr('src', '<?= base_url() ?>assets/front/img/blog/' + images[index]).removeClass('flipped').fadeIn(300);
+                    $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).removeClass('flipped').fadeIn(300);
                 });
             }
 
@@ -91,5 +109,7 @@
                 currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
                 changeImage(currentIndex);
             }, intervalTime);
+
+
         });
     </script>

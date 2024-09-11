@@ -15,6 +15,6 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
-# /uploads/
+/uploads/
 /application/config/database
 /application/views/admin/vote_data prototype

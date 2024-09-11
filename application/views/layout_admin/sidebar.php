@@ -14,57 +14,70 @@
             </div>
 
             <div class="menu-inner-shadow"></div>
-            <?php if($this->session->userdata('role') == 'superadmin'): ?>
-            <ul class="menu-inner py-1">
-                <!-- Dashboard -->
-                <li class="menu-item">
-                    <a href="<?= base_url() ?>admin/dashboard" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                        <div data-i18n="Analytics">Dashboard</div>
-                    </a>
-                </li>
-                <!-- Posts -->
-                <li class="menu-item">
-                    <a href="javascript:void(0)" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-news"></i>
-                        <div data-i18n="Posts">Posts</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="<?= base_url() ?>admin/post/news_article" class="menu-link">
-                                <div data-i18n="news_article">Berita & Artikel</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="<?= base_url() ?>admin/post/opinion" class="menu-link">
-                                <div data-i18n="opinion">Opini</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- Post_category -->
-                <li class="menu-item">
-                    <a href="<?= base_url() ?>admin/post_category" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-category-alt"></i>
-                        <div data-i18n="Analytics">Post Category</div>
-                    </a>
-                </li>
-                <!-- Profile -->
-                <li class="menu-item">
-                    <a href="<?= base_url() ?>admin/profile" class="menu-link">
-                        <i class="menu-icon tf-icons bx bxs-school"></i>
-                        <div data-i18n="Analytics">Profile</div>
-                    </a>
-                </li>
-                <!-- E-User -->
-                <li class="menu-item">
-                    <a href="<?= base_url() ?>admin/user" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-user"></i>
-                        <div data-i18n="Users">Users</div>
-                    </a>
-                </li>
-            </ul>
-            <?php else: ?>
+            <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/dashboard" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+                    <!-- Posts -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-news"></i>
+                            <div data-i18n="Posts">Posts</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/post/news_article" class="menu-link">
+                                    <div data-i18n="news_article">Berita & Artikel</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/post/opinion" class="menu-link">
+                                    <div data-i18n="opinion">Opini</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Master -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-news"></i>
+                            <div data-i18n="Master">Master</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/banner" class="menu-link">
+                                    <div data-i18n="banner">Banner</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/post_category" class="menu-link">
+                                    <div data-i18n="post_category">Post Category</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Profile -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/profile" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-school"></i>
+                            <div data-i18n="Analytics">Profile</div>
+                        </a>
+                    </li>
+                    <!-- E-User -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/user" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Users">Users</div>
+                        </a>
+                    </li>
+                </ul>
+            <?php else : ?>
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item">

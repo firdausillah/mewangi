@@ -3,8 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Banner extends MY_Controller
 {
-    public $defaultVariable = 'event';
-    public $url_index = 'admin/event';
+    public $defaultVariable = 'banner';
+    public $url_index = 'admin/banner';
 
     function __construct()
     {
@@ -27,7 +27,7 @@ class Banner extends MY_Controller
 
         if ($page == 'index') {
             $data = [
-                'title' => 'Event',
+                'title' => 'Banner',
                 $this->defaultVariable => $this->defaultModel->get()->result(),
                 'content' => $this->url_index . '/table'
             ];
@@ -37,8 +37,8 @@ class Banner extends MY_Controller
             $data = [
                 'title' => 'Tambah Data',
                 'content' => $this->url_index . '/form',
-                'cropper' => 'components/cropper',
-                'aspect' => '3/4',
+                'cropper' => 'components/hd_cropper',
+                'aspect' => '4/3',
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -48,8 +48,8 @@ class Banner extends MY_Controller
                 'title' => 'Edit Data',
                 $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
                 'content' => $this->url_index . '/form',
-                'cropper' => 'components/cropper',
-                'aspect' => '3/4',
+                'cropper' => 'components/hd_cropper',
+                'aspect' => '4/3',
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -77,12 +77,6 @@ class Banner extends MY_Controller
             $slug = explode('.', $this->input->post('gambar'))[0];
         }
 
-        if (!$this->input->post('file_info_name')) {
-            $slug_file = slugify($this->input->post('nama'));
-        } else {
-            $slug_file = explode('.', $this->input->post('file_info_name'))[0];
-        }
-
         $file_foto = $this->input->post('file_foto');
         $folderPath = './uploads/img/' . $this->defaultVariable . '/';
         $foto = ($this->input->post('gambar') ? $this->input->post('gambar') : $slug); //jika upload berhasil akan di replace oleh function save_foto()
@@ -96,25 +90,12 @@ class Banner extends MY_Controller
             );
         }
 
-        $file_pdf = (isset($_FILES['file_info']) ? $_FILES['file_info'] : $file_pdf['name'] = false);
-        $folderPath_file = './uploads/file/' . $this->defaultVariable . '/';
-        $file_name = ($this->input->post('file_info_name') ? $this->input->post('file_info_name') : $slug);
-
-
-        if ($file_pdf['name'] != null) {
-            $file_name = $this->save_file(
-                $file_pdf,
-                $slug_file,
-                $folderPath_file
-                // return $file -> nama file
-            );
-        }
-
         // print_r($_POST); exit();
         $data = [
             'is_active' => 1,
-            'id_post'  => $this->input->post('id_post'),
             'nama'  => $this->input->post('nama'),
+            'link'  => $this->input->post('link'),
+            'urutan'  => $this->input->post('urutan'),
             'keterangan'  => $this->input->post('keterangan'),
             'foto'  => $foto,
         ];

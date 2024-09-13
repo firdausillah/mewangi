@@ -81,7 +81,7 @@ class Post_category extends MY_Controller
     public function delete($id)
     {
         $data = $this->defaultModel->findBy(['id' => $id])->row();
-        @unlink(FCPATH . 'uploads/file/materi/' . $data->file);
+        @unlink(FCPATH . 'uploads/file/' . $data->file);
         if ($this->defaultModel->delete(['id' => $id])) {
             $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dihapus']);
         } else {

@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Banner extends MY_Controller
+class Galeri extends MY_Controller
 {
-    public $defaultVariable = 'banner';
-    public $url_index = 'admin/banner';
+    public $defaultVariable = 'galeri';
+    public $url_index = 'admin/galeri';
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('BannerModel', 'defaultModel');
+        $this->load->model('GaleriModel', 'defaultModel');
         $this->load->model('RawModel');
         $this->load->helper('slug');
         $this->load->helper('upload_file');
@@ -27,7 +27,7 @@ class Banner extends MY_Controller
 
         if ($page == 'index') {
             $data = [
-                'title' => 'Banner',
+                'title' => 'Galeri',
                 $this->defaultVariable => $this->defaultModel->get()->result(),
                 'content' => $this->url_index . '/table'
             ];
@@ -95,7 +95,6 @@ class Banner extends MY_Controller
             'is_active' => 1,
             'nama'  => $this->input->post('nama'),
             'link'  => $this->input->post('link'),
-            'urutan'  => $this->input->post('urutan'),
             'keterangan'  => $this->input->post('keterangan'),
             'foto'  => $foto,
         ];

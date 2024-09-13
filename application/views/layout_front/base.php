@@ -28,6 +28,41 @@
   <!-- Main CSS File -->
   <link href="<?= base_url() ?>assets/front/css/main.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/front/css/myStyle.css" rel="stylesheet">
+
+  <style>
+    /* Styling untuk container galeri */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s;
+    }
+
+    .gallery img:hover {
+      border: 2px solid #000;
+    }
+
+    /* Styling untuk area preview */
+    .preview-container {
+      margin-top: 20px;
+    }
+
+    .preview-container img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      display: none;
+      /* Awalnya disembunyikan */
+    }
+  </style>
 </head>
 
 <body class="index-page">

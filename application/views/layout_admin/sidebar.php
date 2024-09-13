@@ -55,6 +55,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/galeri" class="menu-link">
+                                    <div data-i18n="galeri">Galeri</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="<?= base_url() ?>admin/post_category" class="menu-link">
                                     <div data-i18n="post_category">Post Category</div>
                                 </a>

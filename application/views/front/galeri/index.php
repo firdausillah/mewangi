@@ -13,6 +13,20 @@
 
         </div>
 
+        <!-- Blog Pagination Section -->
+        <section id="blog-pagination" class="blog-pagination section mt-4">
+
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <a href="#" id="scrollLeft" class="d-flex align-items-center"><i class="bi bi-chevron-left"></i></a>
+                    <ul class="pagination overflow-x-hidden mx-2" id="pagination" style="max-width:400px;">
+                    </ul>
+                    <a href="#" id="scrollRight" class="d-flex align-items-center"><i class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+
+        </section><!-- /Blog Pagination Section -->
+
     </div>
 
 </section>
@@ -39,7 +53,8 @@
 
                     for (let i = 0; i < json.data.length; i++) {
                         const element = json.data[i]; // Ambil data dari JSON
-                        keterangan = truncateContent(element.keterangan);
+                        judul = truncateContent(element.nama, 20);
+                        keterangan = truncateContent(element.keterangan, 50);
 
                         // Bangun HTML untuk setiap elemen
                         htmlContent += `
@@ -47,7 +62,7 @@
                                 <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank">
                                     <img src="<?= base_url('uploads/img/galeri/') ?>${element.foto}" class="card-img-top" alt="<?= base_url('uploads/img/galeri/') ?>${element.foto}">
                                     <div class="card-body">
-                                        <h5 class="card-title">${element.nama}</h5>
+                                        <h5 class="card-title">${judul}</h5>
                                         <p class="card-text">${keterangan}</p>
                                     </div>
                                 </a>
@@ -55,11 +70,10 @@
                         `;
                     }
 
-                    // Setelah loop selesai, masukkan HTML yang sudah dibentuk ke dalam elemen #content
                     $('#galeri-container').html(htmlContent);
-                    // console.log(htmlContent)
+                    
                     let totalPages = Math.ceil(json.total_rows / json.rows_per_page);
-                    // console.log(json.current_page);
+                    
                     $('#pagination').html('');
                     for (let i = 1; i <= totalPages; i++) {
                         $('#pagination').append(`
@@ -101,7 +115,7 @@
         filter_url_based();
     }
 
-    function truncateContent(content, maxLength = 50) {
+    function truncateContent(content, maxLength) {
         if (content.length > maxLength) {
             return content.substring(0, maxLength) + '...';
         } else {

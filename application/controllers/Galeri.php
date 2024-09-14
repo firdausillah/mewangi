@@ -42,7 +42,7 @@ class Galeri extends MY_Controller
 			$current_page = 1;
 		}
 
-		$rows_per_page = 6;
+		$rows_per_page = 12;
 		$offset = ($current_page - 1) * $rows_per_page;
 
 		$sql_count =

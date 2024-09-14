@@ -1,22 +1,13 @@
 <?php $this->load->view('components/front_title') ?>
 
-<section id="portfolio" class="portfolio section">
+<section id="portfolio" class="">
 
     <div class="container">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <div class="layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200" id="galeri-container">
+            <div class="row gy-4 row row-cols-2 row-cols-md-4 g-4" data-aos="fade-up" data-aos-delay="200" id="galeri-container">
 
-                <div class="col-lg-4 col-md-6 portfolio-item isotope-item">
-                    <img src="<?= base_url() ?>assets/front/img/portfolio/app-1.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 1</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                        <a href="<?= base_url() ?>assets/front/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                    </div>
-                </div><!-- End Portfolio Item -->
 
             </div><!-- End Portfolio Container -->
 
@@ -25,13 +16,9 @@
     </div>
 
 </section>
-<!-- Area Preview Gambar -->
-<div class="preview-container" style="text-align:center; margin-top:20px;">
-    <img id="imagePreview" src="" alt="Preview" style="max-width:100%; height:auto; display:none;">
-</div>
-
 <script>
     $(document).ready(function() {
+        var keterangan
         filter_url_based()
 
         const lightbox = GLightbox({
@@ -52,17 +39,18 @@
 
                     for (let i = 0; i < json.data.length; i++) {
                         const element = json.data[i]; // Ambil data dari JSON
+                        keterangan = truncateContent(element.keterangan);
 
                         // Bangun HTML untuk setiap elemen
                         htmlContent += `
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item">
-                                <img src="<?= base_url('uploads/img/galeri/') ?>${element.foto}" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>${element.nama}</h4>
-                                    <p>${element.keterangan}</p>
-                                    <a href="<?= base_url('uploads/img/galeri/') ?>${element.foto}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="${element.link}" title="More Details" target="_blank" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
+                            <div class="col">
+                                <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank">
+                                    <img src="<?= base_url('uploads/img/galeri/') ?>${element.foto}" class="card-img-top" alt="<?= base_url('uploads/img/galeri/') ?>${element.foto}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${element.nama}</h5>
+                                        <p class="card-text">${keterangan}</p>
+                                    </div>
+                                </a>
                             </div>
                         `;
                     }
@@ -113,10 +101,11 @@
         filter_url_based();
     }
 
-    function imgPreview(imgSrc) {
-
-        // Ganti src dari image preview
-        $('#imagePreview').attr('src', imgSrc).fadeIn();
-
+    function truncateContent(content, maxLength = 50) {
+        if (content.length > maxLength) {
+            return content.substring(0, maxLength) + '...';
+        } else {
+            return content;
+        }
     }
 </script>

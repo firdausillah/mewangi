@@ -59,6 +59,7 @@ class Galeri extends MY_Controller
 				galeri.nama,
 				galeri.foto,
 				galeri.link,
+				galeri.keterangan,
 				DATE_FORMAT(galeri.created_on, '%d-%M-%Y') as tanggal,
 				DATE_FORMAT(galeri.created_on, '%Y/%m/%d') as created_on
 			FROM

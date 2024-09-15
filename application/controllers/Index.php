@@ -16,7 +16,7 @@ class Index extends MY_Controller
     {
         $data = [
             'title' => 'Homepage',
-            'banner' => $this->BannerModel->getLimit5()->result(),
+            'banner' => $this->BannerModel->getLimit5()->row(),
             'content' => 'front/home'
         ];
 

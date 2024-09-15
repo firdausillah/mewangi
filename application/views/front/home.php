@@ -1,44 +1,20 @@
     <!-- Hero Section -->
     <section id="hero" class="mt-4 mt-sm-0 pb-0">
         <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-                <?php foreach ($banner as $key => $value) : ?>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" <?= $key == 0 ? 'class="active" aria-current="true"' : '' ?>></button>
-                <?php endforeach; ?>
-                <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
-            </div>
             <div class="carousel-inner">
-                <?php foreach ($banner as $key => $value) : ?>
-                    <div class="carousel-item img-slider <?= $key == 0 ? 'active' : '' ?>">
-                        <img src="<?= base_url('uploads/img/banner/' . $value->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $value->foto) ?>">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2 class="text-white"><?= $value->nama ?></h2>
-                            <p><?= $value->keterangan ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                <!-- <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                <div class="carousel-item img-slider active">
+                    <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <h2 class="text-white" id="title"><?= $banner->nama ?></h2>
+                        <span id="keterangan"><?= $banner->keterangan ?></span>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div> -->
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" id="prev-btn">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" id="next-btn">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -105,18 +81,18 @@
 
     </section><!-- /Recent Posts Section -->
 
-    <!-- <script>
+    <script>
         $(document).ready(function() {
-            // var images;
-            var images = []
-            var title = []
-            var keterangan = []
-            var link = []
+            var images = [];
+            var title = [];
+            var keterangan = [];
+            var link = [];
+
+            // Ambil data banner
             $.ajax({
                 url: '<?= base_url('index/getBanner') ?>',
                 type: 'POST',
                 dataType: 'json',
-                data: {},
                 success: function(json) {
                     if (json != undefined) {
                         banner_data = json.data;
@@ -133,6 +109,7 @@
 
             var currentIndex = 0;
             var intervalTime = 5000;
+            var intervalID;
 
             // Fungsi untuk mengganti gambar dengan animasi fade
             function changeImage(index) {
@@ -140,30 +117,40 @@
                     $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).removeClass('flipped').fadeIn(300);
                 });
 
-                $('#title').html(images[index]);
                 $('#title').html(title[index]);
                 $('#keterangan').html(keterangan[index]);
                 $('#link').attr('href', link[index]);
             }
 
+            // Fungsi untuk memulai interval (otomatis geser gambar)
+            function startInterval() {
+                intervalID = setInterval(function() {
+                    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                    changeImage(currentIndex);
+                }, intervalTime);
+            }
+
+            // Fungsi untuk mereset interval saat tombol diklik
+            function resetInterval() {
+                clearInterval(intervalID); // Hentikan interval yang berjalan
+                startInterval(); // Mulai interval yang baru
+            }
 
             // Event klik untuk tombol "Previous"
             $('#prev-btn').click(function() {
                 currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
                 changeImage(currentIndex);
+                resetInterval(); // Reset interval saat tombol diklik
             });
 
             // Event klik untuk tombol "Next"
             $('#next-btn').click(function() {
                 currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
                 changeImage(currentIndex);
+                resetInterval(); // Reset interval saat tombol diklik
             });
 
-            setInterval(function() {
-                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-                changeImage(currentIndex);
-            }, intervalTime);
-
-
+            // Memulai interval pertama kali saat halaman dimuat
+            startInterval();
         });
-    </script> -->
+    </script>

@@ -19,7 +19,7 @@
     }
     
     .img-slider img{
-        object-fit: none;
+        /* object-fit: cover; */
     }
 }
 
@@ -29,6 +29,7 @@
     position: relative;
     padding: 120px 0 60px;
     display: flex;
+    overflow: hidden;
     /* align-items: center; */
 }
 

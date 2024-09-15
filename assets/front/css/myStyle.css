@@ -13,14 +13,8 @@
     text-overflow: ellipsis;
 }
 
-@media (min-width: 576px) {
-    .img-slider {
-        min-height: 90vh !important;
-    }
-    
-    .img-slider img{
-        /* object-fit: cover; */
-    }
+.web-title {
+    font-size: 1.25rem !important;
 }
 
 .img-slider {
@@ -41,6 +35,16 @@
     height: 100%;
     object-fit: cover;
     /* z-index: 1; */
+}
+
+@media (min-width: 576px) {
+    .img-slider {
+        min-height: 90vh !important;
+    }
+
+    .web-title {
+        font-size: calc(1.325rem + 0.9vw) !important;
+    }
 }
 
 

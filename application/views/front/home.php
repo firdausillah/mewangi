@@ -1,5 +1,5 @@
     <!-- Hero Section -->
-    <section id="hero" class="mt-4 mt-sm-0 pb-0">
+    <section id="hero" class="">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item img-slider active">

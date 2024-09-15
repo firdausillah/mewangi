@@ -96,7 +96,7 @@
   <script src="<?= base_url() ?>assets/front/js/main.js"></script>
   <script src="<?= base_url() ?>assets/front/js/myScript.js"></script>
 
-  <script src="https://use.fontawesome.com/9e08c92931.js"></script>
+  <script src="<?= base_url() ?>assets/front/js/fontawesome.js"></script>
 
 </body>
 

@@ -14,7 +14,7 @@
         </div>
 
         <!-- Blog Pagination Section -->
-        <section id="blog-pagination" class="blog-pagination section mt-4">
+        <section id="blog-pagination" class="blog-pagination section mt-5">
 
             <div class="container">
                 <div class="d-flex justify-content-center">

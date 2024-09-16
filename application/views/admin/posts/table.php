@@ -93,14 +93,14 @@
             responsive: true,
             ajax: '<?= base_url('admin/posts/getPost') ?>',
             order: [
-                [1, 'desc']
+                [0, 'desc']
             ],
             columns: [{
                     data: 'id',
                     visible: false
                 },
                 {
-                    data: 'created_on'
+                    data: 'tanggal'
                 },
                 {
                     data: 'nama',

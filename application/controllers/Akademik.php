@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Siswa extends MY_Controller {
+class Akademik extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -12,7 +12,7 @@ class Siswa extends MY_Controller {
 	public function index(){
 		$data = [
 			'title' => 'Data Siswa',
-			'content' => 'front/siswa/index'
+			'content' => 'front/akademik/siswa'
 		];
 
 		$this->load->view('layout_front/base', $data);

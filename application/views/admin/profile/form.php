@@ -71,3 +71,19 @@
         </form>
     </div>
 </div>
+
+
+<script src="<?= base_url(); ?>assets/js/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#sambutan_kepala_sekolah'), {
+            // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(err => {
+            console.error(err.stack);
+        });
+</script>

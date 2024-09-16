@@ -1,12 +1,13 @@
     <!-- Hero Section -->
-    <section id="hero" class="">
+    <section id="hero" class="pt-4 pb-0">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-inner">
+                <div></div>
                 <div class="carousel-item img-slider active">
                     <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
                     <div class="carousel-caption d-none d-md-block">
-                        <h2 class="text-white" id="title"><?= $banner->nama ?></h2>
-                        <span id="keterangan"><?= $banner->keterangan ?></span>
+                        <h2 class="text-white text-shadow" id="title"><?= $banner->nama ?></h2>
+                        <span class="text-shadow" id="keterangan"><?= $banner->keterangan ?></span>
                     </div>
                 </div>
             </div>
@@ -20,30 +21,31 @@
             </button>
         </div>
     </section>
-    <!-- <section id="hero" class="hero section dark-background">
 
-        <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" alt="" data-aos="fade-in">
+    <!-- Sambutan Kepala Section -->
+    <section id="recent-posts" class="recent-posts section light-background">
+
+        <!-- Section Title -->
+        <div class="container section-title pb-3" data-aos="fade-up">
+            <h2>Sambutan Kepala Sekolah</h2>
+
+        </div><!-- End Section Title -->
 
         <div class="container">
             <div class="row">
-                <div class="col-xl-4">
-                    <h1 data-aos="fade-up" id="title"><?= $banner->nama ?></h1>
-                    <blockquote data-aos="fade-up" data-aos-delay="100" id="keterangan">
-                        <?= $banner->keterangan ?>
-                    </blockquote>
-                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <a href="http://<?= $banner->link ?>" class="btn-get-started" id="link">Selengkapnya</a>
-                    </div>
-                    <div class="d-flex mt-4 justify-content-between m-auto" style="width: 100px;" data-aos="fade-up" data-aos-delay="300">
-                        <a href="#" class="" id="prev-btn"><i class="fa fa-chevron-left"></i></a>
-                        <a href="#" class="" id="next-btn"><i class="fa fa-chevron-right"></i></a>
-                    </div>
+                <div class="col-md-4 text-center mb-5">
+                    <img src="<?= base_url('assets/front/img/kepala.png') ?>" class="img-fluid" alt="">
                 </div>
+                <div class="col-md-8">
+                    <?= $profile->sambutan_kepala_sekolah ?>
+                    <h5 class="mt-2 fst-italic"><?= $profile->nama_kepalasekolah ?></h5>
+                </div>
+
             </div>
+
         </div>
 
-    </section> -->
-    <!-- /Hero Section -->
+    </section><!-- /Sambutan Kepala Section -->
 
     <!-- Recent Posts Section -->
     <section id="recent-posts" class="recent-posts section">
@@ -113,8 +115,8 @@
 
             // Fungsi untuk mengganti gambar dengan animasi fade
             function changeImage(index) {
-                $('#displayed-image').addClass('flipped').fadeOut(300, function() {
-                    $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).removeClass('flipped').fadeIn(300);
+                $('#displayed-image').fadeOut(300, function() {
+                    $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).fadeIn(300);
                 });
 
                 $('#title').html(title[index]);

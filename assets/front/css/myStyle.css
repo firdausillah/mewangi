@@ -15,6 +15,14 @@
 
 .web-title {
     font-size: 1.25rem !important;
+    /* padding-left: 6px;
+    border-left: 1.5px solid white; */
+}
+
+.logo .line{
+    height: 30px;
+    width: 2px;
+    background-color: white;
 }
 
 .img-slider {
@@ -37,13 +45,34 @@
     /* z-index: 1; */
 }
 
+.text-shadow{
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary {
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: 0;
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+}
+
+.btn-primary:hover {
+    color: var(--contrast-color);
+    background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
 @media (min-width: 576px) {
     .img-slider {
         min-height: 90vh !important;
     }
 
+    .img-slider img {
+        object-fit: cover;
+    }
+
     .web-title {
-        font-size: calc(1.325rem + 0.9vw) !important;
+        font-size: calc(1.3rem + 0.6vw) !important;
     }
 }
 

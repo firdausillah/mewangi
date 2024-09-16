@@ -78,8 +78,8 @@
 
     $("#crop").click(function() {
         canvas = cropper.getCroppedCanvas({
-            width: 900,
-            height: 900,
+            width: 1500,
+            height: 1500,
         });
 
         canv = cropper.getCroppedCanvas();

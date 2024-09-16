@@ -14,4 +14,8 @@
     //      }
     //    }
     //  });
+
+   $('#datatables_table').DataTable({
+      responsive: true
+   });
  }) 

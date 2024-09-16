@@ -25,44 +25,13 @@
   <link href="<?= base_url() ?>assets/front/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <script src="<?= base_url() ?>assets/vendor/libs/jquery/jquery.js"></script>
 
+  <!-- Datatables -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/css/datatables.min.css" />
+
   <!-- Main CSS File -->
   <link href="<?= base_url() ?>assets/front/css/main.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/front/css/myStyle.css" rel="stylesheet">
 
-  <style>
-    /* Styling untuk container galeri */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .gallery img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border 0.3s;
-    }
-
-    .gallery img:hover {
-      border: 2px solid #000;
-    }
-
-    /* Styling untuk area preview */
-    .preview-container {
-      margin-top: 20px;
-    }
-
-    .preview-container img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      display: none;
-      /* Awalnya disembunyikan */
-    }
-  </style>
 </head>
 
 <body class="index-page">
@@ -92,12 +61,14 @@
   <script src="<?= base_url() ?>assets/front/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="<?= base_url() ?>assets/front/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
+  <!-- Datatables -->
+  <script src="<?= base_url() ?>assets/vendor/js/datatables.min.js"></script>
+
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/front/js/main.js"></script>
   <script src="<?= base_url() ?>assets/front/js/myScript.js"></script>
 
   <script src="<?= base_url() ?>assets/front/js/fontawesome.js"></script>
-
 </body>
 
 </html>

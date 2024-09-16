@@ -30,15 +30,12 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="post_type">post type <span class="text-danger">*</span></label>
-            <?php if ($post_type == 'opinion') : ?>
-                <input type="text" class="form-control" name="post_type" id="post_type" value="opinion" readonly>
-            <?php else : ?>
-                <select class="form-control" name="post_type" id="post_type">
-                    <option value="">--Pilih--</option>
-                    <option value="berita" <?= @$post->post_type == 'berita' ? 'selected' : '' ?>>Berita</option>
-                    <option value="artikel" <?= @$post->post_type == 'artikel' ? 'selected' : '' ?>>Artikel</option>
-                </select>
-            <?php endif ?>
+            <select class="form-control" name="post_type" id="post_type">
+                <option value="">--Pilih--</option>
+                <option value="berita" <?= @$post->post_type == 'berita' ? 'selected' : '' ?>>Berita</option>
+                <option value="artikel" <?= @$post->post_type == 'artikel' ? 'selected' : '' ?>>Artikel</option>
+                <option value="opinion" <?= @$post->post_type == 'opinion' ? 'selected' : '' ?>>Opini</option>
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
@@ -55,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <a href="<?= base_url('admin/post/' . $post_type) ?>" class="btn btn-secondary">Batal</a>
+        <a href="<?= base_url('admin/post') ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

@@ -20,12 +20,14 @@ class PostModel extends CI_Model
 	function get()
 	{
 		$this->db->select("posts.id, posts.id_user, posts.id_post_category, posts.nama, posts.kode, posts.keterangan, posts.is_active, posts.created_on, posts.created_by, posts.is_approve, posts.slug, posts.content, posts.foto, posts.views, posts.post_type, posts.category_nama, posts.author, ( SELECT GROUP_CONCAT(tags_t.nama SEPARATOR ',') FROM tags_t WHERE tags_t.id_post = posts.id ) AS tags_t_nama");
+		$this->db->order_by("posts.created_on", "desc");
 		return $this->db->get('posts');
 	}
 
 	function findBy($id)
 	{
 		$this->db->select("posts.id, posts.id_user, posts.id_post_category, posts.nama, posts.kode, posts.keterangan, posts.is_active, posts.created_on, posts.created_by, posts.is_approve, posts.slug, posts.content, posts.foto, posts.views, posts.post_type, posts.category_nama, posts.author, ( SELECT GROUP_CONCAT(tags_t.nama SEPARATOR ',') FROM tags_t WHERE tags_t.id_post = posts.id ) AS tags_t_nama");
+		$this->db->order_by("posts.created_on", "desc");
 		$this->db->where($id);
 		return $this->db->get('posts');
 	}

@@ -19,6 +19,7 @@ class BannerModel extends CI_Model
 
 	function get()
 	{
+		$this->db->order_by("banner.created_on", "desc");
 		return $this->db->get('banner');
 	}
 
@@ -33,6 +34,7 @@ class BannerModel extends CI_Model
 	function findBy($id)
 	{
 		$this->db->where($id);
+		$this->db->order_by("banner.created_on", "desc");
 		return $this->db->get('banner');
 	}
 

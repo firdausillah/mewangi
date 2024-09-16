@@ -7,7 +7,7 @@
         <input type="hidden" name="id" value="<?= @$user->id ?>">
         <div class="mb-3">
             <label class="form-label" for="nama">nama <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$user->tanggal ?>" required>
+            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$user->nama ?>" required>
         </div>
         <div class="mb-3">
             <label class="form-label" for="username">username <span class="text-danger">*</span></label>

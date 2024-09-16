@@ -19,12 +19,14 @@ class CategoryModel extends CI_Model
 
 	function get()
 	{
+		$this->db->order_by("post_category.created_on", "desc");
 		return $this->db->get('post_category');
 	}
 
 	function findBy($id)
 	{
 		$this->db->where($id);
+		$this->db->order_by("post_category.created_on", "desc");
 		return $this->db->get('post_category');
 	}
 

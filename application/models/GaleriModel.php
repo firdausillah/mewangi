@@ -19,12 +19,14 @@ class GaleriModel extends CI_Model
 
 	function get()
 	{
+		$this->db->order_by("galeri.created_on", "desc");
 		return $this->db->get('galeri');
 	}
 
 	function findBy($id)
 	{
 		$this->db->where($id);
+		$this->db->order_by("galeri.created_on", "desc");
 		return $this->db->get('galeri');
 	}
 

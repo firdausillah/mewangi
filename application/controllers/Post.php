@@ -23,13 +23,13 @@ class Post extends MY_Controller {
 	{
 
 		if(isset($_GET['q'])){
-			$where = 'WHERE posts.nama LIKE "%'.$_GET['q'].'%" OR posts.content LIKE "%'.$_GET['q'].'%"';
+			$where = 'WHERE posts.is_approve = 1 posts.nama LIKE "%'.$_GET['q'].'%" OR posts.content LIKE "%'.$_GET['q'].'%"';
 		}elseif(isset($_GET['category'])){
-			$where = 'WHERE post_category.nama LIKE "%'.$_GET['category'].'%"';
+			$where = 'WHERE posts.is_approve = 1 post_category.nama LIKE "%'.$_GET['category'].'%"';
 		}elseif(isset($_GET['tag'])){
-			$where = 'WHERE tags_t.nama LIKE "%'.$_GET['tag'].'%"';
+			$where = 'WHERE posts.is_approve = 1 tags_t.nama LIKE "%'.$_GET['tag'].'%"';
 		}else{
-			$where = '';
+			$where = 'WHERE posts.is_approve = 1';
 		}
 
 		if(isset($_GET['page'])){

@@ -3,11 +3,13 @@
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item img-slider active pb-0">
-                    <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
-                    <div class="carousel-caption d-none d-md-block pb-5">
-                        <h2 class="text-white text-shadow" id="title"><?= $banner->nama ?></h2>
-                        <span class="text-shadow" id="keterangan"><?= $banner->keterangan ?></span>
-                    </div>
+                    <a href="<?= $banner->link?>" id="link" target="_blank">
+                        <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
+                        <div class="carousel-caption d-none d-md-block pb-5">
+                            <h2 class="text-white text-shadow" id="title"><?= $banner->nama ?></h2>
+                            <span class="text-shadow" id="keterangan"><?= $banner->keterangan ?></span>
+                        </div>
+                    </a>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" id="prev-btn">
@@ -21,8 +23,8 @@
         </div>
         <div>
             <div class="my-carousel-caption d-block d-md-none p-2">
-                <h5 class="text-white" id="title2"><?= $banner->nama ?></h5>
-                <span class="pb-0 text-white fs-6" id="keterangan2"><?= substr($banner->keterangan, 0, 20) . '...' ?></span>
+                <h6 class="text-white" id="title2"><?= $banner->nama ?></h6>
+                <span class="pb-0 text-white" style="font-size: small;" id="keterangan2"><?= substr($banner->keterangan, 0, 20) . '...' ?></span>
             </div>
         </div>
     </section>

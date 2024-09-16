@@ -22,26 +22,24 @@ class Post extends MY_Controller
         }
     }
 
-    public function opinion()
+    public function index()
     {
         $page = (isset($_GET['page']) ? $_GET['page'] : 'index');
-        $post_type = 'opinion';
 
         if ($page == 'index') {
             if($this->session->userdata('role') != 'superadmin'){
                 $where = [
                     'id_user' => $this->session->userdata('id'),
-                    'post_type' => $post_type
+                    // 'is_approve' => 1
                 ];
             }else{
                 $where = [
-                    'post_type' => $post_type
+                    // 'is_approve' => 1
                 ];
             }
 
             $data = [
                 'title' => 'Post Opini',
-                'post_type' => $post_type,
                 $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
                 'content' => $this->url_index . '/table'
             ];
@@ -51,7 +49,6 @@ class Post extends MY_Controller
             $data = [
                 'title' => 'Tambah Data',
                 'post_category' => $this->Post_categoryModel->get()->result(),
-                'post_type' => $post_type,
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/hd_cropper',
                 'aspect' => '4/3'
@@ -63,7 +60,6 @@ class Post extends MY_Controller
             $data = [
                 'title' => 'Edit Data',
                 'post_category' => $this->Post_categoryModel->get()->result(),
-                'post_type' => $post_type,
                 $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/hd_cropper',
@@ -84,69 +80,135 @@ class Post extends MY_Controller
         }
     }
 
-    public function news_article()
-    {
-        $page = (isset($_GET['page']) ? $_GET['page'] : 'index');
-        $post_type = 'news_article';
-        // print_r($this->session->userdata('id'));
-        // exit(); 
+    // public function opinion()
+    // {
+    //     $page = (isset($_GET['page']) ? $_GET['page'] : 'index');
+    //     $post_type = 'opinion';
 
-        if ($page == 'index') {
-            if ($this->session->userdata('role') != 'superadmin') {
-                $where = [
-                    'id_user' => $this->session->userdata('id'),
-                    'post_type !=' => 'opinion'
-                ];
-            } else {
-                $where = [
-                    'post_type !=' => 'opinion'
-                ];
-            }
+    //     if ($page == 'index') {
+    //         if($this->session->userdata('role') != 'superadmin'){
+    //             $where = [
+    //                 'id_user' => $this->session->userdata('id'),
+    //                 'post_type' => $post_type,
+    //                 'is_approve' => 1
+    //             ];
+    //         }else{
+    //             $where = [
+    //                 'post_type' => $post_type,
+    //                 'is_approve' => 1
+    //             ];
+    //         }
 
-            $data = [
-                'title' => 'Post Berita & Artikel',
-                'post_type' => $post_type,
-                $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
-                'content' => $this->url_index . '/table'
-            ];
+    //         $data = [
+    //             'title' => 'Post Opini',
+    //             'post_type' => $post_type,
+    //             $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
+    //             'content' => $this->url_index . '/table'
+    //         ];
 
-            $this->load->view('layout_admin/base', $data);
-        } else if ($page == 'add') {
-            $data = [
-                'title' => 'Tambah Data',
-                'post_category' => $this->Post_categoryModel->get()->result(),
-                'post_type' => $post_type,
-                'content' => $this->url_index . '/form',
-                'cropper' => 'components/hd_cropper',
-                'aspect' => '4/3'
-            ];
+    //         $this->load->view('layout_admin/base', $data);
+    //     } else if ($page == 'add') {
+    //         $data = [
+    //             'title' => 'Tambah Data',
+    //             'post_category' => $this->Post_categoryModel->get()->result(),
+    //             'post_type' => $post_type,
+    //             'content' => $this->url_index . '/form',
+    //             'cropper' => 'components/hd_cropper',
+    //             'aspect' => '4/3'
+    //         ];
 
-            $this->load->view('layout_admin/base', $data);
-        } else if ($page == 'edit') {
-            $id = (isset($_GET['id']) ? $_GET['id'] : '');
-            $data = [
-                'title' => 'Edit Data',
-                'post_category' => $this->Post_categoryModel->get()->result(),
-                'post_type' => $post_type,
-                $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
-                'content' => $this->url_index . '/form',
-                'cropper' => 'components/hd_cropper',
-                'aspect' => '4/3'
-            ];
+    //         $this->load->view('layout_admin/base', $data);
+    //     } else if ($page == 'edit') {
+    //         $id = (isset($_GET['id']) ? $_GET['id'] : '');
+    //         $data = [
+    //             'title' => 'Edit Data',
+    //             'post_category' => $this->Post_categoryModel->get()->result(),
+    //             'post_type' => $post_type,
+    //             $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
+    //             'content' => $this->url_index . '/form',
+    //             'cropper' => 'components/hd_cropper',
+    //             'aspect' => '4/3'
+    //         ];
 
-            $this->load->view('layout_admin/base', $data);
-        } else if ($page == 'detail') {
-            $id = (isset($_GET['id']) ? $_GET['id'] : '');
-            $data = [
-                'title' => 'Detail Data',
-                'post_type' => $post_type,
-                $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
-                'content' => $this->url_index . '/detail'
-            ];
+    //         $this->load->view('layout_admin/base', $data);
+    //     } else if ($page == 'detail') {
+    //         $id = (isset($_GET['id']) ? $_GET['id'] : '');
+    //         $data = [
+    //             'title' => 'Detail Data',
+    //             'post_type' => $post_type,
+    //             $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
+    //             'content' => $this->url_index . '/detail'
+    //         ];
 
-            $this->load->view('layout_admin/base', $data);
-        }
-    }
+    //         $this->load->view('layout_admin/base', $data);
+    //     }
+    // }
+
+    // public function news_article()
+    // {
+    //     $page = (isset($_GET['page']) ? $_GET['page'] : 'index');
+    //     $post_type = 'news_article';
+    //     // print_r($this->session->userdata('id'));
+    //     // exit(); 
+
+    //     if ($page == 'index') {
+    //         if ($this->session->userdata('role') != 'superadmin') {
+    //             $where = [
+    //                 'id_user' => $this->session->userdata('id'),
+    //                 'post_type !=' => 'opinion',
+    //                 'is_approve' => 1
+    //             ];
+    //         } else {
+    //             $where = [
+    //                 'post_type !=' => 'opinion',
+    //                 'is_approve' => 1
+    //             ];
+    //         }
+
+    //         $data = [
+    //             'title' => 'Post Berita & Artikel',
+    //             'post_type' => $post_type,
+    //             $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
+    //             'content' => $this->url_index . '/table'
+    //         ];
+
+    //         $this->load->view('layout_admin/base', $data);
+    //     } else if ($page == 'add') {
+    //         $data = [
+    //             'title' => 'Tambah Data',
+    //             'post_category' => $this->Post_categoryModel->get()->result(),
+    //             'post_type' => $post_type,
+    //             'content' => $this->url_index . '/form',
+    //             'cropper' => 'components/hd_cropper',
+    //             'aspect' => '4/3'
+    //         ];
+
+    //         $this->load->view('layout_admin/base', $data);
+    //     } else if ($page == 'edit') {
+    //         $id = (isset($_GET['id']) ? $_GET['id'] : '');
+    //         $data = [
+    //             'title' => 'Edit Data',
+    //             'post_category' => $this->Post_categoryModel->get()->result(),
+    //             'post_type' => $post_type,
+    //             $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
+    //             'content' => $this->url_index . '/form',
+    //             'cropper' => 'components/hd_cropper',
+    //             'aspect' => '4/3'
+    //         ];
+
+    //         $this->load->view('layout_admin/base', $data);
+    //     } else if ($page == 'detail') {
+    //         $id = (isset($_GET['id']) ? $_GET['id'] : '');
+    //         $data = [
+    //             'title' => 'Detail Data',
+    //             'post_type' => $post_type,
+    //             $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
+    //             'content' => $this->url_index . '/detail'
+    //         ];
+
+    //         $this->load->view('layout_admin/base', $data);
+    //     }
+    // }
 
     public function save()
     {

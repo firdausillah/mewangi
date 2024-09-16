@@ -15,8 +15,16 @@
             <small>urut dari yang terkecil</small>
         </div>
         <div class="mb-3">
+            <label class="form-label" for="is_tampil">tampilkan judul</label>
+            <select name="is_tampil" id="is_tampil" class="form-control">
+                <option value="">--Pilih--</option>
+                <option value="1" <?= @$banner->is_tampil == '1' ? 'selected' : '' ?>>Ya</option>
+                <option value="0" <?= @$banner->is_tampil == '0' ? 'selected' : '' ?>>Tidak</option>
+            </select>
+        </div>
+        <div class="mb-3">
             <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
-            <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?= @$banner->keterangan ?></textarea>
+            <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10" required><?= @$banner->keterangan ?></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label" for="link">link</label>

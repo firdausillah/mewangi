@@ -24,7 +24,7 @@ class BannerModel extends CI_Model
 	}
 
 	function getLimit5(){
-		$this->db->select('*');
+		$this->db->select('if(is_tampil=1,nama," ") AS nama, nama AS nama2, if(is_tampil=1,keterangan," ") AS keterangan, keterangan AS keterangan2, foto, link, is_tampil');
 		$this->db->from('banner');
 		$this->db->order_by('urutan', 'ASC');
 		$this->db->limit(5);

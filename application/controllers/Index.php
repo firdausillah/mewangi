@@ -29,14 +29,6 @@ class Index extends MY_Controller
 
     public function getBanner()
     {
-        $sql = "
-            SELECT
-                *
-            FROM
-                banner
-            LIMIT 5
-            ORDER BY urutan ASC
-        ";
         $data = $this->BannerModel->getLimit5()->result_array();
         echo json_encode(['data' => $data]);
     }

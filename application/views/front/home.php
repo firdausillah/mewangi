@@ -6,8 +6,8 @@
                     <a href="<?= $banner->link?>" id="link" target="_blank">
                         <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
                         <div class="carousel-caption d-none d-md-block pb-5">
-                            <h2 class="text-white text-shadow" id="title"><?= $banner->nama ?></h2>
-                            <span class="text-shadow" id="keterangan"><?= $banner->keterangan ?></span>
+                            <h2 class="text-white text-shadow" id="title"><?= $banner->is_tampil == 0 ? $banner->nama : $banner->nama2 ?></h2>
+                            <span class="text-shadow" id="keterangan"><?= $banner->is_tampil == 0 ? $banner->keterangan : $banner->keterangan2 ?></span>
                         </div>
                     </a>
                 </div>
@@ -23,8 +23,8 @@
         </div>
         <div>
             <div class="my-carousel-caption d-block d-md-none p-2">
-                <h6 class="text-white" id="title2"><?= $banner->nama ?></h6>
-                <span class="pb-0 text-white" style="font-size: small;" id="keterangan2"><?= substr($banner->keterangan, 0, 20) . '...' ?></span>
+                <h6 class="text-white" id="title2"><?= $banner->is_tampil == 0 ? $banner->nama : $banner->nama2 ?></h6>
+                <span class="pb-0 text-white" style="font-size: small;" id="keterangan2"><?= substr($banner->is_tampil == 0 ? $banner->keterangan : $banner->keterangan2, 0, 20) . '...' ?></span>
             </div>
         </div>
     </section>
@@ -71,6 +71,8 @@
             var images = [];
             var title = [];
             var keterangan = [];
+            var title2 = [];
+            var keterangan2 = [];
             var link = [];
 
             // Ambil data banner
@@ -86,6 +88,8 @@
                             images.push(banner_data[i].foto);
                             title.push(banner_data[i].nama);
                             keterangan.push(banner_data[i].keterangan);
+                            title2.push(banner_data[i].nama2);
+                            keterangan2.push(banner_data[i].keterangan2);
                             link.push(banner_data[i].link);
                         }
                     }
@@ -104,8 +108,8 @@
 
                 $('#title').html(title[index]);
                 $('#keterangan').html(keterangan[index]);
-                $('#title2').html(title[index]);
-                $('#keterangan2').html(truncateContent(keterangan[index], 50));
+                $('#title2').html(title2[index]);
+                $('#keterangan2').html(truncateContent(keterangan2[index], 50));
                 $('#link').attr('href', link[index]);
             }
 
@@ -142,10 +146,12 @@
 
 
             function truncateContent(content, maxLength) {
-                if (content.length > maxLength) {
-                    return content.substring(0, maxLength) + '...';
-                } else {
-                    return content;
+                if(content){
+                    if (content.length > maxLength) {
+                        return content.substring(0, maxLength) + '...';
+                    } else {
+                        return content;
+                    }
                 }
             }
         });

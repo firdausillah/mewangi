@@ -17,18 +17,18 @@
                   <li><a href="<?= base_url('download') ?>">Download</a></li>
                   <li class="dropdown"><a href="#"><span>Akademik</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
+                          <li class="dropdown"><a href="#"><span>Guru</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                              <ul>
+                                  <li><a href="https://pusaka.kemenag.go.id/public/login">Pusaka</a></li>
+                                  <li><a href="https://www.kemenagbanyuwangi.web.id/e-kinerja/">E-Kinerja</a></li>
+                                  <li><a href="https://sso.kemenag.go.id/auth/signin?appid=42095eeec431ac23eb12d2b772c94be0">SSO</a></li>
+                                  <li><a href="https://kinerja.bkn.go.id/login">SKP</a></li>
+                              </ul>
+                          </li>
                           <li><a href="https://simpletech.id/presensi_mobile/index.php?r=site/login">Absensi Digital</a></li>
                           <li><a href="#">Perpustakaan Digital</a></li>
                           <li><a href="#">E-Learning</a></li>
                           <li><a href="#">CBT</a></li>
-                      </ul>
-                  </li>
-                  <li class="dropdown"><a href="#"><span>Guru</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                      <ul>
-                          <li><a href="https://pusaka.kemenag.go.id/public/login">Pusaka</a></li>
-                          <li><a href="https://www.kemenagbanyuwangi.web.id/e-kinerja/">E-Kinerja</a></li>
-                          <li><a href="https://sso.kemenag.go.id/auth/signin?appid=42095eeec431ac23eb12d2b772c94be0">SSO</a></li>
-                          <li><a href="https://kinerja.bkn.go.id/login">SKP</a></li>
                       </ul>
                   </li>
                   <li class="dropdown"><a href="#"><span>Kesiswaan</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>

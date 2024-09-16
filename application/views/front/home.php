@@ -97,7 +97,7 @@
             });
 
             var currentIndex = 0;
-            var intervalTime = 500000;
+            var intervalTime = 10000;
             var intervalID;
 
             // Fungsi untuk mengganti gambar dengan animasi fade

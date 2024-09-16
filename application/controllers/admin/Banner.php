@@ -96,6 +96,7 @@ class Banner extends MY_Controller
             'nama'  => $this->input->post('nama'),
             'link'  => $this->input->post('link'),
             'urutan'  => $this->input->post('urutan'),
+            'is_tampil'  => $this->input->post('is_tampil'),
             'keterangan'  => $this->input->post('keterangan'),
             'foto'  => $foto,
         ];

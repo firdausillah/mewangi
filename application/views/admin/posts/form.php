@@ -37,6 +37,7 @@
                 <option value="opinion" <?= @$post->post_type == 'opinion' ? 'selected' : '' ?>>Opini</option>
             </select>
         </div>
+        <?php if($this->session->userdata('role') == 'superadmin') : ?>
         <div class="mb-3">
             <label class="form-label" for="is_approve">Approval <span class="text-danger">*</span></label>
             <select class="form-control" name="is_approve" id="is_approve">
@@ -46,6 +47,9 @@
                 <option value="2" <?= @$post->is_approve == '2' ? 'selected' : '' ?>>Ditolak</option>
             </select>
         </div>
+        <?php else: ?>
+            <input type="hidden" value="0" name="is_approve">
+        <?php endif; ?>
         <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
             <div class="row">

@@ -79,24 +79,12 @@
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
-                    <!-- Posts -->
+                    <!-- Post -->
                     <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                        <a href="<?= base_url() ?>admin/posts" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-news"></i>
-                            <div data-i18n="Posts">Posts</div>
+                            <div data-i18n="Analytics">Post</div>
                         </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="<?= base_url() ?>admin/post/news_article" class="menu-link">
-                                    <div data-i18n="news_article">Berita & Artikel</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="<?= base_url() ?>admin/post/opinion" class="menu-link">
-                                    <div data-i18n="opinion">Opini</div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             <?php endif; ?>

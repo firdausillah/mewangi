@@ -1,11 +1,10 @@
     <!-- Hero Section -->
-    <section id="hero" class="pt-4 pb-0">
-        <div id="carouselExampleCaptions" class="carousel slide container">
+    <section id="hero" class="pt-4 pb-0 container">
+        <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-inner">
-                <div></div>
-                <div class="carousel-item img-slider active">
+                <div class="carousel-item img-slider active pb-0">
                     <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block pb-5">
                         <h2 class="text-white text-shadow" id="title"><?= $banner->nama ?></h2>
                         <span class="text-shadow" id="keterangan"><?= $banner->keterangan ?></span>
                     </div>
@@ -20,32 +19,14 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        <div>
+            <div class="my-carousel-caption d-block d-md-none p-2">
+                <h5 class="text-white" id="title2"><?= $banner->nama ?></h5>
+                <span class="pb-0 text-white fs-6" id="keterangan2"><?= substr($banner->keterangan, 0, 20) . '...' ?></span>
+            </div>
+        </div>
     </section>
 
-    <!-- Sambutan Kepala Section -->
-    <section id="recent-posts" class="recent-posts section light-background">
-
-        <!-- Section Title -->
-        <div class="container section-title pb-3" data-aos="fade-up">
-            <h2>Sambutan Kepala Sekolah</h2>
-
-        </div><!-- End Section Title -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center mb-sm-5">
-                    <img src="<?= base_url('assets/front/img/kepala-man-4-bwi.png') ?>" class="img-fluid" alt="">
-                </div>
-                <div class="col-md-8">
-                    <?= $profile->sambutan_kepala_sekolah ?>
-                    <h5 class="mt-2 fst-italic"><?= $profile->nama_kepalasekolah ?></h5>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section><!-- /Sambutan Kepala Section -->
 
     <!-- Recent Posts Section -->
     <section id="recent-posts" class="recent-posts section">
@@ -71,7 +52,7 @@
                             </div>
                             <h3 class="post-title"><?= $value->nama ?></h3>
                             <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-warning' : ($value->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
-                            <p><?= substr($value->content, 0, 90) . '...' ?></p>
+                            <p><?= substr($value->content, 0, 50) . '...' ?></p>
                             <a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
@@ -110,7 +91,7 @@
             });
 
             var currentIndex = 0;
-            var intervalTime = 5000;
+            var intervalTime = 500000;
             var intervalID;
 
             // Fungsi untuk mengganti gambar dengan animasi fade
@@ -121,6 +102,8 @@
 
                 $('#title').html(title[index]);
                 $('#keterangan').html(keterangan[index]);
+                $('#title2').html(title[index]);
+                $('#keterangan2').html(truncateContent(keterangan[index], 50));
                 $('#link').attr('href', link[index]);
             }
 
@@ -154,5 +137,14 @@
 
             // Memulai interval pertama kali saat halaman dimuat
             startInterval();
+
+
+            function truncateContent(content, maxLength) {
+                if (content.length > maxLength) {
+                    return content.substring(0, maxLength) + '...';
+                } else {
+                    return content;
+                }
+            }
         });
     </script>

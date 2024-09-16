@@ -7,7 +7,7 @@
                       <a href="<?= base_url() ?>" class="logo d-flex align-items-center">
                           <span class="sitename"><?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?></span>
                       </a>
-                      <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                      <?= substr($profile->sambutan_kepala_sekolah, 0, 150) . '...' ?>
                       <div class="social-links d-flex mt-4">
                           <?= $profile->twitter ? "<a href='" . $profile->twitter . "'><i class='bi bi-twitter-x'></i></a>" : "" ?>
                           <?= $profile->facebook ? "<a href='" . $profile->facebook . "'><i class='bi bi-facebook'></i></a>" : "" ?>

@@ -24,7 +24,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
-            <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10" required><?= @$banner->keterangan ?></textarea>
+            <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?= @$banner->keterangan ?></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label" for="link">link</label>

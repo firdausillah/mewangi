@@ -3,7 +3,7 @@
         <h5 class="mb-0"><?= $title ? $title : '' ?></h5>
     </div>
     <div class="card-body">
-        <?= form_open_multipart(base_url('admin/post/save')) ?>
+        <?= form_open_multipart(base_url('admin/posts/save')) ?>
         <input type="hidden" name="id" value="<?= @$post->id ?>">
         <div class="mb-3">
             <label class="form-label" for="nama">judul <span class="text-danger">*</span></label>
@@ -38,6 +38,15 @@
             </select>
         </div>
         <div class="mb-3">
+            <label class="form-label" for="is_approve">Approval <span class="text-danger">*</span></label>
+            <select class="form-control" name="is_approve" id="is_approve">
+                <option value="">--Pilih--</option>
+                <option value="0" <?= @$post->is_approve == '0' ? 'selected' : '' ?>>Diperiksa</option>
+                <option value="1" <?= @$post->is_approve == '1' ? 'selected' : '' ?>>Disetujui</option>
+                <option value="2" <?= @$post->is_approve == '2' ? 'selected' : '' ?>>Ditolak</option>
+            </select>
+        </div>
+        <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
             <div class="row">
                 <div class="col-md-6">
@@ -52,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <a href="<?= base_url('admin/post') ?>" class="btn btn-secondary">Batal</a>
+        <a href="<?= base_url('admin/posts') ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

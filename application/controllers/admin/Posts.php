@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Post extends MY_Controller
+class Posts extends MY_Controller
 {
     public $defaultVariable = 'post';
     public $url_index = 'admin/post';
@@ -39,7 +39,7 @@ class Post extends MY_Controller
             }
 
             $data = [
-                'title' => 'Post Opini',
+                'title' => 'Post',
                 $this->defaultVariable => $this->defaultModel->findBy($where)->result(),
                 'content' => $this->url_index . '/table'
             ];
@@ -254,7 +254,7 @@ class Post extends MY_Controller
             'nama'              => $this->input->post('nama'),
             'slug'              => $slug,
             'content'           => $this->input->post('content'),
-            // 'tags'              => $this->input->post('tags'),
+            'is_approve'        => $this->input->post('is_approve'),
             'foto'              => $foto,
             'post_type'         => $this->input->post('post_type'),
             'category_nama'     => $category_nama,

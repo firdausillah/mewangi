@@ -25,7 +25,7 @@
                     </li>
                     <!-- Post -->
                     <li class="menu-item">
-                        <a href="<?= base_url() ?>admin/post" class="menu-link">
+                        <a href="<?= base_url() ?>admin/posts" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-news"></i>
                             <div data-i18n="Analytics">Post</div>
                         </a>

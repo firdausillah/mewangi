@@ -1,6 +1,6 @@
     <!-- Hero Section -->
     <section id="hero" class="pt-4 pb-0">
-        <div id="carouselExampleCaptions" class="carousel slide">
+        <div id="carouselExampleCaptions" class="carousel slide container">
             <div class="carousel-inner">
                 <div></div>
                 <div class="carousel-item img-slider active">
@@ -33,8 +33,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4 text-center mb-5">
-                    <img src="<?= base_url('assets/front/img/kepala.png') ?>" class="img-fluid" alt="">
+                <div class="col-md-4 text-center mb-sm-5">
+                    <img src="<?= base_url('assets/front/img/kepala-man-4-bwi.png') ?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-8">
                     <?= $profile->sambutan_kepala_sekolah ?>
@@ -51,8 +51,8 @@
     <section id="recent-posts" class="recent-posts section">
 
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Recent Blog Posts</h2>
+        <div class="container section-title pb-3" data-aos="fade-up">
+            <h2>Berita Terbaru</h2>
 
         </div><!-- End Section Title -->
 

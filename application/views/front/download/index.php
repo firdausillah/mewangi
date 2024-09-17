@@ -17,21 +17,23 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <!-- <?php foreach ($user as $index => $item) : ?> -->
-                        <tr>
-                            <td><?= $index + 1 ?></td>
-                            <td><?= $item->nama ?></td>
-                            <td><?= $item->keterangan ?></td>
-                            <td><a href="<?= $item->link ?>">Download</a></td>
-                        </tr>
-                        <!-- <?php endforeach ?> -->
+                        <?php foreach ($download as $index => $item) : ?>
+                            <tr>
+                                <td><?= $index + 1 ?></td>
+                                <td><?= substr($item->nama, 0, 30) . '...' ?></td>
+                                <td><?= substr($item->keterangan, 0, 30) . '...' ?></td>
+                                <td>
+                                    <?php if ($item->is_file) : ?>
+                                        <a href="<?= base_url('uploads/file/download/' . $item->file) ?>" target="_blank" class="text-black"><span class="text-info">Download</span></a>
+                                    <?php else : ?>
+                                        <a href="<?= $item->link ?>" target="_blank" class="text-black"><span class="text-info">Link</span></a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="row gy-4 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" data-aos="fade-up" data-aos-delay="200">
-
-
-            </div> -->
 
         </div>
 

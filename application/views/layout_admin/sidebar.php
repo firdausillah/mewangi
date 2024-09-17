@@ -62,6 +62,13 @@
                             <div data-i18n="Analytics">PPDB</div>
                         </a>
                     </li>
+                    <!-- download -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/download" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-download"></i>
+                            <div data-i18n="Analytics">Download</div>
+                        </a>
+                    </li>
                     <!-- Profile -->
                     <li class="menu-item">
                         <a href="<?= base_url() ?>admin/profile" class="menu-link">

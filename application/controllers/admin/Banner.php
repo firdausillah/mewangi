@@ -121,7 +121,7 @@ class Banner extends MY_Controller
     public function delete($id)
     {
         $data = $this->defaultModel->findBy(['id' => $id])->row();
-        @unlink(FCPATH . 'uploads/img/' . $data->foto);
+        @unlink(FCPATH . 'uploads/img/banner/' . $data->foto);
         if ($this->defaultModel->delete(['id' => $id])) {
             $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dihapus']);
         } else {

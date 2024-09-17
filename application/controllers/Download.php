@@ -8,7 +8,7 @@ class Download extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('RawModel');
-		// $this->load->model('DownloadModel');
+		$this->load->model('DownloadModel');
 	}
 
 	public function index()
@@ -16,6 +16,7 @@ class Download extends MY_Controller
 
 		$data = [
 			'title' => 'Download',
+			'download' => $this->DownloadModel->get()->result(),
 			'content' => 'front/download/index'
 		];
 

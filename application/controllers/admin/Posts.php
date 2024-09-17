@@ -107,11 +107,11 @@ class Posts extends MY_Controller
         $redirect = base_url($this->url_index);
 
         $id_post_category = $this->input->post('id_post_category');
-        if(isset($id_post_category)){
-            $category_nama = $this->Post_categoryModel->findBy(['id' => $id_post_category])->row()->nama;
-        }else{
-            $category_nama = '';
-        }
+
+        $category_nama = (!empty($id_post_category) && $category = $this->Post_categoryModel->findBy(['id' => $id_post_category])->row())
+        ? $category->nama
+        : '';
+
         $author = $this->session->userdata('nama');
 
         $id = $this->input->post('id');

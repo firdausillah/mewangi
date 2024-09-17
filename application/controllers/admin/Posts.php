@@ -103,7 +103,7 @@ class Posts extends MY_Controller
 
     public function save()
     {
-        $tags = '';
+        $tags = [];
         $redirect = base_url($this->url_index);
 
         $id_post_category = $this->input->post('id_post_category');

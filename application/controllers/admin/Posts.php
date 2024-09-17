@@ -51,7 +51,7 @@ class Posts extends MY_Controller
                 'post_category' => $this->Post_categoryModel->get()->result(),
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/hd_cropper',
-                'aspect' => '4/3'
+                'aspect' => '16/9'
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -63,7 +63,7 @@ class Posts extends MY_Controller
                 $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/hd_cropper',
-                'aspect' => '4/3'
+                'aspect' => '16/9'
             ];
 
             $this->load->view('layout_admin/base', $data);

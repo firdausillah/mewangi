@@ -37,7 +37,7 @@ class PostModel extends CI_Model
 		$this->db->select('posts.author, posts.category_nama, posts.nama, posts.created_on, posts.content, posts.slug, posts.foto, posts.post_type');
 		$this->db->from('posts');
 		$this->db->order_by("posts.created_on", "desc");
-		$this->db->where(["posts.is_active !=" => 0, "posts.is_approve ==" => 1]);
+		$this->db->where(["posts.is_active !=" => 0, "posts.is_approve" => 1]);
 		return $this->db->get();
 	}
 

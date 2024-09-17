@@ -38,7 +38,13 @@
                           <li><a href="<?= base_url('post?category=prestasi siswa') ?>">Prestasi</a></li>
                       </ul>
                   </li>
-                  <li><a href="<?= base_url('ppdb') ?>">PPDB</a></li>
+                  <li class="dropdown"><a href="#"><span>PPDB</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                      <ul>
+                          <li><a href="<?= base_url('') ?>">Brosur PPDB</a></li>
+                          <li><a href="<?= base_url('') ?>">Daftar</a></li>
+                          <li><a href="<?= base_url('') ?>">Juknis PPDB</a></li>
+                      </ul>
+                  </li>
               </ul>
               <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>

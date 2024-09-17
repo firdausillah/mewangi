@@ -55,6 +55,13 @@
 
                         </ul>
                     </li>
+                    <!-- ppdb -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/ppdb" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Analytics">PPDB</div>
+                        </a>
+                    </li>
                     <!-- Profile -->
                     <li class="menu-item">
                         <a href="<?= base_url() ?>admin/profile" class="menu-link">

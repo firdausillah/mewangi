@@ -9,11 +9,11 @@
                       </a>
                       <?= substr($profile->sambutan_kepala_sekolah, 0, 150) . '...' ?>
                       <div class="social-links d-flex mt-4">
-                          <?= $profile->twitter ? "<a href='" . $profile->twitter . "'><i class='bi bi-twitter-x'></i></a>" : "" ?>
-                          <?= $profile->facebook ? "<a href='" . $profile->facebook . "'><i class='bi bi-facebook'></i></a>" : "" ?>
-                          <?= $profile->instagram ? "<a href='" . $profile->instagram . "'><i class='bi bi-instagram'></i></a>" : "" ?>
-                          <?= $profile->tiktok ? "<a href='" . $profile->tiktok . "'><i class='bi bi-tiktok'></i></a>" : "" ?>
-                          <?= $profile->youtube ? "<a href='" . $profile->youtube . "'><i class='bi bi-youtube'></i></a>" : "" ?>
+                          <?= $profile->twitter ? "<a href='" . $profile->twitter . "' target='_blank'><i class='bi bi-twitter-x'></i></a>" : "" ?>
+                          <?= $profile->facebook ? "<a href='" . $profile->facebook . "' target='_blank'><i class='bi bi-facebook'></i></a>" : "" ?>
+                          <?= $profile->instagram ? "<a href='" . $profile->instagram . "' target='_blank'><i class='bi bi-instagram'></i></a>" : "" ?>
+                          <?= $profile->tiktok ? "<a href='" . $profile->tiktok . "' target='_blank'><i class='bi bi-tiktok'></i></a>" : "" ?>
+                          <?= $profile->youtube ? "<a href='" . $profile->youtube . "' target='_blank'><i class='bi bi-youtube'></i></a>" : "" ?>
                       </div>
                   </div>
 

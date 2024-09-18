@@ -7,6 +7,7 @@
   <title><?= $title ? $title : '' ?> | <?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?></title>
   <meta name="description" content="">
   <meta name="keywords" content="">
+  <meta property="og:image" content="<?= base_url('uploads/img/profile/' . $profile->foto); ?>">
 
   <!-- Favicons -->
   <link href="<?= base_url('uploads/img/profile/' . $profile->foto); ?>" rel="icon">

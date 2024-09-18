@@ -72,7 +72,7 @@ class Download extends MY_Controller
         if (!empty($file)) { // $_FILES untuk mengambil data file
             $cfg = [
                 'upload_path' => $folderPath,
-                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx',
+                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk',
                 'file_name' => $slug,
                 'overwrite' => (empty($file) ? FALSE : TRUE),
                 // 'max_size' => '2028',

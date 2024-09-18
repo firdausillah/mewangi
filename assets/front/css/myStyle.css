@@ -15,8 +15,6 @@
 
 .web-title {
     font-size: 1.25rem !important;
-    /* padding-left: 6px;
-    border-left: 1.5px solid white; */
 }
 
 .logo .line{
@@ -26,22 +24,8 @@
 }
 
 .img-slider {
-    /* width: 100%; */
-    /* min-height: 60vh; */
-    /* position: relative; */
     padding: 50px 0 60px;
-    /* display: flex; */
-    /* overflow: hidden; */
 }
-
-/* .img-slider img {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
 
 .my-carousel-caption{
     background-color: rgba(23, 40, 59);
@@ -69,13 +53,76 @@
 }
 
 @media (min-width: 576px) {
-    /* .img-slider {
-        min-height: 90vh !important;
+    .recent-posts .post-box {
+        transition: 0.3s;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
     }
 
-    .img-slider img {
-        object-fit: cover;
-    } */
+    .recent-posts .post-box .post-img {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .recent-posts .post-box .post-img img {
+        transition: 0.5s;   
+    }
+
+    .recent-posts .post-box .meta {
+        margin-top: 15px;
+    }
+
+    .recent-posts .post-box .meta .post-date {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--accent-color);
+    }
+
+    .recent-posts .post-box .meta .post-author {
+        font-size: 15px;
+        font-weight: 400;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+    }
+
+    .recent-posts .post-box .post-title {
+        color: var(--heading-color);
+        font-size: 18px;
+        font-weight: 700;
+        margin: 15px 0 0 0;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .recent-posts .post-box p {
+        margin: 15px 0 0 0;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+    }
+
+    .recent-posts .post-box .readmore {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        line-height: 1;
+        transition: 0.3s;
+        margin-top: 15px;
+    }
+
+    .recent-posts .post-box .readmore i {
+        line-height: 0;
+        margin-left: 4px;
+        font-size: 18px;
+    }
+
+    .recent-posts .post-box:hover .post-title {
+        color: var(--accent-color);
+    }
+
+    .recent-posts .post-box:hover .post-img img {
+        transform: scale(1.1);
+    }
 
     .web-title {
         font-size: calc(1.3rem + 0.6vw) !important;
@@ -87,93 +134,3 @@
 }
 
 
-
-/* .hero2:before {
-    position: absolute;
-    content: "";
-    background: color-mix(in srgb, var(--background-color), transparent 40%);
-    inset: 0;
-    z-index: 2;
-}
-
-.hero2 img {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-.hero2 .container,
-.hero2 .container-fluid {
-    z-index: 3;
-    position: relative;
-}
-
-.hero2 h1 {
-    margin: 0;
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-.hero2 blockquote {
-    color: color-mix(in srgb, var(--default-color), transparent 20%);
-    padding-left: 20px;
-    border-left: 2px solid var(--accent-color);
-    margin: 40px 0;
-}
-
-.hero2 .btn-get-started {
-    color: var(--contrast-color);
-    background: var(--accent-color);
-    font-family: var(--heading-font);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px;
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    transition: 0.5s;
-}
-
-.hero2 .btn-get-started:hover {
-    background: color-mix(in srgb, var(--accent-color) 90%, white 15%);
-}
-
-.hero2 .btn-watch-video {
-    font-size: 16px;
-    transition: 0.5s;
-    margin-left: 25px;
-    color: var(--default-color);
-    font-weight: 600;
-}
-
-.hero2 .btn-watch-video i {
-    color: color-mix(in srgb, var(--default-color), transparent 50%);
-    font-size: 32px;
-    transition: 0.3s;
-    line-height: 0;
-    margin-right: 8px;
-}
-
-.hero2 .btn-watch-video:hover {
-    color: var(--default-color);
-}
-
-.hero2 .btn-watch-video:hover i {
-    color: var(--default-color);
-}
-
-@media (max-width: 640px) {
-    .hero2 h1 {
-        font-size: 28px;
-        line-height: 36px;
-    }
-
-    .hero2 .btn-get-started,
-    .hero2 .btn-watch-video {
-        font-size: 13px;
-    }
-} */

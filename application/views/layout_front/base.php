@@ -32,6 +32,9 @@
   <link href="<?= base_url() ?>assets/front/css/main.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/front/css/myStyle.css" rel="stylesheet">
 
+  <!-- Datatables -->
+  <script src="<?= base_url() ?>assets/vendor/js/datatables.min.js"></script>
+
 </head>
 
 <body class="index-page">
@@ -61,8 +64,6 @@
   <script src="<?= base_url() ?>assets/front/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="<?= base_url() ?>assets/front/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Datatables -->
-  <script src="<?= base_url() ?>assets/vendor/js/datatables.min.js"></script>
 
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/front/js/main.js"></script>

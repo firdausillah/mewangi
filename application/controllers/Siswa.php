@@ -37,7 +37,7 @@ class Siswa extends MY_Controller {
 		if($nama != '' AND $kelas != ''){
 			$sql = 
 				"SELECT
-					*
+					id, nama, kelas, CONCAT(tempat_lahir,', ', tanggal_lahir) AS ttl, nisn
 				FROM
 					siswa
 				WHERE nama LIKE '%$nama%' AND kelas LIKE '%$kelas%'

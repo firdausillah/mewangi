@@ -43,7 +43,7 @@
 
             <div class="row gy-5 d-flex justify-content-center">
                 <?php
-                $global_post_data = array_slice($global_post, 0, 4);
+                $global_post_data = array_slice($global_post, 0, 8);
                 foreach ($global_post_data as $value) : ?>
                     <div class="col-xl-3 col-md-6" data-aos="fade-up">
                         <div class="post-box">

@@ -23,35 +23,17 @@
                     </div>
                 </form>
 
-                <div class="responsive-table" id="table_data_siswa">
-                    <table class="table mt-5">
+                <div class="table-responsive text-nowrap mt-2" data-aos="fade-up" data-aos-delay="200" id="table_container">
+                    <table id="table_data_siswa" class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th>No.</th>
+                                <th>Nama</th>
+                                <th>NISN</th>
+                                <th>Tempat, Tanggal Lahir</th>
+                                <th>Kelas</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </div>
@@ -63,31 +45,73 @@
 
 <script>
     $(document).ready(function() {
-        $('#table_data_siswa').hide();
+        $('#table_container').hide();
+        table_data_siswa = $('#table_data_siswa').DataTable({
+            url: '<?= base_url('siswa/getSiswa') ?>',
+            responsive: true,
+            order: [
+                [0, 'desc']
+            ],
+            columns: [{
+                    data: 'id',
+                    visible: false
+                },
+                {
+                    data: 'nama'
+                },
+                {
+                    data: 'nisn'
+                },
+                {
+                    data: 'ttl'
+                },
+                {
+                    data: 'kelas'
+                }
+            ],
+            columnDefs: [{
+                orderable: false,
+                className: 'select-checkbox',
+                targets: 0
+            }]
+        });
     });
 
     function action_search_siswa() {
+        // Loading.fire({})
         var nama = $('#nama').val();
         var kelas = $('#kelas').val();
-        $.ajax({
-            url: '<?= base_url('siswa/getSiswa') ?>',
-            type: 'GET',
-            data: {
-                nama: nama,
-                kelas: kelas
-            },
-            dataType: 'json',
-            success: function(json) {
-                if (json.data != '') {
-                    $('#table_data_siswa').show(1000);
 
-                } else {
-                    $('#table_data_siswa').hide(1000);
-                }
-                
-                nama = '';
-                kelas = '';
-            }
+        table_data_siswa.ajax.url('<?= base_url('siswa/getSiswa?nama=') ?>' + nama + '&kelas=' + kelas).load(function() {
+            // Swal.close()
+            $('#table_container').show(1000);
         });
+        // $.ajax({
+        //     url: '<?= base_url('siswa/getSiswa') ?>',
+        //     type: 'GET',
+        //     data: {
+        //         nama: nama,
+        //         kelas: kelas
+        //     },
+        //     dataType: 'json',
+        //     success: function(json) {
+        //         if (json.data != '') {
+        //             $('#table_container').show(1000);
+        // table_data_siswa.ajax.reload(function() {
+        // Swal.close();
+        // Toast.fire({
+        //     icon: json.status,
+        //     title: json.message
+        // });
+        // });
+
+        //         } else {
+        //             $('#table_container').hide(1000);
+        //         }
+
+        //         nama = '';
+        //         kelas = '';
+        //     }
+        // });
     }
 </script>

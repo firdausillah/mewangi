@@ -10,12 +10,12 @@ class Ppdb extends MY_Controller
 		$this->load->model('PostModel');
 	}
 
-	public function brosur()
+	public function index()
 	{
 		
 		$data = [
-			'title' => 'Brosur PPDB',
-			'content' => 'front/ppdb/brosur'
+			'title' => 'PPDB',
+			'content' => 'front/ppdb/index'
 		];
 
 		$this->load->view('layout_front/base', $data);

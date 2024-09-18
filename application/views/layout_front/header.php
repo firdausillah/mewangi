@@ -23,10 +23,11 @@
                                   <li><a href="https://www.kemenagbanyuwangi.web.id/e-kinerja/" target="_blank">E-Kinerja</a></li>
                                   <li><a href="https://sso.kemenag.go.id/auth/signin?appid=42095eeec431ac23eb12d2b772c94be0" target="_blank">SSO</a></li>
                                   <li><a href="https://kinerja.bkn.go.id/login" target="_blank">SKP</a></li>
+                                  <li><a href="https://rdmman4banyuwangi.my.id/" target="_blank">Raport Digital Madrasah</a></li>
                               </ul>
                           </li>
                           <li><a href="https://simpletech.id/presensi_mobile/index.php?r=site/login" target="_blank">Absensi Digital</a></li>
-                          <li><a href="#">Perpustakaan Digital</a></li>
+                          <li><a href="https://simpletech.id/aplikasi/perpus_manpawangi/">Perpustakaan Digital</a></li>
                           <li><a href="#">E-Learning</a></li>
                           <li><a href="#">CBT</a></li>
                       </ul>
@@ -40,9 +41,8 @@
                   </li>
                   <li class="dropdown"><a href="#"><span>PPDB</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                          <li><a href="<?= base_url('') ?>">Brosur PPDB</a></li>
-                          <li><a href="<?= base_url('') ?>">Daftar</a></li>
-                          <li><a href="<?= base_url('') ?>">Juknis PPDB</a></li>
+                          <li><a href="<?= base_url('') ?>">Brosur & Juknis</a></li>
+                          <li><a href="<?= base_url('ppdb') ?>">Daftar</a></li>
                       </ul>
                   </li>
               </ul>

@@ -49,9 +49,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ImportSiswaLabel"><?= $title ? $title : 'Judul Page' ?></h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <?= form_open_multipart('admin/import_excel/import_data_siswa') ?>
             <div class="modal-body">
@@ -60,7 +58,7 @@
                     <input type="file" class="form-control" name="excel">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Download Template Excel Disini <a class="text-success" href="<?= base_url() ?>assets/file/siswa-master-import.xlsx">Download</a></label>
+                    <label class="form-label">Download Template Excel Disini <a class="text-success" href="<?= base_url() ?>assets/import_template/siswa-master-import.xlsx">Download</a></label>
                 </div>
             </div>
             <div class="modal-footer">

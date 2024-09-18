@@ -34,35 +34,42 @@ class Import_excel extends CI_Controller
             $sheetData = $spreadsheet->getActiveSheet()->toArray();
             // echo "<pre>";
             // print_r($sheetData);
+
+            // hapus semua data untuk ditimpa
+            $this->SiswaModel->delete(['id !=' => 0]);
             
             foreach ($sheetData as $key => $value) {
                 $data = [
-                    'kode_pendaftaran' => $value['1'],
-                    'nama' => $value['2'],
-                    'nisn' => $value['2'],
-                    'tempat_lahir' => $value['2'],
-                    'tanggal_lahir' => $value['2'],
-                    'kelas' => $value['2'],
+                    'nama'          => $value['1'],
+                    'nisn'          => $value['2'],
+                    'tempat_lahir'  => $value['3'],
+                    'tanggal_lahir' => $value['4'],
+                    'kelas'         => $value['5'],
                 ];
                 // echo $key;
                 if ($key >= 1) {
 
-                    $cek = $this->SiswaModel->findBy(['nik_siswa' => $data['nik_siswa']])->row();
-                    if ($cek == null) {
-                        if ($this->SiswaModel->add($data)) {
-                            $this->session->set_flashdata('flash', 'Data berhasil dimasukan');
-                        } else {
-                            $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
-                        }
+                    if ($this->SiswaModel->add($data)) {
+                        $this->session->set_flashdata('flash', 'Data berhasil dimasukan');
                     } else {
-                        if ($this->SiswaModel->update(['nik_siswa' => $data['nik_siswa']], $data)) {
-                            $this->session->set_flashdata('flash', 'Data berhasil diupdate');
-                        } else {
-                            $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
-                        }
+                        $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
+                        return;
                     }
-                    // echo "<pre>";
-                    // print_r($cek);
+
+                    // $cek = $this->SiswaModel->findBy(['nik_siswa' => $data['nik_siswa']])->row();
+                    // if ($cek == null) {
+                    //     if ($this->SiswaModel->add($data)) {
+                    //         $this->session->set_flashdata('flash', 'Data berhasil dimasukan');
+                    //     } else {
+                    //         $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
+                    //     }
+                    // } else {
+                    //     if ($this->SiswaModel->update(['nik_siswa' => $data['nik_siswa']], $data)) {
+                    //         $this->session->set_flashdata('flash', 'Data berhasil diupdate');
+                    //     } else {
+                    //         $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
+                    //     }
+                    // }
                 }
 
             }

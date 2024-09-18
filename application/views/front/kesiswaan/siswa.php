@@ -86,32 +86,5 @@
             // Swal.close()
             $('#table_container').show(1000);
         });
-        // $.ajax({
-        //     url: '<?= base_url('siswa/getSiswa') ?>',
-        //     type: 'GET',
-        //     data: {
-        //         nama: nama,
-        //         kelas: kelas
-        //     },
-        //     dataType: 'json',
-        //     success: function(json) {
-        //         if (json.data != '') {
-        //             $('#table_container').show(1000);
-        // table_data_siswa.ajax.reload(function() {
-        // Swal.close();
-        // Toast.fire({
-        //     icon: json.status,
-        //     title: json.message
-        // });
-        // });
-
-        //         } else {
-        //             $('#table_container').hide(1000);
-        //         }
-
-        //         nama = '';
-        //         kelas = '';
-        //     }
-        // });
     }
 </script>

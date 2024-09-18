@@ -23,6 +23,13 @@
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
+                    <!-- Siswa -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/siswa" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                            <div data-i18n="Analytics">Siswa</div>
+                        </a>
+                    </li>
                     <!-- Post -->
                     <li class="menu-item">
                         <a href="<?= base_url() ?>admin/posts" class="menu-link">

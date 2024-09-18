@@ -23,11 +23,11 @@ class Post extends MY_Controller {
 	{
 
 		if(isset($_GET['q'])){
-			$where = 'WHERE posts.is_approve = 1 posts.nama LIKE "%'.$_GET['q'].'%" OR posts.content LIKE "%'.$_GET['q'].'%"';
+			$where = 'WHERE posts.is_approve = 1 AND posts.nama LIKE "%'.$_GET['q'].'%" OR posts.content LIKE "%'.$_GET['q'].'%"';
 		}elseif(isset($_GET['category'])){
-			$where = 'WHERE posts.is_approve = 1 post_category.nama LIKE "%'.$_GET['category'].'%"';
+			$where = 'WHERE posts.is_approve = 1 AND post_category.nama LIKE "%'.$_GET['category'].'%"';
 		}elseif(isset($_GET['tag'])){
-			$where = 'WHERE posts.is_approve = 1 tags_t.nama LIKE "%'.$_GET['tag'].'%"';
+			$where = 'WHERE posts.is_approve = 1 AND tags_t.nama LIKE "%'.$_GET['tag'].'%"';
 		}else{
 			$where = 'WHERE posts.is_approve = 1';
 		}
@@ -88,7 +88,8 @@ class Post extends MY_Controller {
 			OFFSET $offset
 			"
 		;
-
+		// print_r($sql);
+		// exit();
 		$total_rows = $this->RawModel->sqlRaw($sql_count)->num_rows();
 		$response = [
 			'data' => $this->RawModel->sqlRaw($sql)->result_array(),
@@ -96,6 +97,7 @@ class Post extends MY_Controller {
 			'rows_per_page' => $rows_per_page,
 			'current_page' => $current_page
 		];
+
 		
 		echo json_encode($response);
 	}

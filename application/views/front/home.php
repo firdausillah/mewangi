@@ -68,9 +68,7 @@
 
                 <?php foreach ($global_post_data as $value) : ?>
                     <div class="post-item" data-aos="fade-up">
-                        <div class="" style="width: 100px; height: 100%;">
-                            <img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" alt="" class="flex-shrink-0 .img-fluid">
-                        </div>
+                        <img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" alt="" class="flex-shrink-0 .img-fluid" style="width: 130px; height: 100%;">
                         <div>
                             <h4><a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>"><?= $value->nama ?></a></h4>
                             <time datetime="2020-01-01"><?= date_format(date_create($value->created_on), 'd M Y'); ?></time>
@@ -114,7 +112,7 @@
             });
 
             var currentIndex = 0;
-            var intervalTime = 10000;
+            var intervalTime = 5000;
             var intervalID;
 
             // Fungsi untuk mengganti gambar dengan animasi fade

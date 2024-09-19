@@ -3,7 +3,7 @@
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item img-slider active pb-0">
-                    <a href="<?= $banner->link?>" id="link" target="_blank">
+                    <a href="<?= $banner->link ?>" id="link" target="_blank">
                         <img id="displayed-image" src="<?= base_url('uploads/img/banner/' . $banner->foto) ?>" class="d-block w-100" alt="<?= base_url('uploads/img/banner/' . $banner->foto) ?>">
                         <div class="carousel-caption d-none d-md-block pb-5">
                             <h2 class="text-white text-shadow" id="title"><?= $banner->is_tampil == 0 ? $banner->nama : $banner->nama2 ?></h2>
@@ -41,26 +41,43 @@
 
         <div class="container">
 
-            <div class="row gy-5 d-flex justify-content-center">
-                <?php
-                $global_post_data = array_slice($global_post, 0, 8);
-                foreach ($global_post_data as $value) : ?>
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up">
-                        <div class="post-box">
-                            <div class="post-img"><img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" class="img-fluid" alt=""></div>
-                            <div class="meta overflow-hidden">
-                                <span class="post-date"><?= date_format(date_create($value->created_on), 'd M Y'); ?></span>
-                                <span class="post-author"> / <?= $value->author ?></span>
+            <div class="d-none d-sm-block">
+                <div class="row gy-5 d-flex justify-content-center">
+                    <?php
+                    $global_post_data = array_slice($global_post, 0, 8);
+                    foreach ($global_post_data as $value) : ?>
+                        <div class="col-xl-3 col-md-6" data-aos="fade-up">
+                            <div class="post-box">
+                                <div class="post-img"><img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" class="img-fluid" alt=""></div>
+                                <div class="meta overflow-hidden">
+                                    <span class="post-date"><?= date_format(date_create($value->created_on), 'd M Y'); ?></span>
+                                    <span class="post-author"> / <?= $value->author ?></span>
+                                </div>
+                                <h3 class="post-title"><?= $value->nama ?></h3>
+                                <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-warning' : ($value->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
+                                <p><?= substr($value->content, 0, 50) . '...' ?></p>
+                                <a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                             </div>
-                            <h3 class="post-title"><?= $value->nama ?></h3>
-                            <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-warning' : ($value->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
-                            <p><?= substr($value->content, 0, 50) . '...' ?></p>
-                            <a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                         </div>
-                    </div>
-                <?php endforeach ?>
+                    <?php endforeach ?>
 
+                </div>
             </div>
+            <!-- Recent Posts Widget -->
+            <div class="recent-posts-widget widget-item d-sm-none d-block">
+
+                <?php foreach ($global_post_data as $value) : ?>
+                    <div class="post-item" data-aos="fade-up">
+                        <div class="" style="width: 100px; height: 100%;">
+                            <img src="<?= base_url('uploads/img/post/' . $value->foto) ?>" alt="" class="flex-shrink-0 .img-fluid">
+                        </div>
+                        <div>
+                            <h4><a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>"><?= $value->nama ?></a></h4>
+                            <time datetime="2020-01-01"><?= date_format(date_create($value->created_on), 'd M Y'); ?></time>
+                        </div>
+                    </div><!-- End recent post item-->
+                <?php endforeach ?>
+            </div><!--/Recent Posts Widget -->
 
         </div>
 
@@ -146,7 +163,7 @@
 
 
             function truncateContent(content, maxLength) {
-                if(content){
+                if (content) {
                     if (content.length > maxLength) {
                         return content.substring(0, maxLength) + '...';
                     } else {

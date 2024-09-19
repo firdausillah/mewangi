@@ -59,8 +59,8 @@
                         // Bangun HTML untuk setiap elemen
                         htmlContent += `
                             <div class="col">
-                                <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank">
-                                    <img src="<?= base_url('uploads/img/galeri/') ?>${element.foto}" class="card-img-top" alt="<?= base_url('uploads/img/galeri/') ?>${element.foto}">
+                                <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank" alt="${judul}>
+                                    <img src="<?= base_url('uploads/img/galeri/') ?>${element.foto}" class="card-img-top" alt="${judul}">
                                     <div class="card-body">
                                         <h5 class="card-title">${judul}</h5>
                                         <p class="card-text">${keterangan}</p>
@@ -71,9 +71,9 @@
                     }
 
                     $('#galeri-container').html(htmlContent);
-                    
+
                     let totalPages = Math.ceil(json.total_rows / json.rows_per_page);
-                    
+
                     $('#pagination').html('');
                     for (let i = 1; i <= totalPages; i++) {
                         $('#pagination').append(`

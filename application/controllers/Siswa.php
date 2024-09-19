@@ -34,23 +34,23 @@ class Siswa extends MY_Controller {
 		$nama = $_GET['nama']?$_GET['nama']:'';
 		$kelas = $_GET['kelas']?$_GET['kelas']:'';
 
-		if($nama != '' AND $kelas != ''){
-			$sql = 
-				"SELECT
-					id, nama, kelas, CONCAT(tempat_lahir,', ', tanggal_lahir) AS ttl, nisn
-				FROM
-					siswa
-				WHERE nama LIKE '%$nama%' AND kelas LIKE '%$kelas%'
-				"
-			;
-	
-			$data = $this->RawModel->sqlRaw($sql)->result_array();
-			echo json_encode(['data' => $data]);
+		$sql = 
+			"SELECT
+				id, nama, kelas, CONCAT(tempat_lahir,', ', tanggal_lahir) AS ttl, nisn
+			FROM
+				siswa
+			WHERE nama LIKE '%$nama%' AND kelas LIKE '%$kelas%'
+			"
+		;
+		// print_r($sql); exit();
+		$data = $this->RawModel->sqlRaw($sql)->result_array();
+		echo json_encode(['data' => $data]);
+		// if($nama != '' AND $kelas != ''){
 			
-		}else{
-			echo json_encode(['data' => '']);
+		// }else{
+		// 	echo json_encode(['data' => '']);
 			
-		}
+		// }
 		
 	}
 

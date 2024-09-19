@@ -6,7 +6,7 @@
             <div class="card-body p-3">
                 <form class="row g-3" onsubmit="return false">
                     <div class="col-md-6">
-                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <label for="nama" class="form-label">Nama Siswa</label>
                         <input type="text" class="form-control" name="nama" id="nama">
                     </div>
                     <div class="col-md-6">

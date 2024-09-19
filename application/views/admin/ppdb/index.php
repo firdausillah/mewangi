@@ -16,7 +16,7 @@
         <div class="tab-pane fade show active" id="navs-table-siswa-baru" role="tabpanel">
             <div class="d-flex justify-content-between">
                 <h5 class="my-auto"><?= $title ? $title : '' ?></h5>
-                <a href="<?= base_url('admin/ppdb?page=add') ?>" class="btn btn-sm btn-success my-auto">Tambah data</a>
+                <!-- <a href="<?= base_url('admin/ppdb?page=add') ?>" class="btn btn-sm btn-success my-auto">Tambah data</a> -->
             </div>
             <div class="table-responsive text-nowrap mt-2">
                 <table id="datatables_table" class="table table-hover">

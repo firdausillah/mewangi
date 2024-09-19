@@ -48,6 +48,8 @@ class Import_excel extends CI_Controller
                 ];
                 // echo $key;
                 if ($key >= 1) {
+                    // print_r($data);
+                    // exit();
 
                     if ($this->SiswaModel->add($data)) {
                         $this->session->set_flashdata('flash', 'Data berhasil dimasukan');
@@ -55,21 +57,6 @@ class Import_excel extends CI_Controller
                         $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
                         return;
                     }
-
-                    // $cek = $this->SiswaModel->findBy(['nik_siswa' => $data['nik_siswa']])->row();
-                    // if ($cek == null) {
-                    //     if ($this->SiswaModel->add($data)) {
-                    //         $this->session->set_flashdata('flash', 'Data berhasil dimasukan');
-                    //     } else {
-                    //         $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
-                    //     }
-                    // } else {
-                    //     if ($this->SiswaModel->update(['nik_siswa' => $data['nik_siswa']], $data)) {
-                    //         $this->session->set_flashdata('flash', 'Data berhasil diupdate');
-                    //     } else {
-                    //         $this->session->set_flashdata('flash', 'Oops! Terjadi suatu kesalahan');
-                    //     }
-                    // }
                 }
 
             }

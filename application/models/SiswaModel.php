@@ -1,31 +1,51 @@
 <?php
- class SiswaModel extends CI_Model{
+class SiswaModel extends CI_Model
+{
 
 	function __construct()
 	{
 		parent::__construct();
 	}
- 	
- 	function get(){
- 		return $this->db->get('siswa');
- 	}
 
- 	function findBy($id){
- 		$this->db->where($id);
- 		return $this->db->get('siswa');
- 	}
+	function add_additional()
+	{
+		$user_id = $_SESSION['id'];
+		date_default_timezone_set('Asia/Jakarta');
+		return $data = [
+			'created_by' => $user_id,
+			'created_on' => date('Y-m-d H:i:s')
+		];
+	}
 
- 	function add($data){
- 		return $this->db->insert('siswa',$data);
- 	}
- 	
- 	function update($id,$data){
- 		$this->db->where($id);
- 		return $this->db->update('siswa',$data);
- 	}
+	function get()
+	{
+		$this->db->order_by("siswa.created_on", "desc");
+		return $this->db->get('siswa');
+	}
 
- 	function delete($id){
- 		$this->db->where($id);
- 		return $this->db->delete('siswa');
- 	}
- }
+
+	function findBy($id)
+	{
+		$this->db->where($id);
+		$this->db->order_by("siswa.created_on", "desc");
+		return $this->db->get('siswa');
+	}
+
+	function add($data)
+	{
+		$additional_data = $this->add_additional();
+		return $this->db->insert('siswa', $additional_data + $data);
+	}
+
+	function update($id, $data)
+	{
+		$this->db->where($id);
+		return $this->db->update('siswa', $data);
+	}
+
+	function delete($id)
+	{
+		$this->db->where($id);
+		return $this->db->delete('siswa');
+	}
+}

@@ -58,11 +58,10 @@ class Siswa extends MY_Controller
         $data = [
             'is_active' => 1,
             'nama'  => $this->input->post('nama'),
-            'link'  => $this->input->post('link'),
-            'urutan'  => $this->input->post('urutan'),
-            'is_tampil'  => $this->input->post('is_tampil'),
-            'keterangan'  => $this->input->post('keterangan'),
-            'foto'  => $foto,
+            'nisn'  => $this->input->post('nisn'),
+            'tempat_lahir'  => $this->input->post('tempat_lahir'),
+            'tanggal_lahir'  => $this->input->post('tanggal_lahir'),
+            'kelas'  => $this->input->post('kelas')
         ];
 
 

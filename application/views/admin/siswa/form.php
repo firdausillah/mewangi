@@ -3,50 +3,29 @@
         <h5 class="mb-0"><?= $title ? $title : '' ?></h5>
     </div>
     <div class="card-body">
-        <?= form_open_multipart(base_url('admin/banner/save')) ?>
-        <input type="hidden" name="id" value="<?= @$banner->id ?>">
+        <?= form_open_multipart(base_url('admin/siswa/save')) ?>
+        <input type="hidden" name="id" value="<?= @$siswa->id ?>">
         <div class="mb-3">
-            <label class="form-label" for="nama">judul <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$banner->nama ?>" required>
+            <label class="form-label" for="nama">nama <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$siswa->nama ?>" required>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="urutan">urutan tampil di web</label>
-            <input type="number" class="form-control" name="urutan" id="urutan" value="<?= @$banner->urutan ?>">
-            <small>urut dari yang terkecil</small>
+            <label class="form-label" for="nisn">nisn</label>
+            <input type="text" class="form-control" name="nisn" id="nisn" value="<?= @$siswa->nisn ?>">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="is_tampil">tampilkan judul</label>
-            <select name="is_tampil" id="is_tampil" class="form-control">
-                <option value="">--Pilih--</option>
-                <option value="1" <?= @$banner->is_tampil == '1' ? 'selected' : '' ?>>Ya</option>
-                <option value="0" <?= @$banner->is_tampil == '0' ? 'selected' : '' ?>>Tidak</option>
-            </select>
+            <label class="form-label" for="tempat_lahir">tempat lahir</label>
+            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" value="<?= @$siswa->tempat_lahir ?>">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
-            <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?= @$banner->keterangan ?></textarea>
+            <label class="form-label" for="tanggal_lahir">tanggal lahir</label>
+            <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="<?= @$siswa->tanggal_lahir ?>">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="link">link</label>
-            <input type="text" class="form-control" name="link" id="link" value="<?= @$banner->link ?>">
-            <small>lengkap dengan http://. contoh. https://www.google.com/</small>
+            <label class="form-label" for="kelas">kelas</label>
+            <input type="text" class="form-control" name="kelas" id="kelas" value="<?= @$siswa->kelas ?>">
         </div>
-        <div class="mb-3">
-            <label class="form-label" for="foto">Foto</label>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group input-group-merge">
-                        <input class="form-control foto" type="file" name="foto">
-                    </div>
-                    <input type="hidden" class="form-control foto" type="input" name="file_foto" id="file_foto">
-                    <input type="hidden" class="form-control" value="<?= @$banner->foto ?>" name="gambar">
-                </div>
-                <div class="col-md-6">
-                    <img src="<?= base_url('uploads/img/banner/' . @$banner->foto) ?>" height="200px" alt="">
-                </div>
-            </div>
-        </div>
-        <a href="<?= base_url('admin/banner/') ?>" class="btn btn-secondary">Batal</a>
+        <a href="<?= base_url('admin/siswa/') ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

@@ -28,7 +28,7 @@ class Ppdb extends MY_Controller
             $data = [
                 'title' => 'Banner',
                 $this->defaultVariable => $this->defaultModel->get()->result(),
-                'content' => $this->url_index . '/table'
+                'content' => $this->url_index . '/index'
             ];
 
             $this->load->view('layout_admin/base', $data);

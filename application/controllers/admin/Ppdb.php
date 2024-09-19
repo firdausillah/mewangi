@@ -9,7 +9,7 @@ class Ppdb extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Siswa_baruModel', 'defaultModel');
+        $this->load->model('Siswa_baruModel');
         $this->load->model('RawModel');
         $this->load->helper('slug');
         $this->load->helper('upload_file');
@@ -27,7 +27,7 @@ class Ppdb extends MY_Controller
         if ($page == 'index') {
             $data = [
                 'title' => 'Banner',
-                $this->defaultVariable => $this->defaultModel->get()->result(),
+                // 'siswa_baru' => $this->Siswa_baruModel->get()->result(),
                 'content' => $this->url_index . '/index'
             ];
 

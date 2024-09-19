@@ -33,6 +33,7 @@
 <script>
     $(document).ready(function() {
         var keterangan
+
         filter_url_based()
 
         const lightbox = GLightbox({
@@ -55,12 +56,13 @@
                         const element = json.data[i]; // Ambil data dari JSON
                         judul = truncateContent(element.nama, 20);
                         keterangan = truncateContent(element.keterangan, 50);
+                        var base_url = "<?= base_url('uploads/img/galeri/') ?>";
 
                         // Bangun HTML untuk setiap elemen
                         htmlContent += `
                             <div class="col">
-                                <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank" alt="${judul}>
-                                    <img src="<?= base_url('uploads/img/galeri/') ?>${element.foto}" class="card-img-top" alt="${judul}">
+                                <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank">
+                                    <img src="${base_url+element.foto}" class="card-img-top" alt="${judul}">
                                     <div class="card-body">
                                         <h5 class="card-title">${judul}</h5>
                                         <p class="card-text">${keterangan}</p>

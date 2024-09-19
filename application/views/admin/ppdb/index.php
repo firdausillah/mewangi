@@ -23,31 +23,14 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Judul</th>
+                            <th>Nama</th>
                             <th>Keterangan</th>
                             <th>link</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <?php foreach ($siswa_baru as $index => $item) : ?>
-                            <tr>
-                                <td><?= $index + 1 ?></td>
-                                <td><?= substr($item->nama, 0, 30) . '...' ?></td>
-                                <td><?= substr($item->keterangan, 0, 30) . '...' ?></td>
-                                <td>
-                                    <?php if ($item->is_file) : ?>
-                                        <a href="<?= base_url('uploads/file/ppdb/' . $item->file) ?>" target="_blank" class="text-black"><span class="text-info">ppdb</span></a>
-                                    <?php else : ?>
-                                        <a href="<?= $item->link ?>" target="_blank" class="text-black"><span class="text-info">Link</span></a>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <a class="text-info" href="<?= base_url('admin/ppdb?page=edit&id=' . $item->id) ?>"><i class="bx bx-edit-alt me-1"></i></a>
-                                    <a class="text-danger" href="#" onclick="confirmDelete('<?= base_url('admin/ppdb/delete/' . $item->id) ?>')"><i class="bx bx-trash me-1"></i></a>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
+
                     </tbody>
                 </table>
             </div>

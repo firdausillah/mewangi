@@ -69,23 +69,35 @@ class Download extends MY_Controller
 
     public function save_file($file, $slug, $folderPath)
     {
-        if (!empty($file)) { // $_FILES untuk mengambil data file
-            $cfg = [
-                'upload_path' => $folderPath,
-                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk',
-                'file_name' => $slug,
-                'overwrite' => (empty($file) ? FALSE : TRUE),
-                // 'max_size' => '2028',
+        if (!empty($file)) { // Mengambil data file dari $_FILES
+            // Periksa apakah jalur folder ada dan bisa ditulis
+            if (!is_dir($folderPath) || !is_writable($folderPath)) {
+                exit('Error: Folder tidak ada atau tidak memiliki izin tulis.');
+            }
+
+            $config = [
+                'upload_path'   => $folderPath,
+                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk',  // Jenis file yang diizinkan
+                'file_name'     => $slug,
+                'overwrite'     => TRUE,  // Menimpa file jika ada file dengan nama sama
+                'max_size'      => 20480,  // Batas ukuran file dalam KB (misalnya 20 MB)
             ];
-            $this->load->library('upload', $cfg);
+
+            $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('file')) {
-                return $file_name = $this->upload->data('file_name');
+                // Jika berhasil diunggah, kembalikan nama file
+                return $this->upload->data('file_name');
             } else {
-                exit('Error : ' . $this->upload->display_errors());
+                // Tampilkan error saat upload gagal
+                exit('Error: ' . $this->upload->display_errors());
             }
+        } else {
+            // Jika tidak ada file yang diunggah
+            exit('Error: Tidak ada file yang diunggah.');
         }
     }
+
 
     public function save()
     {

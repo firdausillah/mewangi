@@ -31,17 +31,39 @@
                         </div><!-- End post content -->
 
                         <div class="meta-bottom">
-                            <i class="bi bi-folder"></i>
-                            <ul class="cats">
-                                <li><a href="<?= base_url('post?category=' . $post->category_nama) ?>"><?= $post->category_nama ?></a></li>
-                            </ul>
+                            <div>
+                                <i class="bi bi-folder"></i>
+                                <ul class="cats">
+                                    <li><a href="<?= base_url('post?category=' . $post->category_nama) ?>"><?= $post->category_nama ?></a></li>
+                                </ul>
 
-                            <i class="bi bi-tags"></i>
-                            <ul class="tags">
-                                <?php foreach(explode(', ', $post->tags_t_nama) as $value): ?>
-                                <li><a href="<?= base_url('post?tag=' . $value) ?>"><?= $value ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
+                                <i class="bi bi-tags"></i>
+                                <ul class="tags">
+                                    <?php foreach (explode(', ', $post->tags_t_nama) as $value) : ?>
+                                        <li><a href="<?= base_url('post?tag=' . $value) ?>"><?= $value ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                            <div class="d-flex text-secondary mt-1">
+                                <h7>Share : </h7>
+                                <ul class="share-buttons d-flex gap-2">
+                                    <li class="share-list">
+                                        <a href="https://www.facebook.com/sharer.php?u=<?= base_url(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) ?>" target="_blank">
+                                            <i class="bi bi-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="share-list">
+                                        <a href="https://twitter.com/intent/tweet?text=<?= $post->nama ?>&url=<?= base_url(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) ?>" target="_blank">
+                                            <i class="bi bi-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="share-list">
+                                        <a href="https://api.whatsapp.com/send?text=<?= $post->nama ?>%20<?= base_url(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) ?>" target="_blank">
+                                            <i class="bi bi-whatsapp"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div><!-- End meta bottom -->
 
                     </article>

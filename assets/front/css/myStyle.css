@@ -52,6 +52,16 @@
     margin-bottom: 30px;
 }
 
+.share-buttons{
+    list-style: none;
+    padding-left: 0;
+}
+
+.share-list{
+    list-style: none;
+    padding: 0 4px;
+}
+
 @media (min-width: 576px) {
     .recent-posts .post-box {
         transition: 0.3s;

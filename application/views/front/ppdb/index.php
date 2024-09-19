@@ -4,6 +4,9 @@
     <div class="container">
         <div class="card w-100 mb-3 border-0 shadow">
             <div class="card-body p-3">
+                <div class="text-center mb-4">
+                    <h4>Formulir Pendaftaran</h4>
+                </div>
                 <form class="row g-3" onsubmit="return false">
                     <div class="col-md-6">
                         <label for="nama" class="form-label">Nama Lengkap</label>

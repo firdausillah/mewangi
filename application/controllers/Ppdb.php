@@ -8,6 +8,8 @@ class Ppdb extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Siswa_baruModel');
+		$this->load->model('ProfileModel');
+		$this->load->model('PpdbModel');
 	}
 
 	public function index()
@@ -15,6 +17,7 @@ class Ppdb extends MY_Controller
 		
 		$data = [
 			'title' => 'PPDB',
+			'ppdb_setting' => $this->PpdbModel->findBy(['id' => 1])->row(),
 			'content' => 'front/ppdb/index'
 		];
 
@@ -24,6 +27,7 @@ class Ppdb extends MY_Controller
 	public function save()
 	{
 		$jumlah_hafalan = '';
+		$ppdb_setting = $this->PpdbModel->findBy(['id'=> 1])->row();
 		if(isset($_POST['jumlah_hafalan']))
 		foreach ($_POST['jumlah_hafalan'] as $key => $value) {
 			$separator = ($jumlah_hafalan == '' ? '' : ', ');
@@ -65,10 +69,11 @@ class Ppdb extends MY_Controller
 			'kecamatan_wali'		=> $this->input->post('kecamatan_wali'),
 			'kabupaten_wali'		=> $this->input->post('kabupaten_wali'),
 			'provinsi_wali'		=> $this->input->post('provinsi_wali'),
+			'tahun_ajaran'		=> $ppdb_setting->tahun_ajaran
 		];
 
 		if ($this->Siswa_baruModel->add($data)) {
-			$this->session->set_flashdata(['status' => 'success', 'message' => 'Anda berhasil mendaftar']);
+			$this->session->set_flashdata(['status' => 'success', 'message' => 'Anda berhasil mendaftar di' . $profile->nama_sekolah]);
 			redirect(base_url('ppdb'));
 		}
 		exit($this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan, silahkan menghubungi admin']));

@@ -4,6 +4,9 @@
     <div class="container">
         <div class="card w-100 mb-3 border-0 shadow">
             <div class="card-body p-3">
+                <?php 
+                    if(date('Y-m-d') >= $ppdb_setting->tanggal_buka && date('Y-m-d') <= $ppdb_setting->tanggal_tutup) :
+                ?>
                 <div class="text-center mb-4">
                     <h4>Formulir Pendaftaran</h4>
                 </div>
@@ -421,6 +424,11 @@
 
                     </div>
                 </form>
+                <?php else: ?>
+                <div class="text-center mb-4">
+                    <h4>Pendaftaran Belum Dibuka</h4>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
 

@@ -19,3 +19,16 @@
       responsive: true
    });
  }) 
+
+
+const flashData = $('.flash-data').data('flashdata');
+const flashDataStatus = $('.flash-data').data('fdstatus');
+
+if (flashData) {
+    Swal.fire({
+        icon: flashDataStatus,
+        title: flashDataStatus,
+        text: flashData,
+        timer: 2000
+    });
+}

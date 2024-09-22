@@ -39,6 +39,7 @@
 </head>
 
 <body class="index-page">
+  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message') ?>" data-fdstatus="<?= $this->session->flashdata('status') ?>"></div>
 
   <?php $this->load->view('layout_front/header') ?>
 
@@ -64,11 +65,13 @@
   <script src="<?= base_url() ?>assets/front/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?= base_url() ?>assets/front/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="<?= base_url() ?>assets/front/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/sweetalert2.all.min.js"></script>
 
 
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/front/js/main.js"></script>
   <script src="<?= base_url() ?>assets/front/js/myScript.js"></script>
+
 
   <script src="<?= base_url() ?>assets/front/js/fontawesome.js"></script>
 </body>

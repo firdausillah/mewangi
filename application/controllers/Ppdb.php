@@ -24,6 +24,18 @@ class Ppdb extends MY_Controller
 		$this->load->view('layout_front/base', $data);
 	}
 
+	public function informasi()
+	{
+		
+		$data = [
+			'title' => 'Informasi PPDB',
+			'ppdb_setting' => $this->PpdbModel->findBy(['id' => 1])->row(),
+			'content' => 'front/ppdb/informasi'
+		];
+
+		$this->load->view('layout_front/base', $data);
+	}
+
 	public function save()
 	{
 		$jumlah_hafalan = '';

@@ -41,7 +41,7 @@
                   </li>
                   <li class="dropdown"><a href="#"><span>PPDB</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>
-                          <li><a href="<?= base_url('') ?>">Brosur & Juknis</a></li>
+                          <li><a href="<?= base_url('ppdb/informasi') ?>">Brosur & Juknis</a></li>
                           <li><a href="<?= base_url('ppdb') ?>">Daftar</a></li>
                       </ul>
                   </li>

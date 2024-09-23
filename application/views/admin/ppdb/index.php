@@ -57,7 +57,11 @@
                 <input type="text" class="form-control" name="link" id="link" value="<?= @$ppdb_setting->link ?>" required>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="foto">Poster</label>
+                <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
+                <textarea name="keterangan" id="keterangan" cols="30" rows="10"><?= @$ppdb_setting->keterangan ?></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="foto">Brosur</label>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group input-group-merge">
@@ -92,6 +96,8 @@
 
     </div>
 </div>
+
+<script src="<?= base_url(); ?>assets/js/ckeditor.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -199,4 +205,16 @@
             }
         });
     }
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#keterangan'), {
+            // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(err => {
+            console.error(err.stack);
+        });
 </script>

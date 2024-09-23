@@ -234,6 +234,7 @@ class Ppdb extends MY_Controller
             'tanggal_buka'  => $this->input->post('tanggal_buka'),
             'tanggal_tutup'  => $this->input->post('tanggal_tutup'),
             'tahun_ajaran'  => $this->input->post('tahun_ajaran'),
+            'keterangan'  => $this->input->post('keterangan'),
             'link'  => $this->input->post('link'),
             'foto'  => $foto,
             'file'  => $file_name

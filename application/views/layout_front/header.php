@@ -12,7 +12,12 @@
           <nav id="navmenu" class="navmenu">
               <ul>
                   <li><a href="<?= base_url() ?>">Beranda<br></a></li>
-                  <li><a href="<?= base_url('post') ?>">Post</a></li>
+                  <li class="dropdown"><a href="#"><span>Post</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                      <ul>
+                          <li><a href="<?= base_url('post') ?>">Berita & Artikel</a></li>
+                          <li><a href="<?= base_url('mercure') ?>">Mercure Magazine</a></li>
+                      </ul>
+                  </li>
                   <li><a href="<?= base_url('galeri') ?>">Galeri</a></li>
                   <li><a href="<?= base_url('download') ?>">Download</a></li>
                   <li class="dropdown"><a href="#"><span>Akademik</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>

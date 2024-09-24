@@ -35,8 +35,8 @@
                                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                         <?= $ppdb_setting->keterangan ?>
-                                        <div class="row mt-3">
-                                            <div class="col-md-6">
+                                        <div class="row mt-3 d-flex gap-2">
+                                            <div class="col-sm-6">
                                                 <a class="d-flex flex-row gap-2" href="<?= $ppdb_setting->link ?>" target="_blank">
                                                     <div class="bg-info text-white p-1 rounded-circle d-flex" style="width: 25px; height: 25px;">
                                                         <i class="bi bi-cloud-download self-center m-auto" style="font-size: small;"></i>
@@ -44,7 +44,7 @@
                                                     Link Juknis
                                                 </a>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-sm-6">
                                                 <a class="d-flex flex-row gap-2" href="<?= base_url('uploads/file/ppdb_setting/' . $ppdb_setting->file) ?>" target="_blank">
                                                     <div class="bg-info text-white p-1 rounded-circle d-flex" style="width: 25px; height: 25px;">
                                                         <i class="bi bi-cloud-download self-center m-auto" style="font-size: small;"></i>
@@ -63,6 +63,26 @@
 
                 </div>
             </section><!-- /Blog Details Section -->
+
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button> -->
+
+            <!-- Modal -->
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, illum.</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"> -->
+                            <!-- <iframe src="https://heyzine.com/flip-book/2c39e49975.html" width="100%" height="600px"></iframe> -->
+                        <!-- </div>
+                    </div>
+                </div>
+            </div> -->
 
 
         </div>

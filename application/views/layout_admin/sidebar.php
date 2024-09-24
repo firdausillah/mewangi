@@ -32,10 +32,22 @@
                     </li>
                     <!-- Post -->
                     <li class="menu-item">
-                        <a href="<?= base_url() ?>admin/posts" class="menu-link">
+                        <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-news"></i>
-                            <div data-i18n="Analytics">Post</div>
+                            <div data-i18n="Post">Post</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/posts" class="menu-link">
+                                    <div data-i18n="posts">Post</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="<?= base_url() ?>admin/magazine" class="menu-link">
+                                    <div data-i18n="magazine">Mercure</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- Master -->
                     <li class="menu-item">

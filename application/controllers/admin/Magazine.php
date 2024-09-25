@@ -26,7 +26,7 @@ class Magazine extends MY_Controller
 
         if ($page == 'index') {
             $data = [
-                'title' => 'Post',
+                'title' => 'Mercure',
                 $this->defaultVariable => $this->defaultModel->get()->result(),
                 'content' => $this->url_index . '/table'
             ];
@@ -35,7 +35,6 @@ class Magazine extends MY_Controller
         } else if ($page == 'add') {
             $data = [
                 'title' => 'Tambah Data',
-                'post_category' => $this->Post_categoryModel->get()->result(),
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/hd_cropper',
                 'aspect' => '3/4'
@@ -55,6 +54,12 @@ class Magazine extends MY_Controller
 
             $this->load->view('layout_admin/base', $data);
         }
+    }
+
+
+    public function getMagazine()
+    {
+        echo json_encode(['data' => $this->defaultModel->get()->result()]);
     }
 
     public function save()
@@ -84,35 +89,23 @@ class Magazine extends MY_Controller
             'is_active'         => 1,
             'nama'              => $this->input->post('nama'),
             'link'              => $this->input->post('link'),
+            'keterangan'        => $this->input->post('keterangan'),
             'foto'              => $foto
         ];
-
-        if($this->input->post('tags')){
-            $tags = explode(',',$this->input->post('tags'));
-        }
 
         // exit();
 
         if (empty($id)) {
             unset($id);
-            $id_post = $this->defaultModel->add($data);
-            if ($id_post) {
-                $this->TagModel->delete(['id_post' => $id_post]);
-                foreach ($tags AS $value) {
-                    $this->TagModel->add(['id_post' => $id_post, 'nama' => $value]);
-                }
+            if ($this->defaultModel->add($data)) {
                 $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dimasukan']);
-                redirect($this->url_index);
+                redirect(base_url($this->url_index));
             }
             exit($this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']));
         } else {
             if ($this->defaultModel->update(['id' => $id], $data)) {
-                $this->TagModel->delete(['id_post' => $id]);
-                foreach ($tags AS $value) {
-                    $this->TagModel->add(['id_post' => $id, 'nama' => $value]);
-                }
                 $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil diupdate']);
-                redirect($this->url_index);
+                redirect(base_url($this->url_index));
             }
             exit($this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']));
         }

@@ -5,7 +5,7 @@ class Mercure extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('MercureModel');
+		$this->load->model('MagazineModel');
 		$this->load->model('RawModel');
 	}
 
@@ -21,7 +21,7 @@ class Mercure extends MY_Controller {
 
 	public function getMagazine($id)
 	{
-		echo json_encode($this->MercureModel->findBy(['id' => $id])->row());
+		echo json_encode($this->MagazineModel->findBy(['id' => $id])->row());
 	}
 
 }

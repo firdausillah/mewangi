@@ -1,5 +1,5 @@
 <?php
-class MercureModel extends CI_Model
+class MagazineModel extends CI_Model
 {
 
 	function __construct()
@@ -19,32 +19,32 @@ class MercureModel extends CI_Model
 
 	function get()
 	{
-		$this->db->order_by("galeri.created_on", "desc");
-		return $this->db->get('galeri');
+		$this->db->order_by("magazine.created_on", "desc");
+		return $this->db->get('magazine');
 	}
 
 	function findBy($id)
 	{
 		$this->db->where($id);
-		$this->db->order_by("galeri.created_on", "desc");
-		return $this->db->get('galeri');
+		$this->db->order_by("magazine.created_on", "desc");
+		return $this->db->get('magazine');
 	}
 
 	function add($data)
 	{
 		$additional_data = $this->add_additional();
-		return $this->db->insert('galeri', $additional_data + $data);
+		return $this->db->insert('magazine', $additional_data + $data);
 	}
 
 	function update($id, $data)
 	{
 		$this->db->where($id);
-		return $this->db->update('galeri', $data);
+		return $this->db->update('magazine', $data);
 	}
 
 	function delete($id)
 	{
 		$this->db->where($id);
-		return $this->db->delete('galeri');
+		return $this->db->delete('magazine');
 	}
 }

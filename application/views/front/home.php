@@ -116,6 +116,13 @@
             var intervalID;
 
             // Fungsi untuk mengganti gambar dengan animasi fade
+            console.log(images)
+            console.log(title)
+            console.log(keterangan)
+            console.log(title2)
+            console.log(keterangan2)
+            console.log(link)
+
             function changeImage(index) {
                 $('#displayed-image').fadeOut(300, function() {
                     $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).fadeIn(300);
@@ -124,7 +131,7 @@
                 $('#title').html(title[index]);
                 $('#keterangan').html(keterangan[index]);
                 $('#title2').html(title2[index]);
-                $('#keterangan2').html(truncateContent(keterangan2[index], 50));
+                $('#keterangan2').html(keterangan2[index] !== "undefined" && keterangan2[index] !== null && keterangan2[index] !== "" ? truncateContent(keterangan2[index], 50) : " ");
                 $('#link').attr('href', link[index]);
             }
 

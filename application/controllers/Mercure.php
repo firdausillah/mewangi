@@ -19,9 +19,14 @@ class Mercure extends MY_Controller {
 
 	}
 
-	public function getMagazine($id)
+	public function getMagazine()
 	{
-		echo json_encode($this->MagazineModel->findBy(['id' => $id])->row());
+		echo json_encode(['data' => $this->MagazineModel->get()->result_array()]);
+	}
+
+	public function getMagazineBy($id)
+	{
+		echo json_encode(['data' => $this->MagazineModel->findBy(['id' => $id])->row()]);
 	}
 
 }

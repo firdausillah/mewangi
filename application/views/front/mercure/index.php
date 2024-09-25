@@ -109,12 +109,13 @@
     </div>
 </div>
 
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="modalBook" tabindex="-1" aria-labelledby="modalBookLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="modalBookLabel"></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -133,7 +134,7 @@
 
 
     function filter_url_based() {
-        var url = '<?= base_url('post/getPost') ?>' + location.search;
+        var url = '<?= base_url('mercure/getMagazine') ?>' + location.search;
 
         $.ajax({
             url: url,
@@ -147,13 +148,13 @@
 
                         // Bangun HTML untuk setiap elemen
                         htmlContent += `
-                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-lg-3 col-sm-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                                 <div class="team-member">
                                     <div class="member-img">
-                                        <img src="<?= base_url('uploads/img/post/') ?>${element.foto}" class="img-fluid" alt="">
+                                        <img src="<?= base_url('uploads/img/magazine/') ?>${element.foto}" class="img-fluid" alt="">
                                     </div>
                                     <div class="member-info">
-                                        <h5><a class="text-dark" href="#" onClick="get_magazine(${element.id})">${element.nama}</a></h5>
+                                        <h5><a class="text-dark" href="#" onClick="getMagazineBy(${element.id})">${element.nama}</a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -193,29 +194,17 @@
 
     }
 
-    function get_magazine(id) {
+    function getMagazineBy(id) {
+        var url = '<?= base_url('mercure/getMagazineBy/') ?>' + id;
+
         $.ajax({
-            url: <?= base_url('mercure/getMagazine/') ?> + id,
+            url: url,
             dataType: 'json',
             success: function(json) {
                 if (json.data.length != 0) {
-                    // let htmlContent = ''; // Buat variabel untuk menyimpan HTML yang akan dibentuk
-                    // htmlContent += `
-                    //         <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    //             <div class="team-member">
-                    //                 <div class="member-img">
-                    //                     <img src="<?= base_url('uploads/img/post/') ?>${element.foto}" class="img-fluid" alt="">
-                    //                 </div>
-                    //                 <div class="member-info">
-                    //                     <h5><a class="text-dark" href="#" onClick="get_magazine(${element.id})">${element.nama}</a></h5>
-                    //                 </div>
-                    //             </div>
-                    //         </div>
-                    //     `;
-
-                    // $('#content').html(htmlContent);
-
-                    console.log(json.data);
+                    $('#book_content').attr("src", json.data.link);
+                    $('#modalBookLabel').html(json.data.nama);
+                    $('#modalBook').modal('show');
 
                 }
             }

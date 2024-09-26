@@ -33,9 +33,7 @@ class Ppdb extends MY_Controller
             $data = [
                 'title' => 'Siswa Baru',
                 'ppdb_setting' => $this->PpdbModel->findBy(['id' => 1])->row(),
-                'content' => $this->url_index . '/index',
-                'cropper' => 'components/hd_cropper',
-                'aspect' => '3/4',
+                'content' => $this->url_index . '/index'
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -177,14 +175,14 @@ class Ppdb extends MY_Controller
         if (!empty($file)) { // $_FILES untuk mengambil data file
             $cfg = [
                 'upload_path' => $folderPath,
-                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk',
+                'allowed_types' => 'jpg|jpeg|gif|png|pdf|doc|docx|xls|xlsx|ppt|pptx|apk',
                 'file_name' => $slug,
                 'overwrite' => (empty($file) ? FALSE : TRUE),
                 // 'max_size' => '2028',
             ];
             $this->load->library('upload', $cfg);
 
-            if ($this->upload->do_upload('file')) {
+            if ($this->upload->do_upload('file') || $this->upload->do_upload('foto')) {
                 return $file_name = $this->upload->data('file_name');
             } else {
                 exit('Error : ' . $this->upload->display_errors());
@@ -207,12 +205,14 @@ class Ppdb extends MY_Controller
             $slug_file = explode('.', $this->input->post('file_name'))[0];
         }
 
-        $file_foto = $this->input->post('file_foto');
+        $file_foto = (isset($_FILES['foto']) ? $_FILES['foto'] : $file_foto['name'] = false);;
+        // $file_foto = $this->input->post('foto');
+        // print_r($file_foto); exit();
         $folderPath = './uploads/img/ppdb_setting/';
         $foto = ($this->input->post('gambar') ? $this->input->post('gambar') : $slug); //jika upload berhasil akan di replace oleh function save_foto()
 
-        if ($file_foto) {
-            $foto = save_foto(
+        if ($file_foto['name'] != null) {
+            $foto = $this->save_file(
                 $file_foto,
                 $slug,
                 $folderPath

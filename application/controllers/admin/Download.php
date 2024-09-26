@@ -77,7 +77,7 @@ class Download extends MY_Controller
 
             $config = [
                 'upload_path'   => $folderPath,
-                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk',  // Jenis file yang diizinkan
+                'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk|exe',  // Jenis file yang diizinkan
                 'file_name'     => $slug,
                 'overwrite'     => TRUE,  // Menimpa file jika ada file dengan nama sama
                 'max_size'      => 20480,  // Batas ukuran file dalam KB (misalnya 20 MB)

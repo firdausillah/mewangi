@@ -80,7 +80,7 @@ class Profile extends MY_Controller
             'nama_kepalasekolah' => $this->input->post('nama_kepalasekolah'),
             'foto' => $file_name,
             'alamat' => $this->input->post('alamat'),
-            'tahun_ajaran' => $this->input->post('tahun_ajaran'),
+            'email' => $this->input->post('email'),
             'cp_1' => $this->input->post('cp_1'),
             'cp_2' => $this->input->post('cp_2'),
             'facebook' => $this->input->post('facebook'),

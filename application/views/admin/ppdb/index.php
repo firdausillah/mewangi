@@ -67,7 +67,7 @@
                         <div class="input-group input-group-merge">
                             <input class="form-control foto" type="file" name="foto">
                         </div>
-                        <input type="hidden" class="form-control foto" type="input" name="file_foto" id="file_foto">
+                        <!-- <input type="hidden" class="form-control foto" type="input" name="file_foto" id="file_foto"> -->
                         <input type="hidden" class="form-control" value="<?= @$ppdb_setting->foto ?>" name="gambar">
                     </div>
                     <div class="col-md-6">

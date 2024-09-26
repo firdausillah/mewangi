@@ -34,10 +34,10 @@
             <label class="form-label" for="alamat">alamat</label>
             <input type="text" class="form-control" name="alamat" id="alamat" value="<?= @$profile->alamat ?>">
         </div>
-        <!-- <div class="mb-3">
-            <label class="form-label" for="tahun_ajaran">tahun ajaran <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="tahun_ajaran" id="tahun_ajaran" value="<?= @$profile->tahun_ajaran ?>" required>
-        </div> -->
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" value="<?= @$profile->email ?>" required>
+        </div>
         <div class="mb-3">
             <label class="form-label" for="cp_1">contact Person 1</label>
             <input type="text" class="form-control" name="cp_1" id="cp_1" value="<?= @$profile->cp_1 ?>">

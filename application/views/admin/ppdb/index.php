@@ -164,8 +164,8 @@
                 {
                     data: 'id',
                     render: function(data, type, row) {
-                        return `<a class="text-info" href="<?= base_url('admin/posts/?page=edit&id=') ?>` + data + `"><i class="bx bx-edit-alt me-1"></i></a>
-                        <a class="text-danger" href="#" onclick="confirmDelete('<?= base_url('admin/posts/delete/') ?>` + data + `')"><i class="bx bx-trash me-1"></i></a>`
+                        return `<a class="text-info" href="<?= base_url('admin/ppdb?page=detail&id=') ?>` + data + `"><i class='bx bxs-comment-detail'></i></a>
+                        <a class="text-danger" href="#" onclick="confirmDelete('<?= base_url('admin/ppdb/nonaktif/') ?>` + data + `')"><i class="bx bx-trash me-1"></i></a>`
                     }
                 }
             ],

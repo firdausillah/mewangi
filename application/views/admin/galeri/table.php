@@ -11,6 +11,7 @@
                     <th>No.</th>
                     <th>Judul</th>
                     <th>Keterangan</th>
+                    <th>Tipe Galeri</th>
                     <th>link</th>
                     <th>Image</th>
                     <th>Actions</th>
@@ -20,9 +21,10 @@
                 <?php foreach ($galeri as $index => $item) : ?>
                     <tr>
                         <td><?= $index + 1 ?></td>
-                        <td><?= substr($item->nama, 0, 30) . '...' ?></td>
+                        <td><?= substr($item->nama, 0, 30) . '...' . $item->is_video ?></td>
                         <td><?= substr($item->keterangan, 0, 30) . '...' ?></td>
-                        <td><?= substr($item->link, 0, 30) . '...' ?></td>
+                        <td><?= $item->is_video==1?"Video":"Foto" ?></td>
+                        <td><a href="<?= $item->link ?>" target="_blank"><?= substr($item->link, 0, 30) . '...' ?></a></td>
                         <td>
                             <img src="<?= base_url('uploads/img/galeri/' . @$item->foto) ?>" height="100px" alt=""><img src="<?= $item->foto ?>" alt="">
                         </td>

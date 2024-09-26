@@ -13,9 +13,9 @@ class Galeri extends MY_Controller
 
 	public function index()
 	{
-
+		$is_video = $_GET['type'];
 		$data = [
-			'title' => 'Galeri',
+			'title' => 'Galeri '.$is_video,
 			'content' => 'front/galeri/index'
 		];
 
@@ -25,15 +25,15 @@ class Galeri extends MY_Controller
 
 	public function getGaleri()
 	{
-
+		$is_video = ($_GET['type']=='foto'?0:1);
 		if (isset($_GET['q'])) {
-			$where = 'WHERE galeri.nama LIKE "%' . $_GET['q'] . '%" OR galeri.content LIKE "%' . $_GET['q'] . '%"';
+			$where = 'WHERE galeri.is_video = '.$is_video.' galeri.nama LIKE "%' . $_GET['q'] . '%" OR galeri.content LIKE "%' . $_GET['q'] . '%"';
 		} elseif (isset($_GET['category'])) {
-			$where = 'WHERE post_category.nama LIKE "%' . $_GET['category'] . '%"';
+			$where = 'WHERE galeri.is_video = '.$is_video.' post_category.nama LIKE "%' . $_GET['category'] . '%"';
 		} elseif (isset($_GET['tag'])) {
-			$where = 'WHERE tags_t.nama LIKE "%' . $_GET['tag'] . '%"';
+			$where = 'WHERE galeri.is_video = '.$is_video.' tags_t.nama LIKE "%' . $_GET['tag'] . '%"';
 		} else {
-			$where = '';
+			$where = 'WHERE galeri.is_video = '.$is_video;
 		}
 
 		if (isset($_GET['page'])) {
@@ -60,6 +60,10 @@ class Galeri extends MY_Controller
 				galeri.foto,
 				galeri.link,
 				galeri.keterangan,
+				CASE
+					WHEN galeri.is_video = 1 THEN 'Video'
+					ELSE 'Foto'
+				END AS is_video,
 				DATE_FORMAT(galeri.created_on, '%d-%M-%Y') as tanggal,
 				DATE_FORMAT(galeri.created_on, '%Y/%m/%d') as created_on
 			FROM

@@ -17,6 +17,7 @@
 	}
  	
  	function get(){
+		$this->db->where(['is_active' => 1]);
  		return $this->db->get('siswa_baru');
  	}
 

@@ -54,7 +54,7 @@
                                     <span class="post-author"> / <?= $value->author ?></span>
                                 </div>
                                 <h3 class="post-title"><?= $value->nama ?></h3>
-                                <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-warning' : ($value->post_type == 'berita' ? 'text-bg-info' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
+                                <small class="badge <?= $value->post_type == 'artikel' ? 'text-bg-secondary' : ($value->post_type == 'berita' ? 'text-bg-primary' : 'text-bg-success') ?> mt-1" style="width: fit-content; font-size: xx-small;"><?= $value->post_type ?></small>
                                 <p><?= substr($value->content, 0, 50) . '...' ?></p>
                                 <a href="<?= base_url('read/' . date_format(date_create($value->created_on), 'Y/m/d') . '/' . $value->slug) ?>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                             </div>

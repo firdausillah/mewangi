@@ -18,7 +18,12 @@
                           <li><a href="<?= base_url('mercure') ?>">Mercure Magazine</a></li>
                       </ul>
                   </li>
-                  <li><a href="<?= base_url('galeri') ?>">Galeri</a></li>
+                  <li class="dropdown"><a href="#"><span>Galeri</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                      <ul>
+                          <li><a href="<?= base_url('galeri?type=foto') ?>">Foto</a></li>
+                          <li><a href="<?= base_url('galeri?type=video') ?>">Video</a></li>
+                      </ul>
+                  </li>
                   <li><a href="<?= base_url('download') ?>">Download</a></li>
                   <li class="dropdown"><a href="#"><span>Akademik</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                       <ul>

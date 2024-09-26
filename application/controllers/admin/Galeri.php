@@ -96,6 +96,7 @@ class Galeri extends MY_Controller
             'nama'  => $this->input->post('nama'),
             'link'  => $this->input->post('link'),
             'keterangan'  => $this->input->post('keterangan'),
+            'is_video'  => $this->input->post('is_video'),
             'foto'  => $foto,
         ];
 

@@ -10,6 +10,13 @@
             <input type="text" class="form-control" name="nama" id="nama" value="<?= @$galeri->nama ?>" required>
         </div>
         <div class="mb-3">
+            <label class="form-label" for="is_video">Video</label>
+            <select name="is_video" id="is_video" class="form-control">
+                <option value="0" <?= @$galeri->is_video == '0' ? 'selected' : '' ?>>Tidak</option>
+                <option value="1" <?= @$galeri->is_video == '1' ? 'selected' : '' ?>>Ya</option>
+            </select>
+        </div>
+        <div class="mb-3">
             <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
             <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?= @$galeri->keterangan ?></textarea>
         </div>
@@ -18,7 +25,7 @@
             <input type="text" class="form-control" name="link" id="link" value="<?= @$galeri->link ?>">
             <small>lengkap dengan http://. contoh. https://www.google.com/</small>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" id="foto">
             <label class="form-label" for="foto">Foto</label>
             <div class="row">
                 <div class="col-md-6">
@@ -42,6 +49,23 @@
 <script src="<?= base_url(); ?>assets/js/ckeditor.js"></script>
 
 <script>
+    $(document).ready(function() {
+        // var is_video = $('#is_video').val();
+        // if (is_video == 1) {
+        //     $("#foto").hide();
+        // } else {
+        //     $("#foto").show();
+        // }
+    });
+    // $('#is_video').change(function() {
+    //     var is_video = $(this).val();
+    //     if (is_video == 1) {
+    //         $("#foto").hide();
+    //     } else {
+    //         $("#foto").show();
+    //     }
+    // });
+
     ClassicEditor
         .create(document.querySelector('#keterangan'), {
             // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]

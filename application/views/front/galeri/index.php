@@ -55,6 +55,7 @@
                     for (let i = 0; i < json.data.length; i++) {
                         const element = json.data[i]; // Ambil data dari JSON
                         judul = truncateContent(element.nama, 20);
+                        is_video = element.is_video;
                         keterangan = truncateContent(element.keterangan, 50);
                         var base_url = "<?= base_url('uploads/img/galeri/') ?>";
 
@@ -64,6 +65,7 @@
                                 <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank">
                                     <img src="${base_url+element.foto}" class="card-img-top" alt="${judul}">
                                     <div class="card-body">
+                                        <span class="badge rounded-pill text-bg-primary">${is_video}</span>
                                         <h5 class="card-title">${judul}</h5>
                                         <p class="card-text">${keterangan}</p>
                                     </div>

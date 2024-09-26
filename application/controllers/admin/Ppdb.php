@@ -32,14 +32,20 @@ class Ppdb extends MY_Controller
         if ($page == 'index') {
             $data = [
                 'title' => 'Siswa Baru',
-                // 'siswa_baru' => $this->Siswa_baruModel->get()->result(),
                 'ppdb_setting' => $this->PpdbModel->findBy(['id' => 1])->row(),
                 'content' => $this->url_index . '/index',
                 'cropper' => 'components/hd_cropper',
                 'aspect' => '3/4',
             ];
 
-            // print_r($data['ppdb_setting']); exit;
+            $this->load->view('layout_admin/base', $data);
+        }if ($page == 'detail') {
+            $id = (isset($_GET['id']) ? $_GET['id'] : '');
+            $data = [
+                'title' => 'Detail Siswa Baru',
+                'siswa_baru' => $this->Siswa_baruModel->findBy(['id' => $id, 'is_active' => 1])->row(),
+                'content' => $this->url_index . '/detail'
+            ];
 
             $this->load->view('layout_admin/base', $data);
         }
@@ -48,7 +54,7 @@ class Ppdb extends MY_Controller
     public function get_siswa_baru()
     {
         $tahun_ajaran = $this->PpdbModel->get()->row()->tahun_ajaran;
-        echo json_encode(['data' => $this->Siswa_baruModel->findBy(['tahun_ajaran' => $tahun_ajaran])->result()]);
+        echo json_encode(['data' => $this->Siswa_baruModel->findBy(['tahun_ajaran' => $tahun_ajaran, 'is_active' => 1])->result()]);
     }
 
     public function update_status_approve()
@@ -257,21 +263,9 @@ class Ppdb extends MY_Controller
         }
     }
 
-    public function delete($id)
-    {
-        $data = $this->PpdbModel->findBy(['id' => $id])->row();
-        @unlink(FCPATH . 'uploads/img/' . $data->foto);
-        if ($this->PpdbModel->delete(['id' => $id])) {
-            $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dihapus']);
-        } else {
-            $this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']);
-        }
-        redirect($this->url_index);
-    }
-
     public function nonaktif($id)
     {
-        if ($this->PpdbModel->update(['id' => $id], ['is_active' => 0])) {
+        if ($this->Siswa_baruModel->update(['id' => $id], ['is_active' => 0])) {
             $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dinonaktifkan']);
         } else {
             $this->session->set_flashdata(['status' => 'error', 'message' => 'Oops! Terjadi kesalahan']);

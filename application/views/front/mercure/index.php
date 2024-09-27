@@ -13,6 +13,7 @@
 
                     </div>
 
+
                 </div>
 
             </section>
@@ -47,7 +48,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="" width="100%" height="600px" id="book_content"></iframe>
+                <iframe src="" width="100%" height="600px" id="m_book_content"></iframe>
 
             </div>
         </div>
@@ -132,8 +133,8 @@
             success: function(json) {
                 if (json.data.length != 0) {
 
-                    var file_link = "https://docs.google.com/gview?url=<?=base_url('uploads/file/magazine/')?>" + json.data.file + "&embedded=true";
-                    $('#book_content').attr("src", file_link);
+                    var m_file_link = "https://docs.google.com/gview?url=<?= base_url('uploads/file/magazine/') ?>" + json.data.file + "&embedded=true";
+                    $('#m_book_content').attr("src", m_file_link);
                     $('#modalBookLabel').html(json.data.nama);
                     $('#modalBook').modal('show');
 

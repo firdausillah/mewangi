@@ -48,6 +48,7 @@
             </div>
             <div class="modal-body">
                 <iframe src="" width="100%" height="600px" id="book_content"></iframe>
+
             </div>
         </div>
     </div>
@@ -130,7 +131,7 @@
             dataType: 'json',
             success: function(json) {
                 if (json.data.length != 0) {
-                    $('#book_content').attr("src", "<?= base_url('uploads/file/ppdb_setting/ppdb-man-4-banyuwangi-tfsvs.pdf') ?>");
+                    $('#book_content').attr("src", "https://docs.google.com/gview?url="<?=base_url('uploads/file/')?>.json.data.file."&embedded=true");
                     $('#modalBookLabel').html(json.data.nama);
                     $('#modalBook').modal('show');
 

@@ -21,7 +21,7 @@
                 <?php foreach ($galeri as $index => $item) : ?>
                     <tr>
                         <td><?= $index + 1 ?></td>
-                        <td><?= substr($item->nama, 0, 30) . '...' . $item->is_video ?></td>
+                        <td><?= substr($item->nama, 0, 30) . '...' ?></td>
                         <td><?= substr($item->keterangan, 0, 30) . '...' ?></td>
                         <td><?= $item->is_video==1?"Video":"Foto" ?></td>
                         <td><a href="<?= $item->link ?>" target="_blank"><?= substr($item->link, 0, 30) . '...' ?></a></td>

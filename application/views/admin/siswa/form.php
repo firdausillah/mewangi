@@ -25,7 +25,7 @@
             <label class="form-label" for="kelas">kelas</label>
             <input type="text" class="form-control" name="kelas" id="kelas" value="<?= @$siswa->kelas ?>">
         </div>
-        <a href="<?= base_url('admin/siswa/') ?>" class="btn btn-secondary">Batal</a>
+        <a href="<?= base_url('admin/siswa') ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

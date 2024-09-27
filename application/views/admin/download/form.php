@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <a href="<?= base_url('admin/download/') ?>" class="btn btn-secondary">Batal</a>
+        <a href="<?= base_url('admin/download') ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>

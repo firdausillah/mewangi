@@ -64,7 +64,7 @@
                             <div class="col-lg-3 col-sm-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                                 <div class="team-member">
                                     <div class="member-img">
-                                        <img src="<?= base_url('uploads/img/Ptk/') ?>${element.foto}" class="img-fluid" alt="">
+                                        <img src="<?= base_url('uploads/img/ptk/') ?>${element.foto}" class="img-fluid" alt="">
                                     </div>
                                     <div class="member-info">
                                         <h5><a class="text-dark" href="#">${element.nama}</a></h5>

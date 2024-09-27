@@ -130,7 +130,7 @@
             dataType: 'json',
             success: function(json) {
                 if (json.data.length != 0) {
-                    $('#book_content').attr("src", json.data.link);
+                    $('#book_content').attr("src", "<?= base_url('uploads/file/ppdb_setting/ppdb-man-4-banyuwangi-tfsvs.pdf') ?>");
                     $('#modalBookLabel').html(json.data.nama);
                     $('#modalBook').modal('show');
 

@@ -25,7 +25,7 @@
             <input type="text" class="form-control" name="link" id="link" value="<?= @$galeri->link ?>">
             <small>lengkap dengan http://. contoh. https://www.google.com/</small>
         </div>
-        <div class="mb-3" id="foto">
+        <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
             <div class="row">
                 <div class="col-md-6">

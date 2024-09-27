@@ -12,7 +12,7 @@
                     <th>Tanggal</th>
                     <th>Judul</th>
                     <th>Keterangan</th>
-                    <th>Link</th>
+                    <th>File</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>
@@ -54,11 +54,11 @@
                     }
                 },
                 {
-                    data: 'link',
+                    data: 'file',
                     render: function(data, typr, row) {
                         return `
-                                <a href="` + data + `" target="_blank">
-                                    Link
+                                <a href="<?= base_url('uploads/file/magazine/') ?>` + data + `" target="_blank">
+                                    File
                                 </a>
                             `
                     }

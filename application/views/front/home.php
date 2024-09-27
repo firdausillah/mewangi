@@ -114,15 +114,7 @@
             var currentIndex = 0;
             var intervalTime = 5000;
             var intervalID;
-
-            // Fungsi untuk mengganti gambar dengan animasi fade
-            console.log(images)
-            console.log(title)
-            console.log(keterangan)
-            console.log(title2)
-            console.log(keterangan2)
-            console.log(link)
-
+            
             function changeImage(index) {
                 $('#displayed-image').fadeOut(300, function() {
                     $(this).attr('src', '<?= base_url() ?>uploads/img/banner/' + images[index]).fadeIn(300);

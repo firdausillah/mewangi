@@ -36,6 +36,7 @@
                                   <li><a href="https://rdmman4banyuwangi.my.id/" target="_blank">Raport Digital Madrasah</a></li>
                               </ul>
                           </li>
+                          <li><a href="<?=base_url('ptk')?>">Guru & Tenaga Pendidik</a></li>
                           <li><a href="https://simpletech.id/presensi_mobile/index.php?r=site/login" target="_blank">Absensi Digital</a></li>
                           <li><a href="https://simpletech.id/aplikasi/perpus_manpawangi/">Perpustakaan Digital</a></li>
                           <li><a href="#">E-Learning</a></li>

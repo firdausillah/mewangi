@@ -38,21 +38,6 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modalBook" tabindex="-1" aria-labelledby="modalBookLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalBookLabel"></h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <iframe src="" width="100%" height="600px" id="book_content"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
 <script>
@@ -62,7 +47,7 @@
 
 
     function filter_url_based() {
-        var url = '<?= base_url('mercure/getMagazine') ?>' + location.search;
+        var url = '<?= base_url('ptk/getPtk') ?>' + location.search;
 
         $.ajax({
             url: url,
@@ -79,10 +64,11 @@
                             <div class="col-lg-3 col-sm-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                                 <div class="team-member">
                                     <div class="member-img">
-                                        <img src="<?= base_url('uploads/img/magazine/') ?>${element.foto}" class="img-fluid" alt="">
+                                        <img src="<?= base_url('uploads/img/Ptk/') ?>${element.foto}" class="img-fluid" alt="">
                                     </div>
                                     <div class="member-info">
-                                        <h5><a class="text-dark" href="#" onClick="getMagazineBy(${element.id})">${element.nama}</a></h5>
+                                        <h5><a class="text-dark" href="#">${element.nama}</a></h5>
+                                        <p>${element.jabatan}</p>
                                     </div>
                                 </div>
                             </div>
@@ -122,8 +108,8 @@
 
     }
 
-    function getMagazineBy(id) {
-        var url = '<?= base_url('mercure/getMagazineBy/') ?>' + id;
+    function getPtkBy(id) {
+        var url = '<?= base_url('ptk/getPtkBy/') ?>' + id;
 
         $.ajax({
             url: url,

@@ -80,20 +80,17 @@ class Download extends MY_Controller
                 'allowed_types' => 'pdf|doc|docx|xls|xlsx|ppt|pptx|apk|exe',  // Jenis file yang diizinkan
                 'file_name'     => $slug,
                 'overwrite'     => TRUE,  // Menimpa file jika ada file dengan nama sama
-                'max_size'      => 20480,  // Batas ukuran file dalam KB (misalnya 20 MB)
+                // 'max_size'      => 20480,  // Batas ukuran file dalam KB (misalnya 20 MB)
             ];
 
             $this->load->library('upload', $config);
 
             if ($this->upload->do_upload('file')) {
-                // Jika berhasil diunggah, kembalikan nama file
                 return $this->upload->data('file_name');
             } else {
-                // Tampilkan error saat upload gagal
                 exit('Error: ' . $this->upload->display_errors());
             }
         } else {
-            // Jika tidak ada file yang diunggah
             exit('Error: Tidak ada file yang diunggah.');
         }
     }

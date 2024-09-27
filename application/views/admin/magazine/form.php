@@ -13,10 +13,10 @@
             <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
             <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?= @$magazine->keterangan ?></textarea>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label class="form-label" for="link">link</label>
             <input type="text" class="form-control" name="link" id="link" value="<?= @$magazine->link ?>">
-        </div>
+        </div> -->
         <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
             <div class="row">
@@ -29,6 +29,20 @@
                 </div>
                 <div class="col-md-6">
                     <img src="<?= base_url('uploads/img/magazine/' . @$magazine->foto) ?>" height="200px" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3" id="file">
+            <label class="form-label" for="file">File</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group input-group-merge">
+                        <input class="form-control file" type="file" name="file">
+                    </div>
+                    <input type="hidden" class="form-control" value="<?= @$magazine->file ?>" name="file_name">
+                </div>
+                <div class="col-md-6">
+                    <a href="<?= base_url('uploads/file/magazine/' . @$magazine->file) ?>" target="_blank" class="text-black">File : <span class="text-info"><?= @$magazine->file ?></span></a>
                 </div>
             </div>
         </div>

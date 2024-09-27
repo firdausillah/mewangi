@@ -36,7 +36,7 @@ class Magazine extends MY_Controller
             $data = [
                 'title' => 'Tambah Data',
                 'content' => $this->url_index . '/form',
-                'cropper' => 'components/hd_cropper',
+                'cropper' => 'components/cropper',
                 'aspect' => '3/4'
             ];
 
@@ -45,10 +45,10 @@ class Magazine extends MY_Controller
             $id = (isset($_GET['id']) ? $_GET['id'] : '');
             $data = [
                 'title' => 'Edit Data',
-                'post_category' => $this->Post_categoryModel->get()->result(),
+                // 'post_category' => $this->Post_categoryModel->get()->result(),
                 $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
                 'content' => $this->url_index . '/form',
-                'cropper' => 'components/hd_cropper',
+                'cropper' => 'components/cropper',
                 'aspect' => '3/4'
             ];
 
@@ -60,6 +60,34 @@ class Magazine extends MY_Controller
     public function getMagazine()
     {
         echo json_encode(['data' => $this->defaultModel->get()->result()]);
+    }
+
+    public function save_file($file, $slug, $folderPath)
+    {
+        if (!empty($file)) { // Mengambil data file dari $_FILES
+            // Periksa apakah jalur folder ada dan bisa ditulis
+            if (!is_dir($folderPath) || !is_writable($folderPath)) {
+                exit('Error: Folder tidak ada atau tidak memiliki izin tulis.');
+            }
+
+            $config = [
+                'upload_path'   => $folderPath,
+                'allowed_types' => 'pdf',  // Jenis file yang diizinkan
+                'file_name'     => $slug,
+                'overwrite'     => TRUE,  // Menimpa file jika ada file dengan nama sama
+                // 'max_size'      => 20480,  // Batas ukuran file dalam KB (misalnya 20 MB)
+            ];
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('file')) {
+                return $this->upload->data('file_name');
+            } else {
+                exit('Error: ' . $this->upload->display_errors());
+            }
+        } else {
+            exit('Error: Tidak ada file yang diunggah.');
+        }
     }
 
     public function save()
@@ -85,12 +113,33 @@ class Magazine extends MY_Controller
             );
         }
 
+        if (!$this->input->post('file_name')) {
+            $slug_file = slugify($this->input->post('nama'));
+        } else {
+            $slug_file = explode('.', $this->input->post('file_name'))[0];
+        }
+
+        $file_pdf = (isset($_FILES['file']) ? $_FILES['file'] : $file_pdf['name'] = false);
+        $folderPath_file = './uploads/file/' . $this->defaultVariable . '/';
+        $file_name = ($this->input->post('file_name') ? $this->input->post('file_name') : $slug_file);
+
+
+        if ($file_pdf['name'] != null) {
+            $file_name = $this->save_file(
+                $file_pdf,
+                $slug_file,
+                $folderPath_file
+                // return $file -> nama file
+            );
+        }
+
         $data = [
             'is_active'         => 1,
             'nama'              => $this->input->post('nama'),
             'link'              => $this->input->post('link'),
             'keterangan'        => $this->input->post('keterangan'),
-            'foto'              => $foto
+            'foto'              => $foto,
+            'file'              => $file_name
         ];
 
         // exit();

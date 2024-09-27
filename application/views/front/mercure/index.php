@@ -132,7 +132,7 @@
             success: function(json) {
                 if (json.data.length != 0) {
 
-                    var file_link = "https://docs.google.com/gview?url=<?=base_url('uploads/file/magazine')?>" + json.data.file + "&embedded=true";
+                    var file_link = "https://docs.google.com/gview?url=<?=base_url('uploads/file/magazine/')?>" + json.data.file + "&embedded=true";
                     $('#book_content').attr("src", file_link);
                     $('#modalBookLabel').html(json.data.nama);
                     $('#modalBook').modal('show');

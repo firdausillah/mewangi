@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Galeri extends MY_Controller
+class Ptk extends MY_Controller
 {
-    public $defaultVariable = 'galeri';
-    public $url_index = 'admin/galeri';
+    public $defaultVariable = 'ptk';
+    public $url_index = 'admin/ptk';
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('GaleriModel', 'defaultModel');
+        $this->load->model('PtkModel', 'defaultModel');
         $this->load->model('RawModel');
         $this->load->helper('slug');
         $this->load->helper('upload_file');
@@ -27,7 +27,7 @@ class Galeri extends MY_Controller
 
         if ($page == 'index') {
             $data = [
-                'title' => 'Galeri',
+                'title' => 'Guru dan Tendik',
                 $this->defaultVariable => $this->defaultModel->get()->result(),
                 'content' => $this->url_index . '/table'
             ];
@@ -38,7 +38,7 @@ class Galeri extends MY_Controller
                 'title' => 'Tambah Data',
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/cropper',
-                'aspect' => '4/3',
+                'aspect' => '1/1',
             ];
 
             $this->load->view('layout_admin/base', $data);
@@ -49,20 +49,8 @@ class Galeri extends MY_Controller
                 $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
                 'content' => $this->url_index . '/form',
                 'cropper' => 'components/cropper',
-                'aspect' => '4/3',
+                'aspect' => '1/1',
             ];
-
-            $this->load->view('layout_admin/base', $data);
-        } else if ($page == 'detail') {
-            $id = (isset($_GET['id']) ? $_GET['id'] : '');
-            $data = [
-                'title' => $this->defaultModel->findBy(['id' => $id])->row()->nama,
-                $this->defaultVariable => $this->defaultModel->findBy(['id' => $id])->row(),
-                'trainers' => $this->TrainerModel->get()->result(),
-                'content' => $this->url_index . '/detail'
-            ];
-            // print_r($data['trainers']);
-            // exit();
 
             $this->load->view('layout_admin/base', $data);
         }
@@ -90,14 +78,11 @@ class Galeri extends MY_Controller
             );
         }
 
-        // print_r($_POST); exit();
         $data = [
             'is_active' => 1,
             'nama'  => $this->input->post('nama'),
-            'link'  => $this->input->post('link'),
-            'keterangan'  => $this->input->post('keterangan'),
-            'is_video'  => $this->input->post('is_video'),
-            'foto'  => $foto,
+            'jabatan'  => $this->input->post('jabatan'),
+            'foto'  => $foto
         ];
 
 
@@ -120,7 +105,6 @@ class Galeri extends MY_Controller
     public function delete($id)
     {
         $data = $this->defaultModel->findBy(['id' => $id])->row();
-        @unlink(FCPATH . 'uploads/img/galeri' . $data->foto);
         if ($this->defaultModel->delete(['id' => $id])) {
             $this->session->set_flashdata(['status' => 'success', 'message' => 'Data berhasil dihapus']);
         } else {

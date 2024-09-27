@@ -30,6 +30,13 @@
                             <div data-i18n="Analytics">Siswa</div>
                         </a>
                     </li>
+                    <!-- Guru & Tendik -->
+                    <li class="menu-item">
+                        <a href="<?= base_url() ?>admin/ptk" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-pin"></i>
+                            <div data-i18n="Analytics">Guru & Tendik</div>
+                        </a>
+                    </li>
                     <!-- Post -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">

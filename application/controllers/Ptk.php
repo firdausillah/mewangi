@@ -43,7 +43,7 @@ class Ptk extends MY_Controller {
 				*
 			FROM
 				ptk
-			ORDER BY ptk.created_on DESC
+			ORDER BY ptk.id ASC
 			LIMIT $rows_per_page
 			OFFSET $offset
 			";

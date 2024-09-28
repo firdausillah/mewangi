@@ -29,7 +29,6 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama</th>
-                                <th>NISN</th>
                                 <th>Tempat, Tanggal Lahir</th>
                                 <th>Kelas</th>
                             </tr>
@@ -58,9 +57,6 @@
                 },
                 {
                     data: 'nama'
-                },
-                {
-                    data: 'nisn'
                 },
                 {
                     data: 'ttl'

@@ -54,11 +54,11 @@
                     }
                 },
                 {
-                    data: 'file',
+                    data: 'link',
                     render: function(data, typr, row) {
                         return `
-                                <a href="<?= base_url('uploads/file/magazine/') ?>` + data + `" target="_blank">
-                                    File
+                                <a href="`+ data + `" target="_blank">
+                                    Link
                                 </a>
                             `
                     }

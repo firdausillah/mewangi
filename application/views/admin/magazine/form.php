@@ -13,10 +13,10 @@
             <label class="form-label" for="keterangan">keterangan <span class="text-danger">*</span></label>
             <textarea class="form-control" name="keterangan" id="keterangan" cols="30" rows="10"><?= @$magazine->keterangan ?></textarea>
         </div>
-        <!-- <div class="mb-3">
-            <label class="form-label" for="link">link</label>
-            <input type="text" class="form-control" name="link" id="link" value="<?= @$magazine->link ?>">
-        </div> -->
+        <div class="mb-3">
+            <label class="form-label" for="link">link <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="link" id="link" value="<?= @$magazine->link ?>" required placeholder="https://drive.google.com/file/d/...">
+        </div>
         <div class="mb-3">
             <label class="form-label" for="foto">Foto</label>
             <div class="row">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="mb-3" id="file">
+        <!-- <div class="mb-3" id="file">
             <label class="form-label" for="file">File</label>
             <div class="row">
                 <div class="col-md-6">
@@ -45,7 +45,7 @@
                     <a href="<?= base_url('uploads/file/magazine/' . @$magazine->file) ?>" target="_blank" class="text-black">File : <span class="text-info"><?= @$magazine->file ?></span></a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <a href="<?= base_url('admin/magazine') ?>" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>

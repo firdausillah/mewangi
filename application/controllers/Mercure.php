@@ -62,7 +62,16 @@ class Mercure extends MY_Controller {
 
 	public function getMagazineBy($id)
 	{
-		echo json_encode(['data' => $this->MagazineModel->findBy(['id' => $id])->row()]);
+
+		$data = $this->MagazineModel->findBy(['id' => $id])->row();
+
+		// ambil  id link drive
+		if (preg_match("/\/d\/(.*?)(\/|$)/", $data->link, $matches)) {
+			$fileID = $matches[1];
+			$data->link = $fileID;
+		}
+
+		echo json_encode(['data' => $data]);
 	}
 
 }

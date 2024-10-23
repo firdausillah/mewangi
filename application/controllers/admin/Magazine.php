@@ -113,33 +113,33 @@ class Magazine extends MY_Controller
             );
         }
 
-        if (!$this->input->post('file_name')) {
-            $slug_file = slugify($this->input->post('nama'));
-        } else {
-            $slug_file = explode('.', $this->input->post('file_name'))[0];
-        }
+        // if (!$this->input->post('file_name')) {
+        //     $slug_file = slugify($this->input->post('nama'));
+        // } else {
+        //     $slug_file = explode('.', $this->input->post('file_name'))[0];
+        // }
 
-        $file_pdf = (isset($_FILES['file']) ? $_FILES['file'] : $file_pdf['name'] = false);
-        $folderPath_file = './uploads/file/' . $this->defaultVariable . '/';
-        $file_name = ($this->input->post('file_name') ? $this->input->post('file_name') : $slug_file);
+        // $file_pdf = (isset($_FILES['file']) ? $_FILES['file'] : $file_pdf['name'] = false);
+        // $folderPath_file = './uploads/file/' . $this->defaultVariable . '/';
+        // $file_name = ($this->input->post('file_name') ? $this->input->post('file_name') : $slug_file);
 
 
-        if ($file_pdf['name'] != null) {
-            $file_name = $this->save_file(
-                $file_pdf,
-                $slug_file,
-                $folderPath_file
-                // return $file -> nama file
-            );
-        }
+        // if ($file_pdf['name'] != null) {
+        //     $file_name = $this->save_file(
+        //         $file_pdf,
+        //         $slug_file,
+        //         $folderPath_file
+        //         // return $file -> nama file
+        //     );
+        // }
 
         $data = [
             'is_active'         => 1,
             'nama'              => $this->input->post('nama'),
             'link'              => $this->input->post('link'),
             'keterangan'        => $this->input->post('keterangan'),
-            'foto'              => $foto,
-            'file'              => $file_name
+            'foto'              => $foto
+            // 'file'              => $file_name
         ];
 
         // exit();

@@ -7,7 +7,7 @@
         <input type="hidden" name="id" value="<?= @$post->id ?>">
         <div class="mb-3">
             <label class="form-label" for="nama">judul <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$post->nama ?>" required>
+            <input type="text" class="form-control" name="nama" id="nama" value="<?= @$post->nama ?>" maxlength="150" required>
         </div>
         <div class="mb-3">
             <label class="form-label" for="content">content <span class="text-danger">*</span></label>

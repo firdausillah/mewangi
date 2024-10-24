@@ -12,7 +12,7 @@
                     <th>Tanggal</th>
                     <th>Judul</th>
                     <th>Keterangan</th>
-                    <th>File</th>
+                    <th>Link</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>

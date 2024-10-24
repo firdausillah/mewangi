@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title><?= $title ? $title : '' ?> | <?= $profile ? $profile->nama_sekolah : 'Aruna Project' ?></title>
-  <meta name="description" content="">
+  <meta name="description" content="Website MAN 4 Banyuwangi">
   <meta name="keywords" content="">
   <meta property="og:image" content="<?= base_url('uploads/img/profile/' . $profile->foto); ?>">
 

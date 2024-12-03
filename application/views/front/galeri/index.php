@@ -63,7 +63,7 @@
                         htmlContent += `
                             <div class="col">
                                 <a href="${element.link}" class="card h-100 border-0 shadow" target="_blank">
-                                    <img src="${base_url+element.foto}" class="card-img-top" alt="${judul}">
+                                    <img src="${base_url+element.foto}" class="card-img-top" alt="${judul}" loading="lazy">
                                     <div class="card-body">
                                         <span class="badge rounded-pill text-bg-primary">${is_video}</span>
                                         <h5 class="card-title">${judul}</h5>

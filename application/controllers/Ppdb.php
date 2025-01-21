@@ -50,6 +50,7 @@ class Ppdb extends MY_Controller
 			'is_active' => 1,
 			'nama'		=> $this->input->post('nama'),
 			'nik'		=> $this->input->post('nik'),
+			'nomor_pendaftaran'		=> $this->input->post('nomor_pendaftaran'),
 			'nisn'		=> $this->input->post('nisn'),
 			'desa_siswa'		=> $this->input->post('desa_siswa'),
 			'kecamatan_siswa'		=> $this->input->post('kecamatan_siswa'),

@@ -11,6 +11,12 @@
             <div class="col-12 col-md-10">
                 <div class="row">
                     <div class="col-12 col-md-6 mt-3">
+                        <label for="nomor_pendaftaran" class="form-label">Nomor Pendaftaran</label>
+                        <input type="text" class="form-control" name="nomor_pendaftaran" value="<?= $siswa_baru->nomor_pendaftaran ?>" id="nomor_pendaftaran">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 mt-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" name="nama" value="<?= $siswa_baru->nama ?>" id="nama">
                     </div>

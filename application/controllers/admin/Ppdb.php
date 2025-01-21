@@ -114,6 +114,7 @@ class Ppdb extends MY_Controller
         $sheet->setCellValue("AL1", "kabupaten_wali");
         $sheet->setCellValue("AM1", "provinsi_wali");
         $sheet->setCellValue("AN1", "tahun_ajaran");
+        $sheet->setCellValue("AO1", "nomor_pendaftaran");
 
         $pelaporan = $this->Siswa_baruModel->findBy(['tahun_ajaran' => $tahun_ajaran])->result_array();
         $x = 2;
@@ -158,6 +159,7 @@ class Ppdb extends MY_Controller
             $sheet->setCellValue("AL".$x, $value["kabupaten_wali"]);
             $sheet->setCellValue("AM".$x, $value["provinsi_wali"]);
             $sheet->setCellValue("AN".$x, $value["tahun_ajaran"]);
+            $sheet->setCellValue("AO".$x, $value["nomor_pendaftaran"]);
 
             $x++;
         }

@@ -24,6 +24,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama</th>
+                            <th>Nomor Pendaftaran</th>
                             <th>NIK</th>
                             <th>NISN</th>
                             <th>Jumlah Hafalan</th>
@@ -114,6 +115,9 @@
                 },
                 {
                     data: 'nama'
+                },
+                {
+                    data: 'nomor_pendaftaran'
                 },
                 {
                     data: 'nik'

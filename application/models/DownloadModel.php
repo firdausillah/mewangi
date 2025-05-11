@@ -18,6 +18,7 @@
  	
  	function get(){
 		$this->db->select('id, nama, keterangan, if(is_file=1,file,link) as link_download, link, is_file, file');
+		$this->db->order_by('created_on', 'DESC');
  		return $this->db->get('download');
  	}
 

@@ -66,7 +66,7 @@ class Download extends MY_Controller
 			FROM
 				download
 			$where
-			ORDER BY download.created_on ASC
+			ORDER BY download.created_on DESC
 			LIMIT $rows_per_page
 			OFFSET $offset
 			";
